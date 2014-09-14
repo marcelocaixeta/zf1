@@ -127,14 +127,14 @@ class App_Session_SaveHandler_Db implements Zend_Session_SaveHandler_Interface
         if ($exe === true) {
             $ret = true;
             OCICommit(self::$_db);
-} else {
+        } else {
             $ret = false;
             OCIRollback(self::$_db);
-}
+        }
         $clob->close();
-$clob->free();
-OCIFreeStatement($stmt);
-return $ret;
+        $clob->free();
+        OCIFreeStatement($stmt);
+        return $ret;
     }
 
     public function __destruct() 
