@@ -5,6 +5,7 @@
  * 
  * @author Marcelo Caixeta Rocha <marcelocaixeta@gmail.com>
  */
+ 
 class App_Session_SaveHandler_Db implements Zend_Session_SaveHandler_Interface
 {
     private static $_conn = array();
