@@ -42,7 +42,6 @@ class App_Session_SaveHandler_Db implements Zend_Session_SaveHandler_Interface
      */
     public function destroy($id) 
     {
-        // todo Auto-generated method stub
         $sql = "DELETE FROM ".self::$_table["saveHandler"]["options"]["name"].
                " WHERE ".self::$_table["saveHandler"]["options"]["primary"][0]." = '".$id."'";
         $statement = OCIParse(self::$_db, $sql);
@@ -66,7 +65,6 @@ class App_Session_SaveHandler_Db implements Zend_Session_SaveHandler_Interface
      */
     public function open($save_path, $name) 
     {
-        // todo Auto-generated method stub
         self::$_lifeTime = get_cfg_var("session.gc_maxlifetime");
         try {
             self::$_db = OCILogon(self::$_conn["params"]["username"], self::$_conn["params"]["password"], self::$_conn["params"]["dbname"], 'AL32UTF8');
@@ -81,7 +79,6 @@ class App_Session_SaveHandler_Db implements Zend_Session_SaveHandler_Interface
      */
     public function read($id) 
     {
-        /* Build and execute the database query. */
         $query = "SELECT ".self::$_table["saveHandler"]["options"]["dataColumn"].
                  " FROM  ".self::$_table["saveHandler"]["options"]["name"].
                  " WHERE ".self::$_table["saveHandler"]["options"]["primary"][0]." = '".$id."'";
