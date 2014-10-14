@@ -32,7 +32,6 @@ class App_Session_SaveHandler_Db implements Zend_Session_SaveHandler_Interface
      */
     public function close()
     {
-        // todo Auto-generated method stub
         $this->gc(ini_get('session.gc_maxlifetime'));
         return OCILogoff(self::$_db);
     }
