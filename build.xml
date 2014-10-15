@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Set some basic project information and targets -->
+<project name="Piloto" default="build">
+ 
+<target name="build" depends="clean,prepare"/>  
+
+<property environment="env"/>
+ 
+<!-- Clean up from previous builds -->
+ <target name="clean" description="Cleanup build artifacts">
+  <delete dir="/var/www/piloto"/>
+ </target>
+
+<!-- Prepare for the new build --> 
+<target name="prepare" depends="clean" description="Prepare for build">
+  <mkdir dir="/var/www/piloto"/>
+  <copy todir="/var/www/piloto">  
+  <fileset dir="${basedir}">  
+    <include name="**/*"/>  
+    <exclude name="**/*zend_cache*"/>  
+    <exclude name="**/nbproject/"/>
+    <exclude name="**/tests/"/>
+    <exclude name="**/.settings/"/>
+    <exclude name="**/*tempdejavu*"/>
+    <exclude name="**/.svn/" />
+  </fileset>  
+ </copy> 
+
+ </target>
+
+</project>

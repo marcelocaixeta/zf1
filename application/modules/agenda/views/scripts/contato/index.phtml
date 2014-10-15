@@ -1,0 +1,12 @@
+<?php
+
+// Paginador
+//echo $this->paginationControl($this->data, null, null, array(
+//    'filtro' => $this->filtro, 'ordem' => $this->ordem
+//));
+// Passando os valores das colunas via array
+$arrayNameColumn = array('Codigo', 'Nome', 'Telefone', 'Endereço');
+
+// Recuperando os valores do banco e as colunas
+
+echo $this->displayGenericTableHelper($arrayNameColumn, $this->data, $add = true, $delete = true);

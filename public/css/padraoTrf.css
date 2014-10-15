@@ -1,0 +1,310 @@
+*{
+	margin:0;
+	padding:0;
+	border:0;
+	font-weight:normal;
+	
+}
+body {
+	font-family:Arial,verdana, Helvetica, sans-serif;
+	color:#333;
+	font-size: 16px;
+	font-size:1.6rem;
+	text-align:left;
+}
+
+a:link, .lPadrao {
+	text-decoration:none;
+	color:#afafaf;
+	color:#41b7d8;
+}
+a:visited , a:active , .lVisited {
+	color:#ff5555;
+}
+a:hover, .lHover , a:focus{
+	color:#333;
+	text-decoration:underline;
+}
+
+address {
+	margin:0.5em;
+	padding:1em;
+	font-style: normal;
+	font-size: 1.2rem;
+}
+
+code {
+	font-family:monospace;
+}
+
+figure {
+	width:100%;
+	margin:1rem 0;
+}
+
+figcaption {
+	margin:0.5rem 0;
+	font-style:italic;
+	
+}
+
+figure img {
+	vertical-align:middle;
+	width:100%;
+	max-width:100%;
+	height:auto;
+	
+}
+/* nos títulos os tamanhos das fontes foi definido por o tamanho da fonte desejada dividido por 16*/
+h1 {
+	font-size:20px;
+	font-size:1.25em;
+	line-height:0.83em;
+	margin:0.83em 0;
+}
+
+h2 {
+	font-size:18px;
+	font-size:1.125em;
+	line-height:1em;
+	margin:1em 0;
+}
+
+h3 {
+	font-size:16px;
+	font-size:1em;
+	line-height:1.07em;
+	margin:1.07em 0;
+}
+
+h4 {
+	font-size:14px;
+	font-size:0.875em;
+	line-height:1.25em;
+	margin:1.25em 0;
+}
+
+h5,h6 {
+	font-size:12px;
+	font-size:0.75em;
+	line-height:1.25em;
+	margin:1.25em 0;
+}
+
+img {
+	vertical-align:middle;
+	
+}
+img.metade {
+	width: 50%;
+}
+img.quarto {
+	width: 25%;
+}
+img.borda {
+	border: 1px solid #afafaf;
+	padding: 2px;
+	padding:.2rem;
+}
+img.esquerda {
+	float:left;
+}
+img.direita {
+	float:right;
+}
+
+#logo img {
+	width:100%;
+	max-width:100%;
+}
+p {
+	line-height:1.5em;
+	margin:1em .5em 0;
+}
+strong {
+	font-weight: 700;
+}
+
+/* XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX listas */
+ul, ol {
+	margin:0.31em 0.5em;
+	list-style-position:inside;
+}
+li {
+	line-height: 1.5em;
+}
+ul  ul{
+margin:0em 0.5em;
+}
+
+ol ol{
+margin:0em 0.5em;
+}
+
+ul.listaSemTipo, ol.listaSemTipo {
+	margin:0.62em 0.5em;
+	list-style-position:inside;
+	list-style-type:none;
+}
+.listaSemTipo ul{
+	list-style-type:none;
+}
+
+.listaSemTipo ol{
+	list-style-type:none;
+}
+
+/* XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX tabela */
+caption {
+	font-weight:700;
+	padding:0.31em 0;
+	text-align:left;
+}
+
+caption span {
+	color:#ff5555;
+}
+table {
+	margin:1.25em 0;
+	width:100%;
+	text-align:left;
+	table-layout: fixed;
+	word-wrap: break-word;
+	font-size: 12px;
+	font-size: 0.75em;
+}
+
+table tr:nth-child(even){
+	
+	background:#f1f1f1;
+}
+
+
+table tr:hover{
+	
+	background:#e1e1e1;
+}
+
+table tr.ativa {
+	background:rgba(156, 192, 210, 0.5);
+}
+
+table tr td input {
+	margin: 0;
+	padding: 0;
+	float: none !important;
+	margin: 0 auto !important;
+
+}
+tbody tr td {
+	border-bottom:1px solid #dfdfdf;
+}
+
+tfoot tr td {
+	font-weight:700;
+	background:#e1e1e1;
+}
+
+td, th{
+	padding:0.31em;
+	
+}
+	
+th{
+	font-weight:700;
+	background:#e1e1e1;
+}
+
+
+/* XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX form */
+/* 1px = 0.0625 em
+10px =0.625 em
+
+
+*/
+fieldset {
+	margin:0.62em 0;
+	padding:1.25em 0.62em;
+	border:1px solid #e1e1e1;
+}
+
+form {
+	margin:1.25em 0;
+}
+
+input,select {
+	font-size: 16px;
+	font-size: 1.6rem;
+}
+
+input, select{
+	width:50%;
+	margin:0.31em 0.31em 0.93em 0.31em;
+	display:block;
+}
+
+input[type="checkbox"] {
+	width:auto;
+	margin:0.12em 0.31em;
+	float:left;
+}
+input[type="radio"] {
+	width:auto;
+	margin:0.12em 0.31em;
+	float:left;
+}
+input[type="reset"], input[type="submit"], input[type="button"]{
+	width:auto;
+	padding:0.12em;
+	display:inline;
+	border:2px outset buttonface;
+}
+input[type="number"],input[type="date"] {
+	width:11em;
+}
+
+input[type="number"],input[type="date"],input[type="text"],input[type="tel"],input[type="email"],input[type="password"],textarea, select{
+	border:1px solid #e1e1e1;
+}
+
+select[multiple="multiple"] {
+	min-height: 350px;
+	min-height: 35rem;
+	min-width: 80%;
+}
+
+label {
+	margin:0.31em;
+	display:block;
+}
+legend {
+	font-weight:700;
+	
+}
+textarea {
+	width:95%;
+	height:6.25em;
+	margin:10px auto;
+	display:block;
+}
+.clear, .limpar {
+	clear:both;
+}
+.left, .esquerda {
+	float:left;
+}
+.right, .direita {
+	float:right;
+}
+.none {
+	float:none;
+}
+.esconder, .hide {
+	display:none;
+}
+.metade {
+	width: 50%;
+}
+.quarto {
+	width: 25%;
+}

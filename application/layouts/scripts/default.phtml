@@ -1,0 +1,20 @@
+<?php echo $this->render('_partials/header.php');?>
+<?php echo $this->render("_partials/top.php"); ?>
+<?php echo $this->render("_partials/menu.php"); ?>
+
+<div id="container">
+    <?php echo $this->render("_partials/acessibilidade.php"); ?>
+    <div id="conteudo">
+        <div class="coluna total">
+            <section>
+                <article>
+                    <div class="conteudo fundoTransparente">
+                        <?php echo $this->layout()->content; ?>
+                    </div><!--conteudo article-->
+                </article>
+            </section>
+        </div><!-- div section -->
+    </div><!--conteudo geral-->
+</div><!--container-->
+
+<?php echo $this->render("_partials/footer.php"); ?>

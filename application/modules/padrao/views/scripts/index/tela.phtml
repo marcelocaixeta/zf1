@@ -1,0 +1,905 @@
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+        /*
+         $("div.conteudo").find("*").removeAttr("style class ");
+         $("div.conteudo").find("a").attr("href","#");
+         
+         */
+
+
+
+
+
+        $("div.legenda table tbody").hide();
+        $("div.legenda table thead").click(function() {
+            $("div.legenda table tbody").toggle("slow");
+        });
+
+
+
+    });
+
+
+</script>
+<style type="text/css">
+    div.legenda table thead {
+        cursor: pointer;
+
+    }
+
+    div.legenda table {
+        table-layout:auto;
+    }
+    label {
+        font-weight: 700;
+        text-transform: lowercase;
+    }
+    #CATE_ID_CATEGORIA-element label{
+        display: inline-block;
+        width: 30%;
+
+    }
+
+    select[multiple="multiple"] {
+
+        text-transform: lowercase;
+    }
+    select[multiple="multiple"] option {
+        line-height: 12px;
+    }
+
+    @media screen and (max-width: 700px) {
+
+        select[multiple="multiple"] {
+            width: 100%;
+        }
+
+
+        #CATE_ID_CATEGORIA-element label{
+            display: inline-block;
+            width: 100%;
+
+        }
+    }
+</style>
+<h1>Desenvolvimento e Sustentação - Preposto/Gestor - Caixa de Entrada</h1>					
+<fieldset>
+    <legend>Filtro da Caixa</legend>
+    <div>
+        <div>
+            <input type="button" title="Último Filtro" name="acao" value="Filtro" id="pesquisar" role="button" aria-disabled="false">
+            <input type="button" title="Novo Filtro" name="acao" value="Remover filtro" id="ultimo_filtro" href="#"  role="button" />
+            &emsp;&emsp;<span id="statusfiltro"><strong>Filtro Ativo</strong></span>
+        </div> 
+
+
+    </div>
+    <div id="pesq_div">
+        <form enctype="application/x-www-form-urlencoded" action="" method="post"><dl>
+
+                <input type="hidden" name="SSOL_ID_DOCUMENTO" value="" id="SSOL_ID_DOCUMENTO">
+                <dt id="Filtrar2-label">&nbsp;</dt><dd id="Filtrar2-element">
+                    <input type="submit" name="Filtrar2" id="Filtrar2" value="Filtrar"></dd>
+                <dt id="DOCM_NR_DOCUMENTO-label"><label for="DOCM_NR_DOCUMENTO">Nº da Solicitação:</label></dt>
+                <dd id="DOCM_NR_DOCUMENTO-element">
+                    <input type="text" name="DOCM_NR_DOCUMENTO" id="DOCM_NR_DOCUMENTO" value="">
+                    <p>Digite o número da solicitação completo ou ano seguido dos dígitos indicadores da sequência final. Ex.: 201227</p></dd>
+                <dt id="DOCM_CD_MATRICULA_CADASTRO-label"><label for="DOCM_CD_MATRICULA_CADASTRO">Solicitante:</label></dt>
+                <dd id="DOCM_CD_MATRICULA_CADASTRO-element">
+                    <input type="text" name="DOCM_CD_MATRICULA_CADASTRO" id="DOCM_CD_MATRICULA_CADASTRO" value="" autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true"></dd>
+
+                <input type="hidden" name="DOCM_CD_MATRICULA_CADASTRO_VALUE" value="" id="DOCM_CD_MATRICULA_CADASTRO_VALUE">
+                <dt id="SSOL_CD_MATRICULA_ATENDENTE-label"><label for="SSOL_CD_MATRICULA_ATENDENTE">Atendente:</label></dt>
+                <dd id="SSOL_CD_MATRICULA_ATENDENTE-element">
+                    <input type="text" name="SSOL_CD_MATRICULA_ATENDENTE" id="SSOL_CD_MATRICULA_ATENDENTE" value="TR17958PS - MARCELO CAIXETA ROCHA" autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true"></dd>
+
+                <input type="hidden" name="SSOL_CD_MATRICULA_ATENDENTE_VALUE" value="TR17958PS - MARCELO CAIXETA ROCHA" id="SSOL_CD_MATRICULA_ATENDENTE_VALUE">
+                <dt id="DOCM_CD_LOTACAO_GERADORA-label"><label for="DOCM_CD_LOTACAO_GERADORA">Unidade Solicitante:</label></dt>
+                <dd id="DOCM_CD_LOTACAO_GERADORA-element">
+                    <input type="text" name="DOCM_CD_LOTACAO_GERADORA" id="DOCM_CD_LOTACAO_GERADORA" value="" autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true"></dd>
+
+                <input type="hidden" name="DOCM_SG_SECAO_GERADORA" value="" id="DOCM_SG_SECAO_GERADORA">
+
+                <input type="hidden" name="DOCM_CD_LOTACAO_GERADORA_VALUE" value="" id="DOCM_CD_LOTACAO_GERADORA_VALUE">
+
+                <input type="hidden" name="SSOL_ID_TIPO_CAD" value="" id="SSOL_ID_TIPO_CAD">
+                <dt id="MOFA_ID_FASE-label"><label for="MOFA_ID_FASE">Última Fase:</label></dt>
+                <dd id="MOFA_ID_FASE-element">
+                    <select name="MOFA_ID_FASE" id="MOFA_ID_FASE">
+                        <option value="" label=""></option>
+                        <option value="1019" label="AVALIAÇÃO DE SERVIÇO DE TI RECUSADA">AVALIAÇÃO DE SERVIÇO DE TI RECUSADA</option>
+                        <option value="1006" label="CADASTRO SOLICITAÇÃO TI">CADASTRO SOLICITAÇÃO TI</option>
+                        <option value="1022" label="ENCAMINHAMENTO DE SOLICITAÇÃO DE TI DE SEÇÃO PARA O TRIBUNAL">ENCAMINHAMENTO DE SOLICITAÇÃO DE TI DE SEÇÃO PARA O TRIBUNAL</option>
+                        <option value="1013" label="ENCAMINHAMENTO DE SOLICITAÇÃO DE TI PARA CAIXA PESSOAL">ENCAMINHAMENTO DE SOLICITAÇÃO DE TI PARA CAIXA PESSOAL</option>
+                        <option value="1001" label="ENCAMINHAMENTO DE SOLICITAÇÃO ENTRE GRUPOS DO TRF1">ENCAMINHAMENTO DE SOLICITAÇÃO ENTRE GRUPOS DO TRF1</option>
+                        <option value="1007" label="ESPERA SOLICITAÇÃO TI">ESPERA SOLICITAÇÃO TI</option>
+                        <option value="1025" label="INCLUSÃO DE INFORMAÇÃO PARA SOLICITAÇÃO DE TI">INCLUSÃO DE INFORMAÇÃO PARA SOLICITAÇÃO DE TI</option>
+                        <option value="1024" label="PEDIDO DE INFORMAÇÃO PARA SOLICITAÇÃO À TI">PEDIDO DE INFORMAÇÃO PARA SOLICITAÇÃO À TI</option>
+                        <option value="1008" label="TROCA DE SERVIÇO SOLICITAÇÃO TI">TROCA DE SERVIÇO SOLICITAÇÃO TI</option>
+                    </select></dd>
+
+                <fieldset>
+                    <legend>Serviço:</legend>
+                    <dd id="SERVICO-element">
+                        <label for="SERVICO-nomecompleto"><input type="radio" name="SERVICO" id="SERVICO-nomecompleto" value="nomecompleto" checked="checked">Lista de Serviços</label><label for="SERVICO-partenome"><input type="radio" name="SERVICO" id="SERVICO-partenome" value="partenome">Digitar nome do serviço</label></dd>
+                    <dt id="SSER_ID_SERVICO-label"><label for="SSER_ID_SERVICO">Serviço (Nome Completo):</label></dt>
+                    <dd id="SSER_ID_SERVICO-element">
+                        <select name="SSER_ID_SERVICO[]" id="SSER_ID_SERVICO" multiple="multiple">
+                            <option value="" label=""></option>
+                            <option value="7536" label="ATENDIMENTO ESPECIAL -  ITEM 14 DO TERMO ADITIVO N.0112/2011">ATENDIMENTO ESPECIAL -  ITEM 14 DO TERMO ADITIVO N.0112/2011</option>
+                            <option value="35" label="CADASTROUSU - PROGRAMA DE CADASTRO DE USUÁRIOS">CADASTROUSU - PROGRAMA DE CADASTRO DE USUÁRIOS</option>
+                            <option value="7800" label="CATÁLOGO TELEFÔNICO">CATÁLOGO TELEFÔNICO</option>
+                            <option value="14231" label="COMPONENTES CORPORATIVOS">COMPONENTES CORPORATIVOS</option>
+                            <option value="37" label="CONJUFES - CONCURSO PARA JUIZ FEDERAL SUBSTITUTO">CONJUFES - CONCURSO PARA JUIZ FEDERAL SUBSTITUTO</option>
+                            <option value="6077" label="CVD - CATALOGADOR VIRTUAL DE DOCUMENTOS">CVD - CATALOGADOR VIRTUAL DE DOCUMENTOS</option>
+                            <option value="6079" label="DISP - DISTRIBUIÇÃO DE PUBLICAÇÕES DA REVISTA">DISP - DISTRIBUIÇÃO DE PUBLICAÇÕES DA REVISTA</option>
+                            <option value="40" label="E-ASSINADOR - SISTEMA DE ASSINATURA DIGITAL">E-ASSINADOR - SISTEMA DE ASSINATURA DIGITAL</option>
+                            <option value="41" label="E-AVS - SISTEMA DE AUTORIZAÇÃO DE VIAGENS A SERVIÇO">E-AVS - SISTEMA DE AUTORIZAÇÃO DE VIAGENS A SERVIÇO</option>
+                            <option value="42" label="E-CALENDÁRIO - SISTEMA DE CALENDÁRIO FORENSE">E-CALENDÁRIO - SISTEMA DE CALENDÁRIO FORENSE</option>
+                            <option value="43" label="E-CINT - SISTEMA DE CITAÇÃO E INTIMAÇÃO ELETRÔNICAS">E-CINT - SISTEMA DE CITAÇÃO E INTIMAÇÃO ELETRÔNICAS</option>
+                            <option value="194" label="E-CONCILIADOR - SISTEMA DE CONTROLE DE CADASTRO DE CANDIDATOS A CONCILIADORES">E-CONCILIADOR - SISTEMA DE CONTROLE DE CADASTRO DE CANDIDATOS A CONCILIADORES</option>
+                            <option value="44" label="E-CONTEÚDO - SISTEMA DE GESTÃO DE CONTEÚDOS">E-CONTEÚDO - SISTEMA DE GESTÃO DE CONTEÚDOS</option>
+                            <option value="7031" label="E-CVD - CATALOGADOR VIRTUAL DE DOCUMENTOS">E-CVD - CATALOGADOR VIRTUAL DE DOCUMENTOS</option>
+                            <option value="45" label="E-DIGITALIZADOR">E-DIGITALIZADOR</option>
+                            <option value="196" label="E-ELEIÇÃO - SISTEMA DE ELEIÇÕES ELETRÔNICAS DO TRF1">E-ELEIÇÃO - SISTEMA DE ELEIÇÕES ELETRÔNICAS DO TRF1</option>
+                            <option value="193" label="E-GUARDIÃO - SISTEMA DE GERENCIAMENTO DE PERMISSÕES E SEGURANÇA DO E-ADMIN">E-GUARDIÃO - SISTEMA DE GERENCIAMENTO DE PERMISSÕES E SEGURANÇA DO E-ADMIN</option>
+                            <option value="47" label="E-JUR">E-JUR</option>
+                            <option value="14071" label="E-MANDADO">E-MANDADO</option>
+                            <option value="6120" label="ENVIO ELETRÔNICO - DESENVOLVIMENTO">ENVIO ELETRÔNICO - DESENVOLVIMENTO</option>
+                            <option value="6178" label="E-ORÇAMENTO - SISTEMA DE CONTROLE DA EXECUÇÃO ORÇAMENTÁRIA">E-ORÇAMENTO - SISTEMA DE CONTROLE DA EXECUÇÃO ORÇAMENTÁRIA</option>
+                            <option value="195" label="E-OUVIDORIA - SISTEMA DE GERENCIAMENTO E CONTROLE DE MANIFESTAÇÕES DA PRIMEIRA INSTÂNCIA">E-OUVIDORIA - SISTEMA DE GERENCIAMENTO E CONTROLE DE MANIFESTAÇÕES DA PRIMEIRA INSTÂNCIA</option>
+                            <option value="14200" label="e-PrecWeb">e-PrecWeb</option>
+                            <option value="48" label="E-PROC - PETICIONAMENTO ELETRÔNICO">E-PROC - PETICIONAMENTO ELETRÔNICO</option>
+                            <option value="49" label="E-SIAM - SISTEMA DE AUTORIZAÇÃO DE AFASTAMENTO DE MAGISTRADOS">E-SIAM - SISTEMA DE AUTORIZAÇÃO DE AFASTAMENTO DE MAGISTRADOS</option>
+                            <option value="192" label="E-SISAD - SISTEMA DE GERENCIAMENTO E CONTROLE DE DOCUMENTOS E PROCESSOS ADMINISTRATIVOS DIGITAIS">E-SISAD - SISTEMA DE GERENCIAMENTO E CONTROLE DE DOCUMENTOS E PROCESSOS ADMINISTRATIVOS DIGITAIS</option>
+                            <option value="5952" label="E-SOSTI SISTEMA DE ATENDIMENTO A SOLICITAÇÕES DE TI">E-SOSTI SISTEMA DE ATENDIMENTO A SOLICITAÇÕES DE TI</option>
+                            <option value="6269" label="ESTATÍSTICA - Boletins/Relatórios/Conferências">ESTATÍSTICA - Boletins/Relatórios/Conferências</option>
+                            <option value="14204" label="ESTATÍSTICA - e-siest">ESTATÍSTICA - e-siest</option>
+                            <option value="6270" label="ESTATÍSTICA - Solicitações Diversas">ESTATÍSTICA - Solicitações Diversas</option>
+                            <option value="89" label="ESTATÍSTICA PROCESSUAL">ESTATÍSTICA PROCESSUAL</option>
+                            <option value="50" label="E-TAA - SISTEMA DE TERMINAL DE AUTO-ATENDIMENTO">E-TAA - SISTEMA DE TERMINAL DE AUTO-ATENDIMENTO</option>
+                            <option value="6081" label="G-DOC - GERENCIAMENTO DE DOCUMENTOS DO TRF1">G-DOC - GERENCIAMENTO DE DOCUMENTOS DO TRF1</option>
+                            <option value="6083" label="INDAUT - INDICADOR DE AUTORIDADES SETORIAIS JUDICIAIS">INDAUT - INDICADOR DE AUTORIDADES SETORIAIS JUDICIAIS</option>
+                            <option value="14194" label="INTEGRAÇÃO JUDICIAL">INTEGRAÇÃO JUDICIAL</option>
+                            <option value="197" label="INTERNET - CONSULTA PROCESSUAL">INTERNET - CONSULTA PROCESSUAL</option>
+                            <option value="55" label="INTERNET - MANUTENÇÃO NO SITE DO TRF1">INTERNET - MANUTENÇÃO NO SITE DO TRF1</option>
+                            <option value="7123" label="JEF VIRTUAL - AGRAVO">JEF VIRTUAL - AGRAVO</option>
+                            <option value="7124" label="JEF VIRTUAL - ALVARÁ">JEF VIRTUAL - ALVARÁ</option>
+                            <option value="7545" label="JEF VIRTUAL - ASSINATURA">JEF VIRTUAL - ASSINATURA</option>
+                            <option value="7125" label="JEF VIRTUAL - ATRIBUIÇÃO/CADASTRO JUIZ">JEF VIRTUAL - ATRIBUIÇÃO/CADASTRO JUIZ</option>
+                            <option value="7126" label="JEF VIRTUAL - AUDIÊNCIA/AGENDA DE AUDIÊNCIAS (PAUTA)">JEF VIRTUAL - AUDIÊNCIA/AGENDA DE AUDIÊNCIAS (PAUTA)</option>
+                            <option value="7128" label="JEF VIRTUAL - CADASTRO DE PARTES / ADVOGADOS">JEF VIRTUAL - CADASTRO DE PARTES / ADVOGADOS</option>
+                            <option value="7127" label="JEF VIRTUAL - CADASTRO DE PROCESSO">JEF VIRTUAL - CADASTRO DE PROCESSO</option>
+                            <option value="7129" label="JEF VIRTUAL - CARTA PRECATÓRIA">JEF VIRTUAL - CARTA PRECATÓRIA</option>
+                            <option value="7130" label="JEF VIRTUAL - CERTIDÕES">JEF VIRTUAL - CERTIDÕES</option>
+                            <option value="7131" label="JEF VIRTUAL - DISTRIBUIÇÃO/PREVENÇÃO">JEF VIRTUAL - DISTRIBUIÇÃO/PREVENÇÃO</option>
+                            <option value="7132" label="JEF VIRTUAL - DOCUMENTOS">JEF VIRTUAL - DOCUMENTOS</option>
+                            <option value="7133" label="JEF VIRTUAL - e-CINT">JEF VIRTUAL - e-CINT</option>
+                            <option value="7134" label="JEF VIRTUAL - ESTATÍSTICA">JEF VIRTUAL - ESTATÍSTICA</option>
+                            <option value="7135" label="JEF VIRTUAL - MANDADOS">JEF VIRTUAL - MANDADOS</option>
+                            <option value="7136" label="JEF VIRTUAL - MOVIMENTAÇÃO">JEF VIRTUAL - MOVIMENTAÇÃO</option>
+                            <option value="7137" label="JEF VIRTUAL - MUTIRÃO">JEF VIRTUAL - MUTIRÃO</option>
+                            <option value="7138" label="JEF VIRTUAL - PROCESSOS BAIXADOS">JEF VIRTUAL - PROCESSOS BAIXADOS</option>
+                            <option value="7139" label="JEF VIRTUAL - PUBLICAÇÃO">JEF VIRTUAL - PUBLICAÇÃO</option>
+                            <option value="7140" label="JEF VIRTUAL - RELATÓRIO DE VARA/INSPEÇÃO">JEF VIRTUAL - RELATÓRIO DE VARA/INSPEÇÃO</option>
+                            <option value="7141" label="JEF VIRTUAL - RELATÓRIOS">JEF VIRTUAL - RELATÓRIOS</option>
+                            <option value="7142" label="JEF VIRTUAL - RPV">JEF VIRTUAL - RPV</option>
+                            <option value="7143" label="JEF VIRTUAL - TRAMITAÇÃO">JEF VIRTUAL - TRAMITAÇÃO</option>
+                            <option value="7144" label="JEF VIRTUAL - TRIAGEM/PETIÇÃO">JEF VIRTUAL - TRIAGEM/PETIÇÃO</option>
+                            <option value="7145" label="JEF VIRTUAL - TURMA RECURSAL">JEF VIRTUAL - TURMA RECURSAL</option>
+                            <option value="5947" label="JURIS">JURIS</option>
+                            <option value="58" label="OCS E TELA DE ENTRADA DOS SISTEMAS ORACLE">OCS E TELA DE ENTRADA DOS SISTEMAS ORACLE</option>
+                            <option value="63" label="PJD-EF - PROCESSO JUDICIAL DIGITAL - EXECUÇÃO FISCAL">PJD-EF - PROCESSO JUDICIAL DIGITAL - EXECUÇÃO FISCAL</option>
+                            <option value="5950" label="PRECATÓRIOS">PRECATÓRIOS</option>
+                            <option value="6625" label="PROCESSUAL DE 1ª INSTÂNCIA - AGRAVO">PROCESSUAL DE 1ª INSTÂNCIA - AGRAVO</option>
+                            <option value="6561" label="PROCESSUAL DE 1ª INSTÂNCIA - ALVARÁ">PROCESSUAL DE 1ª INSTÂNCIA - ALVARÁ</option>
+                            <option value="6673" label="PROCESSUAL DE 1ª INSTÂNCIA - ARQUIVO">PROCESSUAL DE 1ª INSTÂNCIA - ARQUIVO</option>
+                            <option value="6577" label="PROCESSUAL DE 1ª INSTÂNCIA - ATRIBUIÇÃO/CADASTRO JUIZ">PROCESSUAL DE 1ª INSTÂNCIA - ATRIBUIÇÃO/CADASTRO JUIZ</option>
+                            <option value="6721" label="PROCESSUAL DE 1ª INSTÂNCIA - AUDIÊNCIA">PROCESSUAL DE 1ª INSTÂNCIA - AUDIÊNCIA</option>
+                            <option value="6657" label="PROCESSUAL DE 1ª INSTÂNCIA - CADASTRO PROFISSIONAIS">PROCESSUAL DE 1ª INSTÂNCIA - CADASTRO PROFISSIONAIS</option>
+                            <option value="6641" label="PROCESSUAL DE 1ª INSTÂNCIA - CARTA PRECATÓRIA">PROCESSUAL DE 1ª INSTÂNCIA - CARTA PRECATÓRIA</option>
+                            <option value="6689" label="PROCESSUAL DE 1ª INSTÂNCIA - CERTIDÕES">PROCESSUAL DE 1ª INSTÂNCIA - CERTIDÕES</option>
+                            <option value="6497" label="PROCESSUAL DE 1ª INSTÂNCIA - CONSULTA PROCESSUAL">PROCESSUAL DE 1ª INSTÂNCIA - CONSULTA PROCESSUAL</option>
+                            <option value="6433" label="PROCESSUAL DE 1ª INSTÂNCIA - DISTRIBUIÇÃO/PREVENÇÃO">PROCESSUAL DE 1ª INSTÂNCIA - DISTRIBUIÇÃO/PREVENÇÃO</option>
+                            <option value="6545" label="PROCESSUAL DE 1ª INSTÂNCIA - GUIAS">PROCESSUAL DE 1ª INSTÂNCIA - GUIAS</option>
+                            <option value="13858" label="PROCESSUAL DE 1ª INSTÂNCIA - INTEGRAÇÃO 1º E 2º GRAU">PROCESSUAL DE 1ª INSTÂNCIA - INTEGRAÇÃO 1º E 2º GRAU</option>
+                            <option value="6609" label="PROCESSUAL DE 1ª INSTÂNCIA - LOCALIZAÇÃO FÍSICA">PROCESSUAL DE 1ª INSTÂNCIA - LOCALIZAÇÃO FÍSICA</option>
+                            <option value="6513" label="PROCESSUAL DE 1ª INSTÂNCIA - MANDADOS">PROCESSUAL DE 1ª INSTÂNCIA - MANDADOS</option>
+                            <option value="6465" label="PROCESSUAL DE 1ª INSTÂNCIA - MOVIMENTAÇÃO">PROCESSUAL DE 1ª INSTÂNCIA - MOVIMENTAÇÃO</option>
+                            <option value="6449" label="PROCESSUAL DE 1ª INSTÂNCIA - PROTOCOLO/PETIÇÃO">PROCESSUAL DE 1ª INSTÂNCIA - PROTOCOLO/PETIÇÃO</option>
+                            <option value="6529" label="PROCESSUAL DE 1ª INSTÂNCIA - PUBLICAÇÃO">PROCESSUAL DE 1ª INSTÂNCIA - PUBLICAÇÃO</option>
+                            <option value="6593" label="PROCESSUAL DE 1ª INSTÂNCIA - RELATÓRIO DE VARA/INSPEÇÃO">PROCESSUAL DE 1ª INSTÂNCIA - RELATÓRIO DE VARA/INSPEÇÃO</option>
+                            <option value="6481" label="PROCESSUAL DE 1ª INSTÂNCIA - REQUISIÇÃO DE PAGAMENTO">PROCESSUAL DE 1ª INSTÂNCIA - REQUISIÇÃO DE PAGAMENTO</option>
+                            <option value="6705" label="PROCESSUAL DE 1ª INSTÂNCIA - ROL DE CULPADOS">PROCESSUAL DE 1ª INSTÂNCIA - ROL DE CULPADOS</option>
+                            <option value="6074" label="RED - REPOSITÓRIO ELETRÔNICO DE DOCUMENTOS">RED - REPOSITÓRIO ELETRÔNICO DE DOCUMENTOS</option>
+                            <option value="168" label="Relatório de Correição">Relatório de Correição</option>
+                            <option value="6179" label="SECOR - CEO - Controle da Execução Orçamentária (MS ACCESS)">SECOR - CEO - Controle da Execução Orçamentária (MS ACCESS)</option>
+                            <option value="6180" label="SECOR - CNJ 102 - Publicação de dados do Anexo I e II, da resolução 102 do CNJ na Web (MS ACCESS)">SECOR - CNJ 102 - Publicação de dados do Anexo I e II, da resolução 102 do CNJ na Web (MS ACCESS)</option>
+                            <option value="6181" label="SECOR - Observatório de Custos - Fórum de discussão sobre custos, de gerência da Comissão SIGCUSTOS">SECOR - Observatório de Custos - Fórum de discussão sobre custos, de gerência da Comissão SIGCUSTOS</option>
+                            <option value="6182" label="SECOR - SIGCUSTOS - Sistemática de Custos">SECOR - SIGCUSTOS - Sistemática de Custos</option>
+                            <option value="68" label="SIATE - SISTEMA DE ATENDIMENTO AO USUÁRIO">SIATE - SISTEMA DE ATENDIMENTO AO USUÁRIO</option>
+                            <option value="69" label="SICAM - SISTEMA DE CONTROLE DE AQUISIÇÃO DE MATERIAL E SERVIÇO">SICAM - SISTEMA DE CONTROLE DE AQUISIÇÃO DE MATERIAL E SERVIÇO</option>
+                            <option value="6085" label="SIGETJF - GERENCIAMENTO DE DOCUMENTOS DA 1A INSTÂNCIA">SIGETJF - GERENCIAMENTO DE DOCUMENTOS DA 1A INSTÂNCIA</option>
+                            <option value="71" label="SIOUV - SISTEMA DE OUVIDORIA ADMINISTRATIVA">SIOUV - SISTEMA DE OUVIDORIA ADMINISTRATIVA</option>
+                            <option value="72" label="SIREC - SISTEMA DE RECEBIMENTO E ENVIO DE CORRESPONDÊNCIA">SIREC - SISTEMA DE RECEBIMENTO E ENVIO DE CORRESPONDÊNCIA</option>
+                            <option value="74" label="SISDEPE - SISTEMA DE DEFINIÇÃO DE PERMISSÃO">SISDEPE - SISTEMA DE DEFINIÇÃO DE PERMISSÃO</option>
+                            <option value="75" label="SISDOC - CORREGEDORIA">SISDOC - CORREGEDORIA</option>
+                            <option value="77" label="SISGED - SISTEMA DE GERENCIAMENTO DE DEMANDAS">SISGED - SISTEMA DE GERENCIAMENTO DE DEMANDAS</option>
+                            <option value="78" label="SISPRA - SISTEMA DE ACOMPANHAMENTO DE PROCESSOS ADMINISTRATIVOS">SISPRA - SISTEMA DE ACOMPANHAMENTO DE PROCESSOS ADMINISTRATIVOS</option>
+                            <option value="38" label="SISTEMA DE CORREGEDORIA REGIONAL">SISTEMA DE CORREGEDORIA REGIONAL</option>
+                            <option value="80" label="SISTEMA DE ESTAGIÁRIOS">SISTEMA DE ESTAGIÁRIOS</option>
+                            <option value="81" label="SISTEMA DE FOLHA DE PAGAMENTO - ORACLE">SISTEMA DE FOLHA DE PAGAMENTO - ORACLE</option>
+                            <option value="83" label="SISTEMA DE MAGISTRATURA">SISTEMA DE MAGISTRATURA</option>
+                            <option value="62" label="SISTEMA DE MONOGRAFIA">SISTEMA DE MONOGRAFIA</option>
+                            <option value="84" label="SISTEMA DE PORTARIA (ORACLE)">SISTEMA DE PORTARIA (ORACLE)</option>
+                            <option value="85" label="SISTEMA DE RECURSOS HUMANOS - ORACLE">SISTEMA DE RECURSOS HUMANOS - ORACLE</option>
+                            <option value="14002" label="SISTEMA DE SERVIÇOS EDITORIAIS E GRÁFICOS">SISTEMA DE SERVIÇOS EDITORIAIS E GRÁFICOS</option>
+                            <option value="6115" label="SISTEMA DE TAQUIGRAFIA">SISTEMA DE TAQUIGRAFIA</option>
+                            <option value="5951" label="SISTEMA NACIONAL DE CÁLCULO JUDICIAL">SISTEMA NACIONAL DE CÁLCULO JUDICIAL</option>
+                            <option value="6087" label="SISTEMAS DE JURISPRUDÊNCIA">SISTEMAS DE JURISPRUDÊNCIA</option>
+                            <option value="6177" label="SISTEMAS SETORIAIS - SERVIÇOS">SISTEMAS SETORIAIS - SERVIÇOS</option>
+                            <option value="73" label="SISTRA - SISTEMA DE TRANSPORTES">SISTRA - SISTEMA DE TRANSPORTES</option>
+                            <option value="6831" label="SOLICITAÇÃO DE LEVANTAMENTO DE REQUISITOS PARA DESENVOLVIMENTO DE SISTEMA / PROGRAMAS">SOLICITAÇÃO DE LEVANTAMENTO DE REQUISITOS PARA DESENVOLVIMENTO DE SISTEMA / PROGRAMAS</option>
+                            <option value="14390" label="TRF1DOC">TRF1DOC</option>
+                        </select>
+                        <p>Este é um campo de multiseleção. Pressione a tecla CTRL para selecionar vários itens.</p></dd>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Categorias:</legend>
+                    <dd id="CATE_ID_CATEGORIA-element">
+                        <label for="CATE_ID_CATEGORIA-38"><input type="checkbox" name="CATE_ID_CATEGORIA[]" id="CATE_ID_CATEGORIA-38" value="38" cores="[&quot;#245c26&quot;,&quot;#6c6fd0&quot;,&quot;#ecf854&quot;,&quot;#fd1719&quot;,&quot;#4fa3ee&quot;,&quot;#cbc73a&quot;,&quot;#fbff33&quot;,&quot;#ee687a&quot;,&quot;#f38216&quot;,&quot;#4d8439&quot;,&quot;#2617a1&quot;,&quot;#092b8b&quot;,&quot;#eb0009&quot;,&quot;#36f2d4&quot;,&quot;#6cc3d0&quot;,&quot;#1c0cca&quot;,&quot;#6c6fd0&quot;,&quot;#6c6fd0&quot;,&quot;#d93a12&quot;,&quot;#44fc1d&quot;,&quot;#4471ee&quot;,&quot;#0004bd&quot;,&quot;#6cacd0&quot;,&quot;#142bdb&quot;,&quot;#dc2894&quot;,&quot;#0e9035&quot;,&quot;#d06ca8&quot;,&quot;#6cd0c8&quot;]">APURAÇÕES ESPECIAIS</label><label for="CATE_ID_CATEGORIA-39"><input type="checkbox" name="CATE_ID_CATEGORIA[]" id="CATE_ID_CATEGORIA-39" value="39" cores="[&quot;#245c26&quot;,&quot;#6c6fd0&quot;,&quot;#ecf854&quot;,&quot;#fd1719&quot;,&quot;#4fa3ee&quot;,&quot;#cbc73a&quot;,&quot;#fbff33&quot;,&quot;#ee687a&quot;,&quot;#f38216&quot;,&quot;#4d8439&quot;,&quot;#2617a1&quot;,&quot;#092b8b&quot;,&quot;#eb0009&quot;,&quot;#36f2d4&quot;,&quot;#6cc3d0&quot;,&quot;#1c0cca&quot;,&quot;#6c6fd0&quot;,&quot;#6c6fd0&quot;,&quot;#d93a12&quot;,&quot;#44fc1d&quot;,&quot;#4471ee&quot;,&quot;#0004bd&quot;,&quot;#6cacd0&quot;,&quot;#142bdb&quot;,&quot;#dc2894&quot;,&quot;#0e9035&quot;,&quot;#d06ca8&quot;,&quot;#6cd0c8&quot;]">ATENDIMENTO ESPECIAL</label><label for="CATE_ID_CATEGORIA-142"><input type="checkbox" name="CATE_ID_CATEGORIA[]" id="CATE_ID_CATEGORIA-142" value="142" cores="[&quot;#245c26&quot;,&quot;#6c6fd0&quot;,&quot;#ecf854&quot;,&quot;#fd1719&quot;,&quot;#4fa3ee&quot;,&quot;#cbc73a&quot;,&quot;#fbff33&quot;,&quot;#ee687a&quot;,&quot;#f38216&quot;,&quot;#4d8439&quot;,&quot;#2617a1&quot;,&quot;#092b8b&quot;,&quot;#eb0009&quot;,&quot;#36f2d4&quot;,&quot;#6cc3d0&quot;,&quot;#1c0cca&quot;,&quot;#6c6fd0&quot;,&quot;#6c6fd0&quot;,&quot;#d93a12&quot;,&quot;#44fc1d&quot;,&quot;#4471ee&quot;,&quot;#0004bd&quot;,&quot;#6cacd0&quot;,&quot;#142bdb&quot;,&quot;#dc2894&quot;,&quot;#0e9035&quot;,&quot;#d06ca8&quot;,&quot;#6cd0c8&quot;]">BASE UNIFICADA (ODS)</label><label for="CATE_ID_CATEGORIA-7"><input type="checkbox" name="CATE_ID_CATEGORIA[]" id="CATE_ID_CATEGORIA-7" value="7" cores="[&quot;#245c26&quot;,&quot;#6c6fd0&quot;,&quot;#ecf854&quot;,&quot;#fd1719&quot;,&quot;#4fa3ee&quot;,&quot;#cbc73a&quot;,&quot;#fbff33&quot;,&quot;#ee687a&quot;,&quot;#f38216&quot;,&quot;#4d8439&quot;,&quot;#2617a1&quot;,&quot;#092b8b&quot;,&quot;#eb0009&quot;,&quot;#36f2d4&quot;,&quot;#6cc3d0&quot;,&quot;#1c0cca&quot;,&quot;#6c6fd0&quot;,&quot;#6c6fd0&quot;,&quot;#d93a12&quot;,&quot;#44fc1d&quot;,&quot;#4471ee&quot;,&quot;#0004bd&quot;,&quot;#6cacd0&quot;,&quot;#142bdb&quot;,&quot;#dc2894&quot;,&quot;#0e9035&quot;,&quot;#d06ca8&quot;,&quot;#6cd0c8&quot;]">CRÍTICO</label><label for="CATE_ID_CATEGORIA-143"><input type="checkbox" name="CATE_ID_CATEGORIA[]" id="CATE_ID_CATEGORIA-143" value="143" cores="[&quot;#245c26&quot;,&quot;#6c6fd0&quot;,&quot;#ecf854&quot;,&quot;#fd1719&quot;,&quot;#4fa3ee&quot;,&quot;#cbc73a&quot;,&quot;#fbff33&quot;,&quot;#ee687a&quot;,&quot;#f38216&quot;,&quot;#4d8439&quot;,&quot;#2617a1&quot;,&quot;#092b8b&quot;,&quot;#eb0009&quot;,&quot;#36f2d4&quot;,&quot;#6cc3d0&quot;,&quot;#1c0cca&quot;,&quot;#6c6fd0&quot;,&quot;#6c6fd0&quot;,&quot;#d93a12&quot;,&quot;#44fc1d&quot;,&quot;#4471ee&quot;,&quot;#0004bd&quot;,&quot;#6cacd0&quot;,&quot;#142bdb&quot;,&quot;#dc2894&quot;,&quot;#0e9035&quot;,&quot;#d06ca8&quot;,&quot;#6cd0c8&quot;]">EFETUAR BAIXA</label><label for="CATE_ID_CATEGORIA-241"><input type="checkbox" name="CATE_ID_CATEGORIA[]" id="CATE_ID_CATEGORIA-241" value="241" cores="[&quot;#245c26&quot;,&quot;#6c6fd0&quot;,&quot;#ecf854&quot;,&quot;#fd1719&quot;,&quot;#4fa3ee&quot;,&quot;#cbc73a&quot;,&quot;#fbff33&quot;,&quot;#ee687a&quot;,&quot;#f38216&quot;,&quot;#4d8439&quot;,&quot;#2617a1&quot;,&quot;#092b8b&quot;,&quot;#eb0009&quot;,&quot;#36f2d4&quot;,&quot;#6cc3d0&quot;,&quot;#1c0cca&quot;,&quot;#6c6fd0&quot;,&quot;#6c6fd0&quot;,&quot;#d93a12&quot;,&quot;#44fc1d&quot;,&quot;#4471ee&quot;,&quot;#0004bd&quot;,&quot;#6cacd0&quot;,&quot;#142bdb&quot;,&quot;#dc2894&quot;,&quot;#0e9035&quot;,&quot;#d06ca8&quot;,&quot;#6cd0c8&quot;]">EM ANÁLISE E DESIGN</label><label for="CATE_ID_CATEGORIA-240"><input type="checkbox" name="CATE_ID_CATEGORIA[]" id="CATE_ID_CATEGORIA-240" value="240" cores="[&quot;#245c26&quot;,&quot;#6c6fd0&quot;,&quot;#ecf854&quot;,&quot;#fd1719&quot;,&quot;#4fa3ee&quot;,&quot;#cbc73a&quot;,&quot;#fbff33&quot;,&quot;#ee687a&quot;,&quot;#f38216&quot;,&quot;#4d8439&quot;,&quot;#2617a1&quot;,&quot;#092b8b&quot;,&quot;#eb0009&quot;,&quot;#36f2d4&quot;,&quot;#6cc3d0&quot;,&quot;#1c0cca&quot;,&quot;#6c6fd0&quot;,&quot;#6c6fd0&quot;,&quot;#d93a12&quot;,&quot;#44fc1d&quot;,&quot;#4471ee&quot;,&quot;#0004bd&quot;,&quot;#6cacd0&quot;,&quot;#142bdb&quot;,&quot;#dc2894&quot;,&quot;#0e9035&quot;,&quot;#d06ca8&quot;,&quot;#6cd0c8&quot;]">EM IMPLEMENTAÇÃO</label><label for="CATE_ID_CATEGORIA-243"><input type="checkbox" name="CATE_ID_CATEGORIA[]" id="CATE_ID_CATEGORIA-243" value="243" cores="[&quot;#245c26&quot;,&quot;#6c6fd0&quot;,&quot;#ecf854&quot;,&quot;#fd1719&quot;,&quot;#4fa3ee&quot;,&quot;#cbc73a&quot;,&quot;#fbff33&quot;,&quot;#ee687a&quot;,&quot;#f38216&quot;,&quot;#4d8439&quot;,&quot;#2617a1&quot;,&quot;#092b8b&quot;,&quot;#eb0009&quot;,&quot;#36f2d4&quot;,&quot;#6cc3d0&quot;,&quot;#1c0cca&quot;,&quot;#6c6fd0&quot;,&quot;#6c6fd0&quot;,&quot;#d93a12&quot;,&quot;#44fc1d&quot;,&quot;#4471ee&quot;,&quot;#0004bd&quot;,&quot;#6cacd0&quot;,&quot;#142bdb&quot;,&quot;#dc2894&quot;,&quot;#0e9035&quot;,&quot;#d06ca8&quot;,&quot;#6cd0c8&quot;]">EM MODELAGEM DE NEGÓCIOS</label><label for="CATE_ID_CATEGORIA-238"><input type="checkbox" name="CATE_ID_CATEGORIA[]" id="CATE_ID_CATEGORIA-238" value="238" cores="[&quot;#245c26&quot;,&quot;#6c6fd0&quot;,&quot;#ecf854&quot;,&quot;#fd1719&quot;,&quot;#4fa3ee&quot;,&quot;#cbc73a&quot;,&quot;#fbff33&quot;,&quot;#ee687a&quot;,&quot;#f38216&quot;,&quot;#4d8439&quot;,&quot;#2617a1&quot;,&quot;#092b8b&quot;,&quot;#eb0009&quot;,&quot;#36f2d4&quot;,&quot;#6cc3d0&quot;,&quot;#1c0cca&quot;,&quot;#6c6fd0&quot;,&quot;#6c6fd0&quot;,&quot;#d93a12&quot;,&quot;#44fc1d&quot;,&quot;#4471ee&quot;,&quot;#0004bd&quot;,&quot;#6cacd0&quot;,&quot;#142bdb&quot;,&quot;#dc2894&quot;,&quot;#0e9035&quot;,&quot;#d06ca8&quot;,&quot;#6cd0c8&quot;]">EM REQUISITOS</label><label for="CATE_ID_CATEGORIA-239"><input type="checkbox" name="CATE_ID_CATEGORIA[]" id="CATE_ID_CATEGORIA-239" value="239" cores="[&quot;#245c26&quot;,&quot;#6c6fd0&quot;,&quot;#ecf854&quot;,&quot;#fd1719&quot;,&quot;#4fa3ee&quot;,&quot;#cbc73a&quot;,&quot;#fbff33&quot;,&quot;#ee687a&quot;,&quot;#f38216&quot;,&quot;#4d8439&quot;,&quot;#2617a1&quot;,&quot;#092b8b&quot;,&quot;#eb0009&quot;,&quot;#36f2d4&quot;,&quot;#6cc3d0&quot;,&quot;#1c0cca&quot;,&quot;#6c6fd0&quot;,&quot;#6c6fd0&quot;,&quot;#d93a12&quot;,&quot;#44fc1d&quot;,&quot;#4471ee&quot;,&quot;#0004bd&quot;,&quot;#6cacd0&quot;,&quot;#142bdb&quot;,&quot;#dc2894&quot;,&quot;#0e9035&quot;,&quot;#d06ca8&quot;,&quot;#6cd0c8&quot;]">EM TESTE</label><label for="CATE_ID_CATEGORIA-184"><input type="checkbox" name="CATE_ID_CATEGORIA[]" id="CATE_ID_CATEGORIA-184" value="184" cores="[&quot;#245c26&quot;,&quot;#6c6fd0&quot;,&quot;#ecf854&quot;,&quot;#fd1719&quot;,&quot;#4fa3ee&quot;,&quot;#cbc73a&quot;,&quot;#fbff33&quot;,&quot;#ee687a&quot;,&quot;#f38216&quot;,&quot;#4d8439&quot;,&quot;#2617a1&quot;,&quot;#092b8b&quot;,&quot;#eb0009&quot;,&quot;#36f2d4&quot;,&quot;#6cc3d0&quot;,&quot;#1c0cca&quot;,&quot;#6c6fd0&quot;,&quot;#6c6fd0&quot;,&quot;#d93a12&quot;,&quot;#44fc1d&quot;,&quot;#4471ee&quot;,&quot;#0004bd&quot;,&quot;#6cacd0&quot;,&quot;#142bdb&quot;,&quot;#dc2894&quot;,&quot;#0e9035&quot;,&quot;#d06ca8&quot;,&quot;#6cd0c8&quot;]">EPM</label><label for="CATE_ID_CATEGORIA-205"><input type="checkbox" name="CATE_ID_CATEGORIA[]" id="CATE_ID_CATEGORIA-205" value="205" cores="[&quot;#245c26&quot;,&quot;#6c6fd0&quot;,&quot;#ecf854&quot;,&quot;#fd1719&quot;,&quot;#4fa3ee&quot;,&quot;#cbc73a&quot;,&quot;#fbff33&quot;,&quot;#ee687a&quot;,&quot;#f38216&quot;,&quot;#4d8439&quot;,&quot;#2617a1&quot;,&quot;#092b8b&quot;,&quot;#eb0009&quot;,&quot;#36f2d4&quot;,&quot;#6cc3d0&quot;,&quot;#1c0cca&quot;,&quot;#6c6fd0&quot;,&quot;#6c6fd0&quot;,&quot;#d93a12&quot;,&quot;#44fc1d&quot;,&quot;#4471ee&quot;,&quot;#0004bd&quot;,&quot;#6cacd0&quot;,&quot;#142bdb&quot;,&quot;#dc2894&quot;,&quot;#0e9035&quot;,&quot;#d06ca8&quot;,&quot;#6cd0c8&quot;]">EVOLUTIVAS</label><label for="CATE_ID_CATEGORIA-237"><input type="checkbox" name="CATE_ID_CATEGORIA[]" id="CATE_ID_CATEGORIA-237" value="237" cores="[&quot;#245c26&quot;,&quot;#6c6fd0&quot;,&quot;#ecf854&quot;,&quot;#fd1719&quot;,&quot;#4fa3ee&quot;,&quot;#cbc73a&quot;,&quot;#fbff33&quot;,&quot;#ee687a&quot;,&quot;#f38216&quot;,&quot;#4d8439&quot;,&quot;#2617a1&quot;,&quot;#092b8b&quot;,&quot;#eb0009&quot;,&quot;#36f2d4&quot;,&quot;#6cc3d0&quot;,&quot;#1c0cca&quot;,&quot;#6c6fd0&quot;,&quot;#6c6fd0&quot;,&quot;#d93a12&quot;,&quot;#44fc1d&quot;,&quot;#4471ee&quot;,&quot;#0004bd&quot;,&quot;#6cacd0&quot;,&quot;#142bdb&quot;,&quot;#dc2894&quot;,&quot;#0e9035&quot;,&quot;#d06ca8&quot;,&quot;#6cd0c8&quot;]">FORA DO ESCOPO</label><label for="CATE_ID_CATEGORIA-242"><input type="checkbox" name="CATE_ID_CATEGORIA[]" id="CATE_ID_CATEGORIA-242" value="242" cores="[&quot;#245c26&quot;,&quot;#6c6fd0&quot;,&quot;#ecf854&quot;,&quot;#fd1719&quot;,&quot;#4fa3ee&quot;,&quot;#cbc73a&quot;,&quot;#fbff33&quot;,&quot;#ee687a&quot;,&quot;#f38216&quot;,&quot;#4d8439&quot;,&quot;#2617a1&quot;,&quot;#092b8b&quot;,&quot;#eb0009&quot;,&quot;#36f2d4&quot;,&quot;#6cc3d0&quot;,&quot;#1c0cca&quot;,&quot;#6c6fd0&quot;,&quot;#6c6fd0&quot;,&quot;#d93a12&quot;,&quot;#44fc1d&quot;,&quot;#4471ee&quot;,&quot;#0004bd&quot;,&quot;#6cacd0&quot;,&quot;#142bdb&quot;,&quot;#dc2894&quot;,&quot;#0e9035&quot;,&quot;#d06ca8&quot;,&quot;#6cd0c8&quot;]">IMPLANTAÇÃO</label><label for="CATE_ID_CATEGORIA-180"><input type="checkbox" name="CATE_ID_CATEGORIA[]" id="CATE_ID_CATEGORIA-180" value="180" cores="[&quot;#245c26&quot;,&quot;#6c6fd0&quot;,&quot;#ecf854&quot;,&quot;#fd1719&quot;,&quot;#4fa3ee&quot;,&quot;#cbc73a&quot;,&quot;#fbff33&quot;,&quot;#ee687a&quot;,&quot;#f38216&quot;,&quot;#4d8439&quot;,&quot;#2617a1&quot;,&quot;#092b8b&quot;,&quot;#eb0009&quot;,&quot;#36f2d4&quot;,&quot;#6cc3d0&quot;,&quot;#1c0cca&quot;,&quot;#6c6fd0&quot;,&quot;#6c6fd0&quot;,&quot;#d93a12&quot;,&quot;#44fc1d&quot;,&quot;#4471ee&quot;,&quot;#0004bd&quot;,&quot;#6cacd0&quot;,&quot;#142bdb&quot;,&quot;#dc2894&quot;,&quot;#0e9035&quot;,&quot;#d06ca8&quot;,&quot;#6cd0c8&quot;]">INTEGRAÇÃO 1 E 2</label><label for="CATE_ID_CATEGORIA-71"><input type="checkbox" name="CATE_ID_CATEGORIA[]" id="CATE_ID_CATEGORIA-71" value="71" cores="[&quot;#245c26&quot;,&quot;#6c6fd0&quot;,&quot;#ecf854&quot;,&quot;#fd1719&quot;,&quot;#4fa3ee&quot;,&quot;#cbc73a&quot;,&quot;#fbff33&quot;,&quot;#ee687a&quot;,&quot;#f38216&quot;,&quot;#4d8439&quot;,&quot;#2617a1&quot;,&quot;#092b8b&quot;,&quot;#eb0009&quot;,&quot;#36f2d4&quot;,&quot;#6cc3d0&quot;,&quot;#1c0cca&quot;,&quot;#6c6fd0&quot;,&quot;#6c6fd0&quot;,&quot;#d93a12&quot;,&quot;#44fc1d&quot;,&quot;#4471ee&quot;,&quot;#0004bd&quot;,&quot;#6cacd0&quot;,&quot;#142bdb&quot;,&quot;#dc2894&quot;,&quot;#0e9035&quot;,&quot;#d06ca8&quot;,&quot;#6cd0c8&quot;]">LABORATÓRIO</label><label for="CATE_ID_CATEGORIA-141"><input type="checkbox" name="CATE_ID_CATEGORIA[]" id="CATE_ID_CATEGORIA-141" value="141" cores="[&quot;#245c26&quot;,&quot;#6c6fd0&quot;,&quot;#ecf854&quot;,&quot;#fd1719&quot;,&quot;#4fa3ee&quot;,&quot;#cbc73a&quot;,&quot;#fbff33&quot;,&quot;#ee687a&quot;,&quot;#f38216&quot;,&quot;#4d8439&quot;,&quot;#2617a1&quot;,&quot;#092b8b&quot;,&quot;#eb0009&quot;,&quot;#36f2d4&quot;,&quot;#6cc3d0&quot;,&quot;#1c0cca&quot;,&quot;#6c6fd0&quot;,&quot;#6c6fd0&quot;,&quot;#d93a12&quot;,&quot;#44fc1d&quot;,&quot;#4471ee&quot;,&quot;#0004bd&quot;,&quot;#6cacd0&quot;,&quot;#142bdb&quot;,&quot;#dc2894&quot;,&quot;#0e9035&quot;,&quot;#d06ca8&quot;,&quot;#6cd0c8&quot;]">MODULO NOVO</label><label for="CATE_ID_CATEGORIA-211"><input type="checkbox" name="CATE_ID_CATEGORIA[]" id="CATE_ID_CATEGORIA-211" value="211" cores="[&quot;#245c26&quot;,&quot;#6c6fd0&quot;,&quot;#ecf854&quot;,&quot;#fd1719&quot;,&quot;#4fa3ee&quot;,&quot;#cbc73a&quot;,&quot;#fbff33&quot;,&quot;#ee687a&quot;,&quot;#f38216&quot;,&quot;#4d8439&quot;,&quot;#2617a1&quot;,&quot;#092b8b&quot;,&quot;#eb0009&quot;,&quot;#36f2d4&quot;,&quot;#6cc3d0&quot;,&quot;#1c0cca&quot;,&quot;#6c6fd0&quot;,&quot;#6c6fd0&quot;,&quot;#d93a12&quot;,&quot;#44fc1d&quot;,&quot;#4471ee&quot;,&quot;#0004bd&quot;,&quot;#6cacd0&quot;,&quot;#142bdb&quot;,&quot;#dc2894&quot;,&quot;#0e9035&quot;,&quot;#d06ca8&quot;,&quot;#6cd0c8&quot;]">NOVA REGRA TRAM - BOL1 E BOL.GER4</label><label for="CATE_ID_CATEGORIA-37"><input type="checkbox" name="CATE_ID_CATEGORIA[]" id="CATE_ID_CATEGORIA-37" value="37" cores="[&quot;#245c26&quot;,&quot;#6c6fd0&quot;,&quot;#ecf854&quot;,&quot;#fd1719&quot;,&quot;#4fa3ee&quot;,&quot;#cbc73a&quot;,&quot;#fbff33&quot;,&quot;#ee687a&quot;,&quot;#f38216&quot;,&quot;#4d8439&quot;,&quot;#2617a1&quot;,&quot;#092b8b&quot;,&quot;#eb0009&quot;,&quot;#36f2d4&quot;,&quot;#6cc3d0&quot;,&quot;#1c0cca&quot;,&quot;#6c6fd0&quot;,&quot;#6c6fd0&quot;,&quot;#d93a12&quot;,&quot;#44fc1d&quot;,&quot;#4471ee&quot;,&quot;#0004bd&quot;,&quot;#6cacd0&quot;,&quot;#142bdb&quot;,&quot;#dc2894&quot;,&quot;#0e9035&quot;,&quot;#d06ca8&quot;,&quot;#6cd0c8&quot;]">PRIORIDADE</label><label for="CATE_ID_CATEGORIA-201"><input type="checkbox" name="CATE_ID_CATEGORIA[]" id="CATE_ID_CATEGORIA-201" value="201" cores="[&quot;#245c26&quot;,&quot;#6c6fd0&quot;,&quot;#ecf854&quot;,&quot;#fd1719&quot;,&quot;#4fa3ee&quot;,&quot;#cbc73a&quot;,&quot;#fbff33&quot;,&quot;#ee687a&quot;,&quot;#f38216&quot;,&quot;#4d8439&quot;,&quot;#2617a1&quot;,&quot;#092b8b&quot;,&quot;#eb0009&quot;,&quot;#36f2d4&quot;,&quot;#6cc3d0&quot;,&quot;#1c0cca&quot;,&quot;#6c6fd0&quot;,&quot;#6c6fd0&quot;,&quot;#d93a12&quot;,&quot;#44fc1d&quot;,&quot;#4471ee&quot;,&quot;#0004bd&quot;,&quot;#6cacd0&quot;,&quot;#142bdb&quot;,&quot;#dc2894&quot;,&quot;#0e9035&quot;,&quot;#d06ca8&quot;,&quot;#6cd0c8&quot;]">PROBLEMA NA BAIXA DE PROCESSO</label><label for="CATE_ID_CATEGORIA-20"><input type="checkbox" name="CATE_ID_CATEGORIA[]" id="CATE_ID_CATEGORIA-20" value="20" cores="[&quot;#245c26&quot;,&quot;#6c6fd0&quot;,&quot;#ecf854&quot;,&quot;#fd1719&quot;,&quot;#4fa3ee&quot;,&quot;#cbc73a&quot;,&quot;#fbff33&quot;,&quot;#ee687a&quot;,&quot;#f38216&quot;,&quot;#4d8439&quot;,&quot;#2617a1&quot;,&quot;#092b8b&quot;,&quot;#eb0009&quot;,&quot;#36f2d4&quot;,&quot;#6cc3d0&quot;,&quot;#1c0cca&quot;,&quot;#6c6fd0&quot;,&quot;#6c6fd0&quot;,&quot;#d93a12&quot;,&quot;#44fc1d&quot;,&quot;#4471ee&quot;,&quot;#0004bd&quot;,&quot;#6cacd0&quot;,&quot;#142bdb&quot;,&quot;#dc2894&quot;,&quot;#0e9035&quot;,&quot;#d06ca8&quot;,&quot;#6cd0c8&quot;]">PROTOCOLO</label><label for="CATE_ID_CATEGORIA-79"><input type="checkbox" name="CATE_ID_CATEGORIA[]" id="CATE_ID_CATEGORIA-79" value="79" cores="[&quot;#245c26&quot;,&quot;#6c6fd0&quot;,&quot;#ecf854&quot;,&quot;#fd1719&quot;,&quot;#4fa3ee&quot;,&quot;#cbc73a&quot;,&quot;#fbff33&quot;,&quot;#ee687a&quot;,&quot;#f38216&quot;,&quot;#4d8439&quot;,&quot;#2617a1&quot;,&quot;#092b8b&quot;,&quot;#eb0009&quot;,&quot;#36f2d4&quot;,&quot;#6cc3d0&quot;,&quot;#1c0cca&quot;,&quot;#6c6fd0&quot;,&quot;#6c6fd0&quot;,&quot;#d93a12&quot;,&quot;#44fc1d&quot;,&quot;#4471ee&quot;,&quot;#0004bd&quot;,&quot;#6cacd0&quot;,&quot;#142bdb&quot;,&quot;#dc2894&quot;,&quot;#0e9035&quot;,&quot;#d06ca8&quot;,&quot;#6cd0c8&quot;]">SPRINT</label><label for="CATE_ID_CATEGORIA-96"><input type="checkbox" name="CATE_ID_CATEGORIA[]" id="CATE_ID_CATEGORIA-96" value="96" cores="[&quot;#245c26&quot;,&quot;#6c6fd0&quot;,&quot;#ecf854&quot;,&quot;#fd1719&quot;,&quot;#4fa3ee&quot;,&quot;#cbc73a&quot;,&quot;#fbff33&quot;,&quot;#ee687a&quot;,&quot;#f38216&quot;,&quot;#4d8439&quot;,&quot;#2617a1&quot;,&quot;#092b8b&quot;,&quot;#eb0009&quot;,&quot;#36f2d4&quot;,&quot;#6cc3d0&quot;,&quot;#1c0cca&quot;,&quot;#6c6fd0&quot;,&quot;#6c6fd0&quot;,&quot;#d93a12&quot;,&quot;#44fc1d&quot;,&quot;#4471ee&quot;,&quot;#0004bd&quot;,&quot;#6cacd0&quot;,&quot;#142bdb&quot;,&quot;#dc2894&quot;,&quot;#0e9035&quot;,&quot;#d06ca8&quot;,&quot;#6cd0c8&quot;]">TRIAGEM</label><label for="CATE_ID_CATEGORIA-210"><input type="checkbox" name="CATE_ID_CATEGORIA[]" id="CATE_ID_CATEGORIA-210" value="210" cores="[&quot;#245c26&quot;,&quot;#6c6fd0&quot;,&quot;#ecf854&quot;,&quot;#fd1719&quot;,&quot;#4fa3ee&quot;,&quot;#cbc73a&quot;,&quot;#fbff33&quot;,&quot;#ee687a&quot;,&quot;#f38216&quot;,&quot;#4d8439&quot;,&quot;#2617a1&quot;,&quot;#092b8b&quot;,&quot;#eb0009&quot;,&quot;#36f2d4&quot;,&quot;#6cc3d0&quot;,&quot;#1c0cca&quot;,&quot;#6c6fd0&quot;,&quot;#6c6fd0&quot;,&quot;#d93a12&quot;,&quot;#44fc1d&quot;,&quot;#4471ee&quot;,&quot;#0004bd&quot;,&quot;#6cacd0&quot;,&quot;#142bdb&quot;,&quot;#dc2894&quot;,&quot;#0e9035&quot;,&quot;#d06ca8&quot;,&quot;#6cd0c8&quot;]">TRIAGEM JURIS</label><label for="CATE_ID_CATEGORIA-206"><input type="checkbox" name="CATE_ID_CATEGORIA[]" id="CATE_ID_CATEGORIA-206" value="206" cores="[&quot;#245c26&quot;,&quot;#6c6fd0&quot;,&quot;#ecf854&quot;,&quot;#fd1719&quot;,&quot;#4fa3ee&quot;,&quot;#cbc73a&quot;,&quot;#fbff33&quot;,&quot;#ee687a&quot;,&quot;#f38216&quot;,&quot;#4d8439&quot;,&quot;#2617a1&quot;,&quot;#092b8b&quot;,&quot;#eb0009&quot;,&quot;#36f2d4&quot;,&quot;#6cc3d0&quot;,&quot;#1c0cca&quot;,&quot;#6c6fd0&quot;,&quot;#6c6fd0&quot;,&quot;#d93a12&quot;,&quot;#44fc1d&quot;,&quot;#4471ee&quot;,&quot;#0004bd&quot;,&quot;#6cacd0&quot;,&quot;#142bdb&quot;,&quot;#dc2894&quot;,&quot;#0e9035&quot;,&quot;#d06ca8&quot;,&quot;#6cd0c8&quot;]">TRIAGEM 2</label><label for="CATE_ID_CATEGORIA-207"><input type="checkbox" name="CATE_ID_CATEGORIA[]" id="CATE_ID_CATEGORIA-207" value="207" cores="[&quot;#245c26&quot;,&quot;#6c6fd0&quot;,&quot;#ecf854&quot;,&quot;#fd1719&quot;,&quot;#4fa3ee&quot;,&quot;#cbc73a&quot;,&quot;#fbff33&quot;,&quot;#ee687a&quot;,&quot;#f38216&quot;,&quot;#4d8439&quot;,&quot;#2617a1&quot;,&quot;#092b8b&quot;,&quot;#eb0009&quot;,&quot;#36f2d4&quot;,&quot;#6cc3d0&quot;,&quot;#1c0cca&quot;,&quot;#6c6fd0&quot;,&quot;#6c6fd0&quot;,&quot;#d93a12&quot;,&quot;#44fc1d&quot;,&quot;#4471ee&quot;,&quot;#0004bd&quot;,&quot;#6cacd0&quot;,&quot;#142bdb&quot;,&quot;#dc2894&quot;,&quot;#0e9035&quot;,&quot;#d06ca8&quot;,&quot;#6cd0c8&quot;]">TRIAGEM 3</label><label for="CATE_ID_CATEGORIA-105"><input type="checkbox" name="CATE_ID_CATEGORIA[]" id="CATE_ID_CATEGORIA-105" value="105" cores="[&quot;#245c26&quot;,&quot;#6c6fd0&quot;,&quot;#ecf854&quot;,&quot;#fd1719&quot;,&quot;#4fa3ee&quot;,&quot;#cbc73a&quot;,&quot;#fbff33&quot;,&quot;#ee687a&quot;,&quot;#f38216&quot;,&quot;#4d8439&quot;,&quot;#2617a1&quot;,&quot;#092b8b&quot;,&quot;#eb0009&quot;,&quot;#36f2d4&quot;,&quot;#6cc3d0&quot;,&quot;#1c0cca&quot;,&quot;#6c6fd0&quot;,&quot;#6c6fd0&quot;,&quot;#d93a12&quot;,&quot;#44fc1d&quot;,&quot;#4471ee&quot;,&quot;#0004bd&quot;,&quot;#6cacd0&quot;,&quot;#142bdb&quot;,&quot;#dc2894&quot;,&quot;#0e9035&quot;,&quot;#d06ca8&quot;,&quot;#6cd0c8&quot;]">VERIFICAR</label><label for="CATE_ID_CATEGORIA-228"><input type="checkbox" name="CATE_ID_CATEGORIA[]" id="CATE_ID_CATEGORIA-228" value="228" cores="[&quot;#245c26&quot;,&quot;#6c6fd0&quot;,&quot;#ecf854&quot;,&quot;#fd1719&quot;,&quot;#4fa3ee&quot;,&quot;#cbc73a&quot;,&quot;#fbff33&quot;,&quot;#ee687a&quot;,&quot;#f38216&quot;,&quot;#4d8439&quot;,&quot;#2617a1&quot;,&quot;#092b8b&quot;,&quot;#eb0009&quot;,&quot;#36f2d4&quot;,&quot;#6cc3d0&quot;,&quot;#1c0cca&quot;,&quot;#6c6fd0&quot;,&quot;#6c6fd0&quot;,&quot;#d93a12&quot;,&quot;#44fc1d&quot;,&quot;#4471ee&quot;,&quot;#0004bd&quot;,&quot;#6cacd0&quot;,&quot;#142bdb&quot;,&quot;#dc2894&quot;,&quot;#0e9035&quot;,&quot;#d06ca8&quot;,&quot;#6cd0c8&quot;]">VINCULAR</label></dd>
+
+                </fieldset>
+
+                <dt id="SOMENTE_PRINCIPAL-label"><input type="checkbox" name="SOMENTE_PRINCIPAL" id="SOMENTE_PRINCIPAL" value="S"><label for="SOMENTE_PRINCIPAL">Mostrar Solicitações Vinculadas (Filhas)</label></dt>
+                <fieldset>
+                    <legend>Per&iacute;odo</legend>
+                    <dt id="DATA_INICIAL_CADASTRO-label"><label for="DATA_INICIAL_CADASTRO">Data inicial - Cadastro:</label></dt>
+                    <dd id="DATA_INICIAL_CADASTRO-element">
+                        <input type="text" name="DATA_INICIAL_CADASTRO" id="DATA_INICIAL_CADASTRO" value=""></dd>
+                    <dt id="DATA_FINAL_CADASTRO-label"><label for="DATA_FINAL_CADASTRO">Data final - Cadastro:</label></dt>
+                    <dd id="DATA_FINAL_CADASTRO-element">
+                        <input type="text" name="DATA_FINAL_CADASTRO" id="DATA_FINAL_CADASTRO" value=""></dd>
+                    <dt id="DATA_INICIAL-label"><label for="DATA_INICIAL">Data inicial - Última Fase:</label></dt>
+                    <dd id="DATA_INICIAL-element">
+                        <input type="text" name="DATA_INICIAL" id="DATA_INICIAL" value=""></dd>
+                    <dt id="DATA_FINAL-label"><label for="DATA_FINAL">Data final - Última Fase:</label></dt>
+                    <dd id="DATA_FINAL-element">
+                        <input type="text" name="DATA_FINAL" id="DATA_FINAL" value=""></dd>
+                    <dt id="Filtrar-label">&nbsp;</dt><dd id="Filtrar-element">
+                        <input type="submit" name="Filtrar" id="Filtrar" value="Filtrar" role="button"></dd></dl></form>        <span id="botao_ajuda_recolhe"></span>
+</fieldset>
+</div>
+</fieldset>
+<form name="helpdesk" action="" method="post">
+
+
+    <div id="container_pagination" style="clear:both;">
+        <table class="noFixa">
+            <thead>
+                <tr>
+                    <th colspan="10">     
+                        <label>Selecione a ação:</label>
+                        <select style="float:left;">
+                            <option type="submit" title="Acompanhar solicitação de TI" name="acao" value="Acompanhar" role="button">Acompanhar</option>
+                            <option type="submit" title="Baixar a solicitação de TI" name="acao" value="Baixar" role="button">Baixar</option>
+                            <option type="submit" title="Cancelar solicitação" name="acao" value="Cancelar" role="button">Cancelar</option>
+                            <option type="submit" title="Criar Nova Categoria / Categorizar e Descategorização de Solicitações de TI" name="acao" value="Categorias" role="button">Categorias</option>
+                            <option type="submit" title="Encaminhar a solicitação de TI" name="acao" value="Encaminhar" role="button">Encaminhar</option>
+                            <option type="submit" title="Extensão de prazo para solicitações de TI" name="acao" value="Extensão de Prazo" role="button">Extensão de Prazo</option>
+                            <option type="submit" title="Dar parecer" name="acao" value="Parecer" role="button">Parecer</option>
+                            <option type="submit" value="Resposta Padrão" estilobotao="" href="#" role="button">Resposta Padrão</option>
+                            <option type="submit" title="Vincular Solicitação de TI" name="acao" value="Vincular" role="button">Vincular</option>
+                            <option type="submit" title="Pedir informação para solicitação de TI" name="acao" value="Solicitar Informação" role="button">Pedir informação para solicitação de TI</option>
+                            <option type="submit" title="Trocar o serviço da solicitação de TI" name="acao" value="Trocar Serviço" role="button">Trocar Serviço</option>
+                            <option type="submit" title="Gerar PDF" name="acao" value="PDF" role="button">PDF</option>
+                            <option type="submit" title="Gerar Excel" name="acao" value="Excel" role="button">Excel</option>
+                        </select>
+                        <input type="submit" title="Gerar Excel" name="acao" value="ok" role="button" style="float:left;"></th>
+                </tr>
+                <tr>
+                    <th><input type="checkbox" name="input_check_all_grid" id="check_all"></th>
+                    <th><a href="#">N. da solicitação<span></span></a></th>
+                    <th><a href="#">Tempo total<span></span></a></th>
+                    <!--                    <th><a href="/app/e-Admin/sosti/desenvolvimentosustentacao/index/ordem/NOME_USARIO_CADASTRO/direcao/ASC ">Nome do solicitante<span class="ordenacaodesc"></span></a></th>-->
+                    <th><a href="#">Serviço atual<span></span></a></th>
+                    <th><a href="#">Atendente<span></span></a></th>
+                    <th>Categoria</th>
+                    <th>Vinc.</th>
+                    <th>Eme.</th>
+                    <th>Prz.Rest.</th>
+                    <th>Ocor./Cat./Nív.</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr name="rowList" value="584208">
+                    <td>
+                        <input id="584208" name="solicitacao[]" type="checkbox" value="{&quot;SSOL_ID_DOCUMENTO&quot;:&quot;584208&quot;,&quot;ATENDENTE&quot;:&quot;TR17958PS - MARCELO CAIXETA ROCHA&quot;,&quot;NOME_ATENDENTE&quot;:&quot;MARCELO CAIXETA ROCHA&quot;,&quot;DOCM_NR_DOCUMENTO&quot;:&quot;2014010001056010560160000008&quot;,&quot;DOCM_CD_MATRICULA_CADASTRO&quot;:&quot;TR108203&quot;,&quot;DOCM_DS_ASSUNTO_DOC&quot;:&quot;Para que a pesquisa seja mais c&amp;eacute;lere, solicito que seja criado um filtro para identifica&amp;ccedil;&amp;atilde;o do tipo de elei&amp;ccedil;&amp;atilde;o.&quot;,&quot;DOCM_DH_CADASTRO&quot;:&quot;08\/05\/2014 10:37:07&quot;,&quot;MASCARA_DOCM&quot;:&quot;2014\/TR\/SEMAG\/8&quot;,&quot;NOME_USARIO_CADASTRO&quot;:&quot;EUNICE DE OLIVEIRA&quot;,&quot;MOFA_ID_MOVIMENTACAO&quot;:&quot;1049251&quot;,&quot;MOFA_DH_FASE&quot;:&quot;27\/05\/2014 17:22:24&quot;,&quot;MOFA_ID_FASE&quot;:&quot;1013&quot;,&quot;DATA_ATUAL&quot;:&quot;29\/05\/2014 09:11:44&quot;,&quot;MOVI_DH_ENCAMINHAMENTO&quot;:&quot;08\/05\/2014 11:27:45&quot;,&quot;TEMPO_TOTAL&quot;:&quot;30103,98&quot;,&quot;MODE_ID_CAIXA_ENTRADA&quot;:&quot;2&quot;,&quot;MODE_SG_SECAO_UNID_DESTINO&quot;:&quot;TR&quot;,&quot;MODE_CD_SECAO_UNID_DESTINO&quot;:&quot;1155&quot;,&quot;MOVIMENTACAO&quot;:&quot;08\/05\/2014 11:27:45&quot;,&quot;SSER_ID_SERVICO&quot;:&quot;196&quot;,&quot;SSER_DS_SERVICO&quot;:&quot;E-ELEI\u00c7\u00c3O - SISTEMA DE ELEI\u00c7\u00d5ES ELETR\u00d4NICAS DO TRF1&quot;,&quot;SESP_DH_LIMITE_ESP&quot;:null,&quot;ESPERA_FLAG&quot;:null,&quot;VINCULADA&quot;:&quot;0&quot;,&quot;SSPA_DT_PRAZO&quot;:null,&quot;OSIS_NM_OCORRENCIA&quot;:&quot;Necessidade De Evolu\u00e7\u00e3o\/Migra\u00e7\u00e3o De Dados\/Adeq&quot;,&quot;CTSS_NM_CATEGORIA_SERVICO&quot;:&quot;Manuten\u00e7\u00e3o Evolutiva (Projeto De Melhoria)&quot;,&quot;CTSS_ID_CATEGORIA_SERVICO&quot;:&quot;4&quot;,&quot;ASSO_IC_ATENDIMENTO_EMERGENCIA&quot;:&quot;N&quot;,&quot;ASSO_IC_SOLUCAO_PROBLEMA&quot;:&quot;S&quot;,&quot;ASSO_IC_SOLUCAO_CAUSA_PROBLEMA&quot;:&quot;N&quot;,&quot;ASIS_IC_NIVEL_CRITICIDADE&quot;:&quot;1&quot;,&quot;ASIS_PRZ_INICIO_ATENDIMENTO&quot;:&quot;3|DIA|2&quot;,&quot;ASIS_PRZ_SOL_PROBLEMA&quot;:null,&quot;ASIS_PRZ_SOL_CAUSA_PROBLEMA&quot;:null,&quot;ASIS_PRZ_EXECUCAO_SERVICO&quot;:&quot;3|M\u00caS|1&quot;,&quot;CORRETIVA&quot;:&quot;N&quot;}" checked="checked">
+                    </td>
+                    <td><a title="Para que a pesquisa seja mais célere, solicito que seja criado um filtro para identificação do tipo de eleição." data-oldhref="#" href="#">2014/TR/SEMAG/8</a></td>
+                    <td>12D 4h 47m 9s</td>
+                    <!--                        <td>TR108203 - EUNICE DE OLIVEIRA</td>-->
+                    <td>E-ELEIÇÃO - SISTEMA DE ELEIÇÕES ELETRÔNICAS DO TRF1</td>
+                    <td>MARCELO CAIXETA ROCHA</td>
+                    <td>
+                    </td>
+                    <td></td>
+                    <td>                            </td>
+                    <td title="Roxo: prazo restante >= 60% e prazo restante < 80%.">08/08/2014 11:27:45<span title=""><strong>77.3%</strong></span></td>
+                    <td>Necessidade De Evolução/Migração De Dados/Adeq - Manutenção Evolutiva (Projeto De Melhoria) - N.1</td>
+                </tr>
+
+                <tr name="rowList" value="575734">
+                    <td title="Resposta ao pedido de informação para solicitação de TI">
+                        <input id="575734" name="solicitacao[]" type="checkbox" value="{&quot;SSOL_ID_DOCUMENTO&quot;:&quot;575734&quot;,&quot;ATENDENTE&quot;:&quot;TR17958PS - MARCELO CAIXETA ROCHA&quot;,&quot;NOME_ATENDENTE&quot;:&quot;MARCELO CAIXETA ROCHA&quot;,&quot;DOCM_NR_DOCUMENTO&quot;:&quot;2014010001155011550160000390&quot;,&quot;DOCM_CD_MATRICULA_CADASTRO&quot;:&quot;TR300818&quot;,&quot;DOCM_DS_ASSUNTO_DOC&quot;:&quot;Favor alterar o DIV inferior na tela do sistema e-elei&amp;ccedil;&amp;atilde;o para que ele flutue caso o conte&amp;uacute;do da p&amp;aacute;gina se expanda al&amp;eacute;m da &amp;aacute;rea vis&amp;iacute;vel.\r\nPois isto facilitar&amp;aacute; a visualiza&amp;ccedil;&amp;atilde;o por parte dos desembargadores.&quot;,&quot;DOCM_DH_CADASTRO&quot;:&quot;25\/04\/2014 12:14:08&quot;,&quot;MASCARA_DOCM&quot;:&quot;2014\/TR\/DISAD\/390&quot;,&quot;NOME_USARIO_CADASTRO&quot;:&quot;GILMAR NONATO DOS SANTOS&quot;,&quot;MOFA_ID_MOVIMENTACAO&quot;:&quot;1032606&quot;,&quot;MOFA_DH_FASE&quot;:&quot;15\/05\/2014 14:41:43&quot;,&quot;MOFA_ID_FASE&quot;:&quot;1025&quot;,&quot;DATA_ATUAL&quot;:&quot;29\/05\/2014 09:11:44&quot;,&quot;MOVI_DH_ENCAMINHAMENTO&quot;:&quot;25\/04\/2014 12:33:38&quot;,&quot;TEMPO_TOTAL&quot;:&quot;48758,1&quot;,&quot;MODE_ID_CAIXA_ENTRADA&quot;:&quot;2&quot;,&quot;MODE_SG_SECAO_UNID_DESTINO&quot;:&quot;TR&quot;,&quot;MODE_CD_SECAO_UNID_DESTINO&quot;:&quot;1155&quot;,&quot;MOVIMENTACAO&quot;:&quot;25\/04\/2014 12:33:38&quot;,&quot;SSER_ID_SERVICO&quot;:&quot;196&quot;,&quot;SSER_DS_SERVICO&quot;:&quot;E-ELEI\u00c7\u00c3O - SISTEMA DE ELEI\u00c7\u00d5ES ELETR\u00d4NICAS DO TRF1&quot;,&quot;SESP_DH_LIMITE_ESP&quot;:null,&quot;ESPERA_FLAG&quot;:null,&quot;VINCULADA&quot;:&quot;0&quot;,&quot;SSPA_DT_PRAZO&quot;:null,&quot;OSIS_NM_OCORRENCIA&quot;:&quot;Necessidade De Evolu\u00e7\u00e3o\/Migra\u00e7\u00e3o De Dados\/Adeq&quot;,&quot;CTSS_NM_CATEGORIA_SERVICO&quot;:&quot;Manuten\u00e7\u00e3o Evolutiva (Projeto De Melhoria)&quot;,&quot;CTSS_ID_CATEGORIA_SERVICO&quot;:&quot;4&quot;,&quot;ASSO_IC_ATENDIMENTO_EMERGENCIA&quot;:&quot;N&quot;,&quot;ASSO_IC_SOLUCAO_PROBLEMA&quot;:&quot;S&quot;,&quot;ASSO_IC_SOLUCAO_CAUSA_PROBLEMA&quot;:&quot;N&quot;,&quot;ASIS_IC_NIVEL_CRITICIDADE&quot;:&quot;1&quot;,&quot;ASIS_PRZ_INICIO_ATENDIMENTO&quot;:&quot;3|DIA|2&quot;,&quot;ASIS_PRZ_SOL_PROBLEMA&quot;:null,&quot;ASIS_PRZ_SOL_CAUSA_PROBLEMA&quot;:null,&quot;ASIS_PRZ_EXECUCAO_SERVICO&quot;:&quot;3|M\u00caS|1&quot;,&quot;CORRETIVA&quot;:&quot;N&quot;}" checked="checked">
+                    </td>
+                    <td><a title="Favor alterar o DIV inferior na tela do sistema e-eleição para que ele flutue caso o conteúdo da página se expanda além da área visível.
+                           Pois isto facilitará a visualização por parte dos desembargadores." data-oldhref="#" href="#">2014/TR/DISAD/390</a></td>
+                    <td>18D 4h 52m 45s</td>
+                    <!--                        <td>TR300818 - GILMAR NONATO DOS SANTOS</td>-->
+                    <td>E-ELEIÇÃO - SISTEMA DE ELEIÇÕES ELETRÔNICAS DO TRF1</td>
+                    <td>MARCELO CAIXETA ROCHA</td>
+                    <td>
+                    </td>
+                    <td></td>
+                    <td>                            </td>
+                    <td title="Roxo: prazo restante >= 60% e prazo restante < 80%.">25/07/2014 12:33:38<span title=""><strong>62.8%</strong></span></td>
+                    <td>Necessidade De Evolução/Migração De Dados/Adeq - Manutenção Evolutiva (Projeto De Melhoria) - N.1</td>
+                </tr>
+
+                <tr name="rowList" value="575722">
+                    <td>
+                        <input id="575722" name="solicitacao[]" type="checkbox" value="{&quot;SSOL_ID_DOCUMENTO&quot;:&quot;575722&quot;,&quot;ATENDENTE&quot;:&quot;TR17958PS - MARCELO CAIXETA ROCHA&quot;,&quot;NOME_ATENDENTE&quot;:&quot;MARCELO CAIXETA ROCHA&quot;,&quot;DOCM_NR_DOCUMENTO&quot;:&quot;2014010001155011550160000389&quot;,&quot;DOCM_CD_MATRICULA_CADASTRO&quot;:&quot;TR300818&quot;,&quot;DOCM_DS_ASSUNTO_DOC&quot;:&quot;Favor verificar a possibilidade e  implementar a funcionalidade de guardar as informa&amp;ccedil;&amp;otilde;es da sess&amp;atilde;o, principalmente do Presidente, em Banco de Dados. De modo que se a rede cair durante a elei&amp;ccedil;&amp;atilde;o, o Presidente possa retomar a elei&amp;ccedil;&amp;atilde;o no ponto em que estava anteriormente &amp;agrave; queda da rede.&quot;,&quot;DOCM_DH_CADASTRO&quot;:&quot;25\/04\/2014 12:06:54&quot;,&quot;MASCARA_DOCM&quot;:&quot;2014\/TR\/DISAD\/389&quot;,&quot;NOME_USARIO_CADASTRO&quot;:&quot;GILMAR NONATO DOS SANTOS&quot;,&quot;MOFA_ID_MOVIMENTACAO&quot;:&quot;1032550&quot;,&quot;MOFA_DH_FASE&quot;:&quot;30\/04\/2014 15:41:37&quot;,&quot;MOFA_ID_FASE&quot;:&quot;1013&quot;,&quot;DATA_ATUAL&quot;:&quot;29\/05\/2014 09:11:44&quot;,&quot;MOVI_DH_ENCAMINHAMENTO&quot;:&quot;25\/04\/2014 12:07:51&quot;,&quot;TEMPO_TOTAL&quot;:&quot;48783,88&quot;,&quot;MODE_ID_CAIXA_ENTRADA&quot;:&quot;2&quot;,&quot;MODE_SG_SECAO_UNID_DESTINO&quot;:&quot;TR&quot;,&quot;MODE_CD_SECAO_UNID_DESTINO&quot;:&quot;1155&quot;,&quot;MOVIMENTACAO&quot;:&quot;25\/04\/2014 12:07:51&quot;,&quot;SSER_ID_SERVICO&quot;:&quot;196&quot;,&quot;SSER_DS_SERVICO&quot;:&quot;E-ELEI\u00c7\u00c3O - SISTEMA DE ELEI\u00c7\u00d5ES ELETR\u00d4NICAS DO TRF1&quot;,&quot;SESP_DH_LIMITE_ESP&quot;:null,&quot;ESPERA_FLAG&quot;:null,&quot;VINCULADA&quot;:&quot;0&quot;,&quot;SSPA_DT_PRAZO&quot;:null,&quot;OSIS_NM_OCORRENCIA&quot;:&quot;Necessidade De Evolu\u00e7\u00e3o\/Migra\u00e7\u00e3o De Dados\/Adeq&quot;,&quot;CTSS_NM_CATEGORIA_SERVICO&quot;:&quot;Manuten\u00e7\u00e3o Evolutiva (Projeto De Melhoria)&quot;,&quot;CTSS_ID_CATEGORIA_SERVICO&quot;:&quot;4&quot;,&quot;ASSO_IC_ATENDIMENTO_EMERGENCIA&quot;:&quot;N&quot;,&quot;ASSO_IC_SOLUCAO_PROBLEMA&quot;:&quot;S&quot;,&quot;ASSO_IC_SOLUCAO_CAUSA_PROBLEMA&quot;:&quot;N&quot;,&quot;ASIS_IC_NIVEL_CRITICIDADE&quot;:&quot;1&quot;,&quot;ASIS_PRZ_INICIO_ATENDIMENTO&quot;:&quot;3|DIA|2&quot;,&quot;ASIS_PRZ_SOL_PROBLEMA&quot;:null,&quot;ASIS_PRZ_SOL_CAUSA_PROBLEMA&quot;:null,&quot;ASIS_PRZ_EXECUCAO_SERVICO&quot;:&quot;3|M\u00caS|1&quot;,&quot;CORRETIVA&quot;:&quot;N&quot;}" checked="checked">
+                    </td>
+                    <td><a title="Favor verificar a possibilidade e  implementar a funcionalidade de guardar as informações da sessão, principalmente do Presidente, em Banco de Dados. De modo que se a rede cair durante a eleição, o Presidente possa retomar a eleição no ponto em que estava anteriormente à queda da rede." data-oldhref="#" href="#">2014/TR/DISAD/389</a></td>
+                    <td>19D 2h 35m 35s</td>
+                    <!--                        <td>TR300818 - GILMAR NONATO DOS SANTOS</td>-->
+                    <td>E-ELEIÇÃO - SISTEMA DE ELEIÇÕES ELETRÔNICAS DO TRF1</td>
+                    <td>MARCELO CAIXETA ROCHA</td>
+                    <td>
+                    </td>
+                    <td></td>
+                    <td>                            </td>
+                    <td title="Roxo: prazo restante >= 60% e prazo restante < 80%.">25/07/2014 12:07:51<span title=""><strong>62.8%</strong></span></td>
+                    <td>Necessidade De Evolução/Migração De Dados/Adeq - Manutenção Evolutiva (Projeto De Melhoria) - N.1</td>
+                </tr>
+
+                <tr name="rowList" value="479481">
+                    <td title="Resposta ao pedido de informação para solicitação de TI">
+                        <input id="479481" name="solicitacao[]" type="checkbox" value="{&quot;SSOL_ID_DOCUMENTO&quot;:&quot;479481&quot;,&quot;ATENDENTE&quot;:&quot;TR17958PS - MARCELO CAIXETA ROCHA&quot;,&quot;NOME_ATENDENTE&quot;:&quot;MARCELO CAIXETA ROCHA&quot;,&quot;DOCM_NR_DOCUMENTO&quot;:&quot;2013380000540005400160000154&quot;,&quot;DOCM_CD_MATRICULA_CADASTRO&quot;:&quot;MG155003&quot;,&quot;DOCM_DS_ASSUNTO_DOC&quot;:&quot;Solicito a rela&amp;ccedil;&amp;atilde;o e os curr&amp;iacute;culos dos candidatos inscritos no sistema e-conciliador j&amp;aacute; avaliados para 1&amp;ordf;, 2&amp;ordf; e 5&amp;ordf; varas da subse&amp;ccedil;&amp;atilde;o judici&amp;aacute;ria de Juiz de Fora neste ano de 2013. Ocorreu que ap&amp;oacute;s a avalia&amp;ccedil;&amp;atilde;o realizada, n&amp;atilde;o consigui mais vizualizar os dados dos candidatos. Obrigado.&quot;,&quot;DOCM_DH_CADASTRO&quot;:&quot;12\/11\/2013 16:33:51&quot;,&quot;MASCARA_DOCM&quot;:&quot;2013\/MG-JFO\/SECVA-1\u00aa VARA\/154&quot;,&quot;NOME_USARIO_CADASTRO&quot;:&quot;GERALDO GUALBERTO BRAGA&quot;,&quot;MOFA_ID_MOVIMENTACAO&quot;:&quot;1023899&quot;,&quot;MOFA_DH_FASE&quot;:&quot;13\/05\/2014 12:58:07&quot;,&quot;MOFA_ID_FASE&quot;:&quot;1025&quot;,&quot;DATA_ATUAL&quot;:&quot;29\/05\/2014 09:11:44&quot;,&quot;MOVI_DH_ENCAMINHAMENTO&quot;:&quot;15\/04\/2014 08:31:09&quot;,&quot;TEMPO_TOTAL&quot;:&quot;63400,58&quot;,&quot;MODE_ID_CAIXA_ENTRADA&quot;:&quot;2&quot;,&quot;MODE_SG_SECAO_UNID_DESTINO&quot;:&quot;TR&quot;,&quot;MODE_CD_SECAO_UNID_DESTINO&quot;:&quot;1155&quot;,&quot;MOVIMENTACAO&quot;:&quot;15\/04\/2014 08:31:09&quot;,&quot;SSER_ID_SERVICO&quot;:&quot;194&quot;,&quot;SSER_DS_SERVICO&quot;:&quot;E-CONCILIADOR - SISTEMA DE CONTROLE DE CADASTRO DE CANDIDATOS A CONCILIADORES&quot;,&quot;SESP_DH_LIMITE_ESP&quot;:null,&quot;ESPERA_FLAG&quot;:null,&quot;VINCULADA&quot;:&quot;0&quot;,&quot;SSPA_DT_PRAZO&quot;:null,&quot;OSIS_NM_OCORRENCIA&quot;:&quot;Comportamento Inadequado Do Sistema&quot;,&quot;CTSS_NM_CATEGORIA_SERVICO&quot;:&quot;Manuten\u00e7\u00e3o Corretiva&quot;,&quot;CTSS_ID_CATEGORIA_SERVICO&quot;:&quot;2&quot;,&quot;ASSO_IC_ATENDIMENTO_EMERGENCIA&quot;:&quot;S&quot;,&quot;ASSO_IC_SOLUCAO_PROBLEMA&quot;:&quot;S&quot;,&quot;ASSO_IC_SOLUCAO_CAUSA_PROBLEMA&quot;:&quot;N&quot;,&quot;ASIS_IC_NIVEL_CRITICIDADE&quot;:&quot;3&quot;,&quot;ASIS_PRZ_INICIO_ATENDIMENTO&quot;:&quot;12|HORA|2&quot;,&quot;ASIS_PRZ_SOL_PROBLEMA&quot;:&quot;24|HORA|2&quot;,&quot;ASIS_PRZ_SOL_CAUSA_PROBLEMA&quot;:&quot;32|HORA|2&quot;,&quot;ASIS_PRZ_EXECUCAO_SERVICO&quot;:&quot;3|M\u00caS|1&quot;,&quot;CORRETIVA&quot;:&quot;S&quot;}" checked="checked">
+                    </td>
+                    <td><a title="Solicito a relação e os currículos dos candidatos inscritos no sistema e-conciliador já avaliados para 1ª, 2ª e 5ª varas da subseção judiciária de Juiz de Fora neste ano de 2013. Ocorreu que após a avaliação realizada, não consigui mais vizualizar os dados dos candidatos. Obrigado." data-oldhref="#" href="#">2013/MG-JFO/SECVA-1ª VARA/154</a></td>
+                    <td>24D 2h 9m 58s</td>
+                    <!--                        <td>MG155003 - GERALDO GUALBERTO BRAGA</td>-->
+                    <td>E-CONCILIADOR - SISTEMA DE CONTROLE DE CADASTRO DE CANDIDATOS A CONCILIADORES</td>
+                    <td>MARCELO CAIXETA ROCHA</td>
+                    <td>
+                    </td>
+                    <td></td>
+                    <td>                                <span class="erro"></span> 
+                    </td>
+                    <td title="Vermelho: prazo restante < 0%">22D 4h 9m 59s<span title=""><strong>-1209%</strong></span></td>
+                    <td>Comportamento Inadequado Do Sistema - <span><strong>Manutenção Corretiva</strong></span> - N.3 Tipo: Problema</td>
+                </tr>
+
+                <tr name="rowList" value="521523">
+                    <td title="Resposta ao pedido de informação para solicitação de TI">
+                        <input id="521523" name="solicitacao[]" type="checkbox" value="{&quot;SSOL_ID_DOCUMENTO&quot;:&quot;521523&quot;,&quot;ATENDENTE&quot;:&quot;TR17958PS - MARCELO CAIXETA ROCHA&quot;,&quot;NOME_ATENDENTE&quot;:&quot;MARCELO CAIXETA ROCHA&quot;,&quot;DOCM_NR_DOCUMENTO&quot;:&quot;2014320000200002000160000004&quot;,&quot;DOCM_CD_MATRICULA_CADASTRO&quot;:&quot;AM10403&quot;,&quot;DOCM_DS_ASSUNTO_DOC&quot;:&quot;solicito que ao abrir o eadmin, seja acessada diretamente a caixa da SESUD\/SECAD. (Creio que o sistema mudou automaticamente para a caixa da SAD\/SECD, ap&amp;oacute;s meu cadastro no SARH na SAD\/SECAD).&quot;,&quot;DOCM_DH_CADASTRO&quot;:&quot;30\/01\/2014 11:37:35&quot;,&quot;MASCARA_DOCM&quot;:&quot;2014\/AM\/SAD\/4&quot;,&quot;NOME_USARIO_CADASTRO&quot;:&quot;MONICA SANTOS ASSAYAG&quot;,&quot;MOFA_ID_MOVIMENTACAO&quot;:&quot;926582&quot;,&quot;MOFA_DH_FASE&quot;:&quot;09\/04\/2014 14:31:09&quot;,&quot;MOFA_ID_FASE&quot;:&quot;1025&quot;,&quot;DATA_ATUAL&quot;:&quot;29\/05\/2014 09:11:44&quot;,&quot;MOVI_DH_ENCAMINHAMENTO&quot;:&quot;31\/01\/2014 14:55:51&quot;,&quot;TEMPO_TOTAL&quot;:&quot;169575,88&quot;,&quot;MODE_ID_CAIXA_ENTRADA&quot;:&quot;2&quot;,&quot;MODE_SG_SECAO_UNID_DESTINO&quot;:&quot;TR&quot;,&quot;MODE_CD_SECAO_UNID_DESTINO&quot;:&quot;1155&quot;,&quot;MOVIMENTACAO&quot;:&quot;31\/01\/2014 14:55:51&quot;,&quot;SSER_ID_SERVICO&quot;:&quot;192&quot;,&quot;SSER_DS_SERVICO&quot;:&quot;E-SISAD - SISTEMA DE GERENCIAMENTO E CONTROLE DE DOCUMENTOS E PROCESSOS ADMINISTRATIVOS DIGITAIS&quot;,&quot;SESP_DH_LIMITE_ESP&quot;:null,&quot;ESPERA_FLAG&quot;:null,&quot;VINCULADA&quot;:&quot;0&quot;,&quot;SSPA_DT_PRAZO&quot;:null,&quot;OSIS_NM_OCORRENCIA&quot;:&quot;Necessidade De Evolu\u00e7\u00e3o\/Migra\u00e7\u00e3o De Dados\/Adeq&quot;,&quot;CTSS_NM_CATEGORIA_SERVICO&quot;:&quot;Manuten\u00e7\u00e3o Evolutiva (Projeto De Melhoria)&quot;,&quot;CTSS_ID_CATEGORIA_SERVICO&quot;:&quot;4&quot;,&quot;ASSO_IC_ATENDIMENTO_EMERGENCIA&quot;:&quot;N&quot;,&quot;ASSO_IC_SOLUCAO_PROBLEMA&quot;:&quot;S&quot;,&quot;ASSO_IC_SOLUCAO_CAUSA_PROBLEMA&quot;:&quot;N&quot;,&quot;ASIS_IC_NIVEL_CRITICIDADE&quot;:&quot;1&quot;,&quot;ASIS_PRZ_INICIO_ATENDIMENTO&quot;:&quot;3|DIA|2&quot;,&quot;ASIS_PRZ_SOL_PROBLEMA&quot;:null,&quot;ASIS_PRZ_SOL_CAUSA_PROBLEMA&quot;:null,&quot;ASIS_PRZ_EXECUCAO_SERVICO&quot;:&quot;3|M\u00caS|1&quot;,&quot;CORRETIVA&quot;:&quot;N&quot;}" checked="checked">
+                    </td>
+                    <td><a title="solicito que ao abrir o eadmin, seja acessada diretamente a caixa da SESUD/SECAD. (Creio que o sistema mudou automaticamente para a caixa da SAD/SECD, após meu cadastro no SARH na SAD/SECAD)." data-oldhref="#" href="#">2014/AM/SAD/4</a></td>
+                    <td>66D 8h 16m 16s</td>
+                    <!--                        <td>AM10403 - MONICA SANTOS ASSAYAG</td>-->
+                    <td>E-SISAD - SISTEMA DE GERENCIAMENTO E CONTROLE DE DOCUMENTOS E PROCESSOS ADMINISTRATIVOS DIGITAIS</td>
+                    <td>MARCELO CAIXETA ROCHA</td>
+                    <td>
+                    </td>
+                    <td></td>
+                    <td>                            </td>
+                    <td title="Vermelho: prazo restante < 0%">01/05/2014 14:55:51<span title=""><strong>-30.8%</strong></span></td>
+                    <td>Necessidade De Evolução/Migração De Dados/Adeq - Manutenção Evolutiva (Projeto De Melhoria) - N.1</td>
+                </tr>
+
+                <tr name="rowList" value="486992">
+                    <td>
+                        <input id="486992" name="solicitacao[]" type="checkbox" value="{&quot;SSOL_ID_DOCUMENTO&quot;:&quot;486992&quot;,&quot;ATENDENTE&quot;:&quot;TR17958PS - MARCELO CAIXETA ROCHA&quot;,&quot;NOME_ATENDENTE&quot;:&quot;MARCELO CAIXETA ROCHA&quot;,&quot;DOCM_NR_DOCUMENTO&quot;:&quot;2013010001152011520160000995&quot;,&quot;DOCM_CD_MATRICULA_CADASTRO&quot;:&quot;TR47303&quot;,&quot;DOCM_DS_ASSUNTO_DOC&quot;:&quot;Realizar as altera&amp;ccedil;&amp;otilde;es no e-Sosti conforme o documento anexo.&quot;,&quot;DOCM_DH_CADASTRO&quot;:&quot;26\/11\/2013 10:28:09&quot;,&quot;MASCARA_DOCM&quot;:&quot;2013\/TR\/DISIJ\/995&quot;,&quot;NOME_USARIO_CADASTRO&quot;:&quot;GERALDO AFONSO DOS SANTOS SILVA&quot;,&quot;MOFA_ID_MOVIMENTACAO&quot;:&quot;852658&quot;,&quot;MOFA_DH_FASE&quot;:&quot;26\/11\/2013 12:12:17&quot;,&quot;MOFA_ID_FASE&quot;:&quot;1013&quot;,&quot;DATA_ATUAL&quot;:&quot;29\/05\/2014 09:11:44&quot;,&quot;MOVI_DH_ENCAMINHAMENTO&quot;:&quot;26\/11\/2013 10:32:25&quot;,&quot;TEMPO_TOTAL&quot;:&quot;264879,31&quot;,&quot;MODE_ID_CAIXA_ENTRADA&quot;:&quot;2&quot;,&quot;MODE_SG_SECAO_UNID_DESTINO&quot;:&quot;TR&quot;,&quot;MODE_CD_SECAO_UNID_DESTINO&quot;:&quot;1155&quot;,&quot;MOVIMENTACAO&quot;:&quot;26\/11\/2013 10:32:25&quot;,&quot;SSER_ID_SERVICO&quot;:&quot;5952&quot;,&quot;SSER_DS_SERVICO&quot;:&quot;E-SOSTI SISTEMA DE ATENDIMENTO A SOLICITA\u00c7\u00d5ES DE TI&quot;,&quot;SESP_DH_LIMITE_ESP&quot;:null,&quot;ESPERA_FLAG&quot;:null,&quot;VINCULADA&quot;:&quot;0&quot;,&quot;SSPA_DT_PRAZO&quot;:null,&quot;OSIS_NM_OCORRENCIA&quot;:&quot;Necessidade De Evolu\u00e7\u00e3o\/Migra\u00e7\u00e3o De Dados\/Adeq&quot;,&quot;CTSS_NM_CATEGORIA_SERVICO&quot;:&quot;Manuten\u00e7\u00e3o Evolutiva (Projeto De Melhoria)&quot;,&quot;CTSS_ID_CATEGORIA_SERVICO&quot;:&quot;4&quot;,&quot;ASSO_IC_ATENDIMENTO_EMERGENCIA&quot;:&quot;N&quot;,&quot;ASSO_IC_SOLUCAO_PROBLEMA&quot;:&quot;S&quot;,&quot;ASSO_IC_SOLUCAO_CAUSA_PROBLEMA&quot;:&quot;N&quot;,&quot;ASIS_IC_NIVEL_CRITICIDADE&quot;:&quot;1&quot;,&quot;ASIS_PRZ_INICIO_ATENDIMENTO&quot;:&quot;3|DIA|2&quot;,&quot;ASIS_PRZ_SOL_PROBLEMA&quot;:null,&quot;ASIS_PRZ_SOL_CAUSA_PROBLEMA&quot;:null,&quot;ASIS_PRZ_EXECUCAO_SERVICO&quot;:&quot;3|M\u00caS|1&quot;,&quot;CORRETIVA&quot;:&quot;N&quot;}" checked="checked">
+                    </td>
+                    <td><a title="Realizar as alterações no e-Sosti conforme o documento anexo." data-oldhref="#" href="#">2013/TR/DISIJ/995</a></td>
+                    <td>107D 3h 56m 20s</td>
+                    <!--                        <td>TR47303 - GERALDO AFONSO DOS SANTOS SILVA</td>-->
+                    <td>E-SOSTI SISTEMA DE ATENDIMENTO A SOLICITAÇÕES DE TI</td>
+                    <td>MARCELO CAIXETA ROCHA</td>
+                    <td>
+                    </td>
+                    <td></td>
+                    <td>                            </td>
+                    <td title="Vermelho: prazo restante < 0%">26/02/2014 10:32:25<span title=""><strong>-99.9%</strong></span></td>
+                    <td>Necessidade De Evolução/Migração De Dados/Adeq - Manutenção Evolutiva (Projeto De Melhoria) - N.1</td>
+                </tr>
+
+                <tr name="rowList" value="461095">
+                    <td>
+                        <input id="461095" name="solicitacao[]" type="checkbox" value="{&quot;SSOL_ID_DOCUMENTO&quot;:&quot;461095&quot;,&quot;ATENDENTE&quot;:&quot;TR17958PS - MARCELO CAIXETA ROCHA&quot;,&quot;NOME_ATENDENTE&quot;:&quot;MARCELO CAIXETA ROCHA&quot;,&quot;DOCM_NR_DOCUMENTO&quot;:&quot;2013010001155011550160000737&quot;,&quot;DOCM_CD_MATRICULA_CADASTRO&quot;:&quot;TR300882&quot;,&quot;DOCM_DS_ASSUNTO_DOC&quot;:&quot;Favor corrigir o erro que ocorre quando eu tento anexar um arquivo, que j&amp;aacute; foi anexado a um sosti, em um outro sosti.\r\nO sistema deve aproveitar a refer&amp;ecirc;ncia e permitir que seja anexado, e n&amp;atilde;o impedir como hoje faz;&quot;,&quot;DOCM_DH_CADASTRO&quot;:&quot;14\/10\/2013 17:13:38&quot;,&quot;MASCARA_DOCM&quot;:&quot;2013\/TR\/DISAD\/737&quot;,&quot;NOME_USARIO_CADASTRO&quot;:&quot;TIAGO DINIZ BRASILEIRO LIRA&quot;,&quot;MOFA_ID_MOVIMENTACAO&quot;:&quot;827712&quot;,&quot;MOFA_DH_FASE&quot;:&quot;09\/05\/2014 11:15:41&quot;,&quot;MOFA_ID_FASE&quot;:&quot;1013&quot;,&quot;DATA_ATUAL&quot;:&quot;29\/05\/2014 09:11:44&quot;,&quot;MOVI_DH_ENCAMINHAMENTO&quot;:&quot;05\/11\/2013 15:49:45&quot;,&quot;TEMPO_TOTAL&quot;:&quot;294801,98&quot;,&quot;MODE_ID_CAIXA_ENTRADA&quot;:&quot;2&quot;,&quot;MODE_SG_SECAO_UNID_DESTINO&quot;:&quot;TR&quot;,&quot;MODE_CD_SECAO_UNID_DESTINO&quot;:&quot;1155&quot;,&quot;MOVIMENTACAO&quot;:&quot;05\/11\/2013 15:49:45&quot;,&quot;SSER_ID_SERVICO&quot;:&quot;5952&quot;,&quot;SSER_DS_SERVICO&quot;:&quot;E-SOSTI SISTEMA DE ATENDIMENTO A SOLICITA\u00c7\u00d5ES DE TI&quot;,&quot;SESP_DH_LIMITE_ESP&quot;:null,&quot;ESPERA_FLAG&quot;:null,&quot;VINCULADA&quot;:&quot;0&quot;,&quot;SSPA_DT_PRAZO&quot;:null,&quot;OSIS_NM_OCORRENCIA&quot;:&quot;Necessidade De Evolu\u00e7\u00e3o\/Migra\u00e7\u00e3o De Dados\/Adeq&quot;,&quot;CTSS_NM_CATEGORIA_SERVICO&quot;:&quot;Manuten\u00e7\u00e3o Evolutiva (Projeto De Melhoria)&quot;,&quot;CTSS_ID_CATEGORIA_SERVICO&quot;:&quot;4&quot;,&quot;ASSO_IC_ATENDIMENTO_EMERGENCIA&quot;:&quot;N&quot;,&quot;ASSO_IC_SOLUCAO_PROBLEMA&quot;:&quot;S&quot;,&quot;ASSO_IC_SOLUCAO_CAUSA_PROBLEMA&quot;:&quot;N&quot;,&quot;ASIS_IC_NIVEL_CRITICIDADE&quot;:&quot;1&quot;,&quot;ASIS_PRZ_INICIO_ATENDIMENTO&quot;:&quot;3|DIA|2&quot;,&quot;ASIS_PRZ_SOL_PROBLEMA&quot;:null,&quot;ASIS_PRZ_SOL_CAUSA_PROBLEMA&quot;:null,&quot;ASIS_PRZ_EXECUCAO_SERVICO&quot;:&quot;3|M\u00caS|1&quot;,&quot;CORRETIVA&quot;:&quot;N&quot;}" checked="checked">
+                    </td>
+                    <td><a title="Favor corrigir o erro que ocorre quando eu tento anexar um arquivo, que já foi anexado a um sosti, em um outro sosti.
+                           O sistema deve aproveitar a referência e permitir que seja anexado, e não impedir como hoje faz;" data-oldhref="#" href="#">2013/TR/DISAD/737</a></td>
+                    <td>118D 8h 46m 17s</td>
+                    <!--                        <td>TR300882 - TIAGO DINIZ BRASILEIRO LIRA</td>-->
+                    <td>E-SOSTI SISTEMA DE ATENDIMENTO A SOLICITAÇÕES DE TI</td>
+                    <td>MARCELO CAIXETA ROCHA</td>
+                    <td>
+                    </td>
+                    <td></td>
+                    <td>                            </td>
+                    <td title="Vermelho: prazo restante < 0%">05/02/2014 15:49:45<span title=""><strong>-122.6%</strong></span></td>
+                    <td>Necessidade De Evolução/Migração De Dados/Adeq - Manutenção Evolutiva (Projeto De Melhoria) - N.1</td>
+                </tr>
+
+                <tr name="rowList" value="459597" marcado="marcado">
+                    <td>
+                        <input id="459597" name="solicitacao[]" type="checkbox" value="{&quot;SSOL_ID_DOCUMENTO&quot;:&quot;459597&quot;,&quot;ATENDENTE&quot;:&quot;TR17958PS - MARCELO CAIXETA ROCHA&quot;,&quot;NOME_ATENDENTE&quot;:&quot;MARCELO CAIXETA ROCHA&quot;,&quot;DOCM_NR_DOCUMENTO&quot;:&quot;2013410000280002800160000003&quot;,&quot;DOCM_CD_MATRICULA_CADASTRO&quot;:&quot;RO380190&quot;,&quot;DOCM_DS_ASSUNTO_DOC&quot;:&quot;Embora a Subse&amp;ccedil;&amp;atilde;oo de Vilhena esteja funcionando desde o dia 26\/09\/2013, at&amp;eacute; o presente momento os servidores que aqui laboram, inclusive eu, n&amp;atilde;o conseguiram utilizar o e-sisad (e-admin), por falhas do sistema. No presente momento n&amp;atilde;o consigo abrir, nem receber os novos processos autuados no e-admin. Pede para aguardar mas n&amp;atilde;o abre, conforme tela em anexo. Saliento que &amp;eacute; de extrema URG&amp;Ecirc;NCIA a resolu&amp;ccedil;&amp;atilde;o desses problemas, pois sou o respons&amp;aacute;vel pelos pagamentos dos contratos, o que n&amp;atilde;oo pude realizar at&amp;eacute; o momento, estando os mesmos, suscet&amp;iacute;veis a juros e multas.&quot;,&quot;DOCM_DH_CADASTRO&quot;:&quot;11\/10\/2013 10:58:44&quot;,&quot;MASCARA_DOCM&quot;:&quot;2013\/RO-VHA\/SESAP\/3&quot;,&quot;NOME_USARIO_CADASTRO&quot;:&quot;URBESON DE JESUS GON\u00c7ALVES&quot;,&quot;MOFA_ID_MOVIMENTACAO&quot;:&quot;806322&quot;,&quot;MOFA_DH_FASE&quot;:&quot;13\/01\/2014 16:24:13&quot;,&quot;MOFA_ID_FASE&quot;:&quot;1028&quot;,&quot;DATA_ATUAL&quot;:&quot;29\/05\/2014 09:11:44&quot;,&quot;MOVI_DH_ENCAMINHAMENTO&quot;:&quot;17\/10\/2013 14:31:00&quot;,&quot;TEMPO_TOTAL&quot;:&quot;322240,73&quot;,&quot;MODE_ID_CAIXA_ENTRADA&quot;:&quot;2&quot;,&quot;MODE_SG_SECAO_UNID_DESTINO&quot;:&quot;TR&quot;,&quot;MODE_CD_SECAO_UNID_DESTINO&quot;:&quot;1155&quot;,&quot;MOVIMENTACAO&quot;:&quot;17\/10\/2013 14:31:00&quot;,&quot;SSER_ID_SERVICO&quot;:&quot;192&quot;,&quot;SSER_DS_SERVICO&quot;:&quot;E-SISAD - SISTEMA DE GERENCIAMENTO E CONTROLE DE DOCUMENTOS E PROCESSOS ADMINISTRATIVOS DIGITAIS&quot;,&quot;SESP_DH_LIMITE_ESP&quot;:null,&quot;ESPERA_FLAG&quot;:null,&quot;VINCULADA&quot;:&quot;1&quot;,&quot;SSPA_DT_PRAZO&quot;:null,&quot;OSIS_NM_OCORRENCIA&quot;:&quot;Comportamento Inadequado Do Sistema&quot;,&quot;CTSS_NM_CATEGORIA_SERVICO&quot;:&quot;Manuten\u00e7\u00e3o Corretiva&quot;,&quot;CTSS_ID_CATEGORIA_SERVICO&quot;:&quot;2&quot;,&quot;ASSO_IC_ATENDIMENTO_EMERGENCIA&quot;:&quot;S&quot;,&quot;ASSO_IC_SOLUCAO_PROBLEMA&quot;:&quot;S&quot;,&quot;ASSO_IC_SOLUCAO_CAUSA_PROBLEMA&quot;:&quot;N&quot;,&quot;ASIS_IC_NIVEL_CRITICIDADE&quot;:&quot;1&quot;,&quot;ASIS_PRZ_INICIO_ATENDIMENTO&quot;:&quot;0|HORA|2&quot;,&quot;ASIS_PRZ_SOL_PROBLEMA&quot;:&quot;6|HORA|2&quot;,&quot;ASIS_PRZ_SOL_CAUSA_PROBLEMA&quot;:&quot;9|HORA|2&quot;,&quot;ASIS_PRZ_EXECUCAO_SERVICO&quot;:&quot;3|M\u00caS|1&quot;,&quot;CORRETIVA&quot;:&quot;S&quot;}" checked="checked">
+                    </td>
+                    <td><a title="Embora a Subseçãoo de Vilhena esteja funcionando desde o dia 26/09/2013, até o presente momento os servidores que aqui laboram, inclusive eu, não conseguiram utilizar o e-sisad (e-admin), por falhas do sistema. No presente momento não consigo abrir, nem receber os novos processos autuados no e-admin. Pede para aguardar mas não abre, conforme tela em anexo. Saliento que é de extrema URGÊNCIA a resolução desses problemas, pois sou o responsável pelos pagamentos dos contratos, o que nãoo pude realizar até o momento, estando os mesmos, suscetíveis a juros e multas." data-oldhref="#" href="#">2013/RO-VHA/SESAP/3</a></td>
+                    <td>142D 7h 17m 0s</td>
+                    <!--                        <td>RO380190 - URBESON DE JESUS GONÇALVES</td>-->
+                    <td>E-SISAD - SISTEMA DE GERENCIAMENTO E CONTROLE DE DOCUMENTOS E PROCESSOS ADMINISTRATIVOS DIGITAIS</td>
+                    <td>MARCELO CAIXETA ROCHA</td>
+                    <td>
+                    </td>
+                    <td>SIM</td>
+                    <td>                                <span class="alerta"></span> 
+                    </td>
+                    <td title="Vermelho: prazo restante < 0%">142D 1h 17m 0s<span title=""><strong>-30788.1%</strong></span></td>
+                    <td>Comportamento Inadequado Do Sistema - <span><strong>Manutenção Corretiva</strong></span> - N.1 Tipo: Problema</td>
+                </tr>
+
+                <tr name="rowList" value="459938">
+                    <td>
+                        <input id="459938" name="solicitacao[]" type="checkbox" value="{&quot;SSOL_ID_DOCUMENTO&quot;:&quot;459938&quot;,&quot;ATENDENTE&quot;:&quot;TR17958PS - MARCELO CAIXETA ROCHA&quot;,&quot;NOME_ATENDENTE&quot;:&quot;MARCELO CAIXETA ROCHA&quot;,&quot;DOCM_NR_DOCUMENTO&quot;:&quot;2013380000817008170160000436&quot;,&quot;DOCM_CD_MATRICULA_CADASTRO&quot;:&quot;MG144003&quot;,&quot;DOCM_DS_ASSUNTO_DOC&quot;:&quot;Favor verificar pq a matricula MG1010653, Silas Santos, n&amp;atilde;o consegue acessar o sistema de cadastro de conciliadores&quot;,&quot;DOCM_DH_CADASTRO&quot;:&quot;11\/10\/2013 14:37:11&quot;,&quot;MASCARA_DOCM&quot;:&quot;2013\/MG\/SEMAD\/436&quot;,&quot;NOME_USARIO_CADASTRO&quot;:&quot;GISELLE CALDEIRA DE CASTRO SILVA&quot;,&quot;MOFA_ID_MOVIMENTACAO&quot;:&quot;800149&quot;,&quot;MOFA_DH_FASE&quot;:&quot;06\/11\/2013 10:11:20&quot;,&quot;MOFA_ID_FASE&quot;:&quot;1013&quot;,&quot;DATA_ATUAL&quot;:&quot;29\/05\/2014 09:11:44&quot;,&quot;MOVI_DH_ENCAMINHAMENTO&quot;:&quot;14\/10\/2013 11:24:00&quot;,&quot;TEMPO_TOTAL&quot;:&quot;326747,73&quot;,&quot;MODE_ID_CAIXA_ENTRADA&quot;:&quot;2&quot;,&quot;MODE_SG_SECAO_UNID_DESTINO&quot;:&quot;TR&quot;,&quot;MODE_CD_SECAO_UNID_DESTINO&quot;:&quot;1155&quot;,&quot;MOVIMENTACAO&quot;:&quot;14\/10\/2013 11:24:00&quot;,&quot;SSER_ID_SERVICO&quot;:&quot;194&quot;,&quot;SSER_DS_SERVICO&quot;:&quot;E-CONCILIADOR - SISTEMA DE CONTROLE DE CADASTRO DE CANDIDATOS A CONCILIADORES&quot;,&quot;SESP_DH_LIMITE_ESP&quot;:null,&quot;ESPERA_FLAG&quot;:null,&quot;VINCULADA&quot;:&quot;0&quot;,&quot;SSPA_DT_PRAZO&quot;:null,&quot;OSIS_NM_OCORRENCIA&quot;:&quot;Necessidade De Adequa\u00e7\u00e3o&quot;,&quot;CTSS_NM_CATEGORIA_SERVICO&quot;:&quot;Manuten\u00e7\u00e3o Adaptativa&quot;,&quot;CTSS_ID_CATEGORIA_SERVICO&quot;:&quot;3&quot;,&quot;ASSO_IC_ATENDIMENTO_EMERGENCIA&quot;:&quot;N&quot;,&quot;ASSO_IC_SOLUCAO_PROBLEMA&quot;:&quot;S&quot;,&quot;ASSO_IC_SOLUCAO_CAUSA_PROBLEMA&quot;:&quot;N&quot;,&quot;ASIS_IC_NIVEL_CRITICIDADE&quot;:&quot;1&quot;,&quot;ASIS_PRZ_INICIO_ATENDIMENTO&quot;:&quot;3|DIA|2&quot;,&quot;ASIS_PRZ_SOL_PROBLEMA&quot;:null,&quot;ASIS_PRZ_SOL_CAUSA_PROBLEMA&quot;:null,&quot;ASIS_PRZ_EXECUCAO_SERVICO&quot;:&quot;3|M\u00caS|1&quot;,&quot;CORRETIVA&quot;:&quot;N&quot;}">
+                    </td>
+                    <td><a title="Favor verificar pq a matricula MG1010653, Silas Santos, não consegue acessar o sistema de cadastro de conciliadores" data-oldhref="#" href="#">2013/MG/SEMAD/436</a></td>
+                    <td>132D 7h 26m 32s</td>
+                    <!--                        <td>MG144003 - GISELLE CALDEIRA DE CASTRO SILVA</td>-->
+                    <td>E-CONCILIADOR - SISTEMA DE CONTROLE DE CADASTRO DE CANDIDATOS A CONCILIADORES</td>
+                    <td>MARCELO CAIXETA ROCHA</td>
+                    <td>
+                    </td>
+                    <td></td>
+                    <td>                            </td>
+                    <td title="Vermelho: prazo restante < 0%">14/01/2014 11:24:00<span title=""><strong>-146.8%</strong></span></td>
+                    <td>Necessidade De Adequação - Manutenção Adaptativa - N.1</td>
+                </tr>
+
+                <tr name="rowList" value="447069">
+                    <td>
+                        <input id="447069" name="solicitacao[]" type="checkbox" value="{&quot;SSOL_ID_DOCUMENTO&quot;:&quot;447069&quot;,&quot;ATENDENTE&quot;:&quot;TR17958PS - MARCELO CAIXETA ROCHA&quot;,&quot;NOME_ATENDENTE&quot;:&quot;MARCELO CAIXETA ROCHA&quot;,&quot;DOCM_NR_DOCUMENTO&quot;:&quot;2013380000540005400160000132&quot;,&quot;DOCM_CD_MATRICULA_CADASTRO&quot;:&quot;MG155003&quot;,&quot;DOCM_DS_ASSUNTO_DOC&quot;:&quot;solicito a cria&amp;ccedil;&amp;atilde;o da op&amp;ccedil;&amp;atilde;o &amp;#039;Coordena&amp;ccedil;&amp;atilde;o dos Juizados Especiais da Subse&amp;ccedil;&amp;atilde;o de Juiz de Fora - COJEF.JFA&amp;#039; para inscri&amp;ccedil;&amp;atilde;o dos candidatos a conciliador para a Subse&amp;ccedil;&amp;atilde;o de Juiz de Fora. a op&amp;ccedil;&amp;atilde;o deve ser criada no endere&amp;ccedil;o &amp;#039;http:\/\/www.trf1.jus.br\/app\/e-Conciliador\/candidato\/cadastro\/add&amp;#039; para preenchimento pelo candidato.&quot;,&quot;DOCM_DH_CADASTRO&quot;:&quot;24\/09\/2013 11:09:34&quot;,&quot;MASCARA_DOCM&quot;:&quot;2013\/MG-JFO\/SECVA-1\u00aa VARA\/132&quot;,&quot;NOME_USARIO_CADASTRO&quot;:&quot;GERALDO GUALBERTO BRAGA&quot;,&quot;MOFA_ID_MOVIMENTACAO&quot;:&quot;776919&quot;,&quot;MOFA_DH_FASE&quot;:&quot;06\/11\/2013 10:11:19&quot;,&quot;MOFA_ID_FASE&quot;:&quot;1013&quot;,&quot;DATA_ATUAL&quot;:&quot;29\/05\/2014 09:11:44&quot;,&quot;MOVI_DH_ENCAMINHAMENTO&quot;:&quot;26\/09\/2013 07:52:59&quot;,&quot;TEMPO_TOTAL&quot;:&quot;352878,75&quot;,&quot;MODE_ID_CAIXA_ENTRADA&quot;:&quot;2&quot;,&quot;MODE_SG_SECAO_UNID_DESTINO&quot;:&quot;TR&quot;,&quot;MODE_CD_SECAO_UNID_DESTINO&quot;:&quot;1155&quot;,&quot;MOVIMENTACAO&quot;:&quot;26\/09\/2013 07:52:59&quot;,&quot;SSER_ID_SERVICO&quot;:&quot;194&quot;,&quot;SSER_DS_SERVICO&quot;:&quot;E-CONCILIADOR - SISTEMA DE CONTROLE DE CADASTRO DE CANDIDATOS A CONCILIADORES&quot;,&quot;SESP_DH_LIMITE_ESP&quot;:null,&quot;ESPERA_FLAG&quot;:null,&quot;VINCULADA&quot;:&quot;0&quot;,&quot;SSPA_DT_PRAZO&quot;:null,&quot;OSIS_NM_OCORRENCIA&quot;:&quot;Comportamento Inadequado Do Sistema&quot;,&quot;CTSS_NM_CATEGORIA_SERVICO&quot;:&quot;Manuten\u00e7\u00e3o Corretiva&quot;,&quot;CTSS_ID_CATEGORIA_SERVICO&quot;:&quot;2&quot;,&quot;ASSO_IC_ATENDIMENTO_EMERGENCIA&quot;:&quot;S&quot;,&quot;ASSO_IC_SOLUCAO_PROBLEMA&quot;:&quot;S&quot;,&quot;ASSO_IC_SOLUCAO_CAUSA_PROBLEMA&quot;:&quot;N&quot;,&quot;ASIS_IC_NIVEL_CRITICIDADE&quot;:&quot;1&quot;,&quot;ASIS_PRZ_INICIO_ATENDIMENTO&quot;:&quot;0|HORA|2&quot;,&quot;ASIS_PRZ_SOL_PROBLEMA&quot;:&quot;6|HORA|2&quot;,&quot;ASIS_PRZ_SOL_CAUSA_PROBLEMA&quot;:&quot;9|HORA|2&quot;,&quot;ASIS_PRZ_EXECUCAO_SERVICO&quot;:&quot;3|M\u00caS|1&quot;,&quot;CORRETIVA&quot;:&quot;S&quot;}">
+                    </td>
+                    <td><a title="solicito a criação da opção 'Coordenação dos Juizados Especiais da Subseção de Juiz de Fora - COJEF.JFA' para inscrição dos candidatos a conciliador para a Subseção de Juiz de Fora. a opção deve ser criada no endereço 'http://www.trf1.jus.br/app/e-Conciliador/candidato/cadastro/add' para preenchimento pelo candidato." data-oldhref="#" href="#">2013/MG-JFO/SECVA-1ª VARA/132</a></td>
+                    <td>169D 1h 18m 45s</td>
+                    <!--                        <td>MG155003 - GERALDO GUALBERTO BRAGA</td>-->
+                    <td>E-CONCILIADOR - SISTEMA DE CONTROLE DE CADASTRO DE CANDIDATOS A CONCILIADORES</td>
+                    <td>MARCELO CAIXETA ROCHA</td>
+                    <td>
+                    </td>
+                    <td></td>
+                    <td>                                <span class="alerta"></span> 
+                    </td>
+                    <td title="Vermelho: prazo restante < 0%">168D 8h 18m 44s<span title=""><strong>-36538.5%</strong></span></td>
+                    <td>Comportamento Inadequado Do Sistema - <span><strong>Manutenção Corretiva</strong></span> - N.1 Tipo: Problema</td>
+                </tr>
+
+                <tr name="rowList" value="393753">
+                    <td>
+                        <input id="393753" name="solicitacao[]" type="checkbox" value="{&quot;SSOL_ID_DOCUMENTO&quot;:&quot;393753&quot;,&quot;ATENDENTE&quot;:&quot;TR17958PS - MARCELO CAIXETA ROCHA&quot;,&quot;NOME_ATENDENTE&quot;:&quot;MARCELO CAIXETA ROCHA&quot;,&quot;DOCM_NR_DOCUMENTO&quot;:&quot;2013010001152011520160000468&quot;,&quot;DOCM_CD_MATRICULA_CADASTRO&quot;:&quot;TR47303&quot;,&quot;DOCM_DS_ASSUNTO_DOC&quot;:&quot;Prezados,\r\n           No teste de grava&amp;ccedil;&amp;atilde;o de arquivos com outras extens&amp;otilde;es, apresentou problemas no CADASTRO DE DOCUMENTOS, que continua dispon&amp;iacute;vel apenas para arquivos .PDF.\r\n           Todas as telas e funcionalidades que permitem a anexa&amp;ccedil;&amp;atilde;o de documentos necessitam ser alteradas no treinamento para que possam ser colocadas em produ&amp;ccedil;&amp;atilde;o com a corre&amp;ccedil;&amp;atilde;o realizada.\r\n            Atenciosamente,\r\n               Afonso&quot;,&quot;DOCM_DH_CADASTRO&quot;:&quot;05\/07\/2013 12:25:58&quot;,&quot;MASCARA_DOCM&quot;:&quot;2013\/TR\/DISIJ\/468&quot;,&quot;NOME_USARIO_CADASTRO&quot;:&quot;GERALDO AFONSO DOS SANTOS SILVA&quot;,&quot;MOFA_ID_MOVIMENTACAO&quot;:&quot;667135&quot;,&quot;MOFA_DH_FASE&quot;:&quot;27\/05\/2014 09:03:52&quot;,&quot;MOFA_ID_FASE&quot;:&quot;1035&quot;,&quot;DATA_ATUAL&quot;:&quot;29\/05\/2014 09:11:44&quot;,&quot;MOVI_DH_ENCAMINHAMENTO&quot;:&quot;05\/07\/2013 12:27:54&quot;,&quot;TEMPO_TOTAL&quot;:&quot;472123,83&quot;,&quot;MODE_ID_CAIXA_ENTRADA&quot;:&quot;2&quot;,&quot;MODE_SG_SECAO_UNID_DESTINO&quot;:&quot;TR&quot;,&quot;MODE_CD_SECAO_UNID_DESTINO&quot;:&quot;1155&quot;,&quot;MOVIMENTACAO&quot;:&quot;05\/07\/2013 12:27:54&quot;,&quot;SSER_ID_SERVICO&quot;:&quot;192&quot;,&quot;SSER_DS_SERVICO&quot;:&quot;E-SISAD - SISTEMA DE GERENCIAMENTO E CONTROLE DE DOCUMENTOS E PROCESSOS ADMINISTRATIVOS DIGITAIS&quot;,&quot;SESP_DH_LIMITE_ESP&quot;:null,&quot;ESPERA_FLAG&quot;:null,&quot;VINCULADA&quot;:&quot;1&quot;,&quot;SSPA_DT_PRAZO&quot;:null,&quot;OSIS_NM_OCORRENCIA&quot;:&quot;Necessidade De Adequa\u00e7\u00e3o&quot;,&quot;CTSS_NM_CATEGORIA_SERVICO&quot;:&quot;Manuten\u00e7\u00e3o Adaptativa&quot;,&quot;CTSS_ID_CATEGORIA_SERVICO&quot;:&quot;3&quot;,&quot;ASSO_IC_ATENDIMENTO_EMERGENCIA&quot;:&quot;N&quot;,&quot;ASSO_IC_SOLUCAO_PROBLEMA&quot;:&quot;S&quot;,&quot;ASSO_IC_SOLUCAO_CAUSA_PROBLEMA&quot;:&quot;N&quot;,&quot;ASIS_IC_NIVEL_CRITICIDADE&quot;:&quot;1&quot;,&quot;ASIS_PRZ_INICIO_ATENDIMENTO&quot;:&quot;3|DIA|2&quot;,&quot;ASIS_PRZ_SOL_PROBLEMA&quot;:null,&quot;ASIS_PRZ_SOL_CAUSA_PROBLEMA&quot;:null,&quot;ASIS_PRZ_EXECUCAO_SERVICO&quot;:&quot;3|M\u00caS|1&quot;,&quot;CORRETIVA&quot;:&quot;N&quot;}">
+                    </td>
+                    <td><a title="Prezados,
+                           No teste de gravação de arquivos com outras extensões, apresentou problemas no CADASTRO DE DOCUMENTOS, que continua disponível apenas para arquivos .PDF.
+                           Todas as telas e funcionalidades que permitem a anexação de documentos necessitam ser alteradas no treinamento para que possam ser colocadas em produção com a correção realizada.
+                           Atenciosamente,
+                           Afonso" data-oldhref="#" href="#">2013/TR/DISIJ/468</a></td>
+                    <td>189D 4h 46m 40s</td>
+                    <!--                        <td>TR47303 - GERALDO AFONSO DOS SANTOS SILVA</td>-->
+                    <td>E-SISAD - SISTEMA DE GERENCIAMENTO E CONTROLE DE DOCUMENTOS E PROCESSOS ADMINISTRATIVOS DIGITAIS</td>
+                    <td>MARCELO CAIXETA ROCHA</td>
+                    <td>
+                    </td>
+                    <td>SIM</td>
+                    <td>                            </td>
+                    <td title="Vermelho: prazo restante < 0%">05/10/2013 12:27:54<span title=""><strong>-256.4%</strong></span></td>
+                    <td>Necessidade De Adequação - Manutenção Adaptativa - N.1</td>
+                </tr>
+
+                <tr name="rowList" value="386502">
+                    <td title="Resposta ao pedido de informação para solicitação de TI">
+                        <input id="386502" name="solicitacao[]" type="checkbox" value="{&quot;SSOL_ID_DOCUMENTO&quot;:&quot;386502&quot;,&quot;ATENDENTE&quot;:&quot;TR17958PS - MARCELO CAIXETA ROCHA&quot;,&quot;NOME_ATENDENTE&quot;:&quot;MARCELO CAIXETA ROCHA&quot;,&quot;DOCM_NR_DOCUMENTO&quot;:&quot;2013430000074000740160000006&quot;,&quot;DOCM_CD_MATRICULA_CADASTRO&quot;:&quot;TO10103&quot;,&quot;DOCM_DS_ASSUNTO_DOC&quot;:&quot;Solicito que o Diretor do Foro e o Diretor da Secad sejam autorizados automaticamente a acessar as caixas das unidades a eles subordinadas. Dever&amp;aacute; haver permiss&amp;atilde;o de acesso ao Diretor do Foro e ao Diretor da Secad para as caixas de todas as unidades da Secad e Diref.&quot;,&quot;DOCM_DH_CADASTRO&quot;:&quot;25\/06\/2013 08:57:10&quot;,&quot;MASCARA_DOCM&quot;:&quot;2013\/TO\/SECAD\/6&quot;,&quot;NOME_USARIO_CADASTRO&quot;:&quot;RICARDO ANTONIO NOGUEIRA PEREIRA&quot;,&quot;MOFA_ID_MOVIMENTACAO&quot;:&quot;659615&quot;,&quot;MOFA_DH_FASE&quot;:&quot;17\/09\/2013 15:26:09&quot;,&quot;MOFA_ID_FASE&quot;:&quot;1025&quot;,&quot;DATA_ATUAL&quot;:&quot;29\/05\/2014 09:11:44&quot;,&quot;MOVI_DH_ENCAMINHAMENTO&quot;:&quot;28\/06\/2013 14:57:51&quot;,&quot;TEMPO_TOTAL&quot;:&quot;482053,88&quot;,&quot;MODE_ID_CAIXA_ENTRADA&quot;:&quot;2&quot;,&quot;MODE_SG_SECAO_UNID_DESTINO&quot;:&quot;TR&quot;,&quot;MODE_CD_SECAO_UNID_DESTINO&quot;:&quot;1155&quot;,&quot;MOVIMENTACAO&quot;:&quot;28\/06\/2013 14:57:51&quot;,&quot;SSER_ID_SERVICO&quot;:&quot;192&quot;,&quot;SSER_DS_SERVICO&quot;:&quot;E-SISAD - SISTEMA DE GERENCIAMENTO E CONTROLE DE DOCUMENTOS E PROCESSOS ADMINISTRATIVOS DIGITAIS&quot;,&quot;SESP_DH_LIMITE_ESP&quot;:null,&quot;ESPERA_FLAG&quot;:null,&quot;VINCULADA&quot;:&quot;0&quot;,&quot;SSPA_DT_PRAZO&quot;:null,&quot;OSIS_NM_OCORRENCIA&quot;:&quot;Necessidade De Evolu\u00e7\u00e3o\/Migra\u00e7\u00e3o De Dados\/Adeq&quot;,&quot;CTSS_NM_CATEGORIA_SERVICO&quot;:&quot;Manuten\u00e7\u00e3o Evolutiva (Projeto De Melhoria)&quot;,&quot;CTSS_ID_CATEGORIA_SERVICO&quot;:&quot;4&quot;,&quot;ASSO_IC_ATENDIMENTO_EMERGENCIA&quot;:&quot;N&quot;,&quot;ASSO_IC_SOLUCAO_PROBLEMA&quot;:&quot;S&quot;,&quot;ASSO_IC_SOLUCAO_CAUSA_PROBLEMA&quot;:&quot;N&quot;,&quot;ASIS_IC_NIVEL_CRITICIDADE&quot;:&quot;1&quot;,&quot;ASIS_PRZ_INICIO_ATENDIMENTO&quot;:&quot;3|DIA|2&quot;,&quot;ASIS_PRZ_SOL_PROBLEMA&quot;:null,&quot;ASIS_PRZ_SOL_CAUSA_PROBLEMA&quot;:null,&quot;ASIS_PRZ_EXECUCAO_SERVICO&quot;:&quot;3|M\u00caS|1&quot;,&quot;CORRETIVA&quot;:&quot;N&quot;}">
+                    </td>
+                    <td><a title="Solicito que o Diretor do Foro e o Diretor da Secad sejam autorizados automaticamente a acessar as caixas das unidades a eles subordinadas. Deverá haver permissão de acesso ao Diretor do Foro e ao Diretor da Secad para as caixas de todas as unidades da Secad e Diref." data-oldhref="#" href="#">2013/TO/SECAD/6</a></td>
+                    <td>194D 7h 59m 48s</td>
+                    <!--                        <td>TO10103 - RICARDO ANTONIO NOGUEIRA PEREIRA</td>-->
+                    <td>E-SISAD - SISTEMA DE GERENCIAMENTO E CONTROLE DE DOCUMENTOS E PROCESSOS ADMINISTRATIVOS DIGITAIS</td>
+                    <td>MARCELO CAIXETA ROCHA</td>
+                    <td>
+                    </td>
+                    <td></td>
+                    <td>                            </td>
+                    <td title="Vermelho: prazo restante < 0%">28/09/2013 14:57:51<span title=""><strong>-263.9%</strong></span></td>
+                    <td>Necessidade De Evolução/Migração De Dados/Adeq - Manutenção Evolutiva (Projeto De Melhoria) - N.1</td>
+                </tr>
+
+                <tr name="rowList" value="354678">
+                    <td>
+                        <input id="354678" name="solicitacao[]" type="checkbox" value="{&quot;SSOL_ID_DOCUMENTO&quot;:&quot;354678&quot;,&quot;ATENDENTE&quot;:&quot;TR17958PS - MARCELO CAIXETA ROCHA&quot;,&quot;NOME_ATENDENTE&quot;:&quot;MARCELO CAIXETA ROCHA&quot;,&quot;DOCM_NR_DOCUMENTO&quot;:&quot;2013350000278002780160000423&quot;,&quot;DOCM_CD_MATRICULA_CADASTRO&quot;:&quot;GO1045PS&quot;,&quot;DOCM_DS_ASSUNTO_DOC&quot;:&quot;Favor implementar algo como &amp;quot;registro reservado&amp;quot; no sistema E-Admin. Impedindo que mais de um usu&amp;aacute;rio fa&amp;ccedil;a altera&amp;ccedil;&amp;atilde;o num mesmo Sosti.\r\nN&amp;oacute;s, do atendimento na &amp;aacute;rea de inform&amp;aacute;tica, quando vamos encaminhar ou dar baixa em um Sosti, se outra pessoa tamb&amp;eacute;m estiver fazendo alguma altera&amp;ccedil;&amp;atilde;o no mesmo momento, a altera&amp;ccedil;&amp;atilde;o que vale &amp;eacute; a &amp;uacute;ltima.\r\nEx: Se eu clicar em &amp;quot;Baixar&amp;quot; e outro atendente tamb&amp;eacute;m, o Sosti constar&amp;aacute; baixado pelo usu&amp;aacute;rio que o fizer por &amp;uacute;ltimo. Mesmo eu tendo baixado o Sosti segundos antes.&quot;,&quot;DOCM_DH_CADASTRO&quot;:&quot;08\/05\/2013 11:44:21&quot;,&quot;MASCARA_DOCM&quot;:&quot;2013\/GO\/NUTEC\/423&quot;,&quot;NOME_USARIO_CADASTRO&quot;:&quot;THIAGO GOMES CARNEIRO&quot;,&quot;MOFA_ID_MOVIMENTACAO&quot;:&quot;593277&quot;,&quot;MOFA_DH_FASE&quot;:&quot;30\/10\/2013 09:55:33&quot;,&quot;MOFA_ID_FASE&quot;:&quot;1035&quot;,&quot;DATA_ATUAL&quot;:&quot;29\/05\/2014 09:11:44&quot;,&quot;MOVI_DH_ENCAMINHAMENTO&quot;:&quot;08\/05\/2013 12:48:26&quot;,&quot;TEMPO_TOTAL&quot;:&quot;555623,3&quot;,&quot;MODE_ID_CAIXA_ENTRADA&quot;:&quot;2&quot;,&quot;MODE_SG_SECAO_UNID_DESTINO&quot;:&quot;TR&quot;,&quot;MODE_CD_SECAO_UNID_DESTINO&quot;:&quot;1155&quot;,&quot;MOVIMENTACAO&quot;:&quot;08\/05\/2013 12:48:26&quot;,&quot;SSER_ID_SERVICO&quot;:&quot;5952&quot;,&quot;SSER_DS_SERVICO&quot;:&quot;E-SOSTI SISTEMA DE ATENDIMENTO A SOLICITA\u00c7\u00d5ES DE TI&quot;,&quot;SESP_DH_LIMITE_ESP&quot;:null,&quot;ESPERA_FLAG&quot;:null,&quot;VINCULADA&quot;:&quot;1&quot;,&quot;SSPA_DT_PRAZO&quot;:&quot;19\/08\/2013 23:59:00&quot;,&quot;OSIS_NM_OCORRENCIA&quot;:&quot;Necessidade De Evolu\u00e7\u00e3o\/Migra\u00e7\u00e3o De Dados\/Adeq&quot;,&quot;CTSS_NM_CATEGORIA_SERVICO&quot;:&quot;Manuten\u00e7\u00e3o Evolutiva (Projeto De Melhoria)&quot;,&quot;CTSS_ID_CATEGORIA_SERVICO&quot;:&quot;4&quot;,&quot;ASSO_IC_ATENDIMENTO_EMERGENCIA&quot;:&quot;N&quot;,&quot;ASSO_IC_SOLUCAO_PROBLEMA&quot;:&quot;S&quot;,&quot;ASSO_IC_SOLUCAO_CAUSA_PROBLEMA&quot;:&quot;N&quot;,&quot;ASIS_IC_NIVEL_CRITICIDADE&quot;:&quot;1&quot;,&quot;ASIS_PRZ_INICIO_ATENDIMENTO&quot;:&quot;3|DIA|2&quot;,&quot;ASIS_PRZ_SOL_PROBLEMA&quot;:null,&quot;ASIS_PRZ_SOL_CAUSA_PROBLEMA&quot;:null,&quot;ASIS_PRZ_EXECUCAO_SERVICO&quot;:&quot;3|M\u00caS|1&quot;,&quot;CORRETIVA&quot;:&quot;N&quot;}">
+                    </td>
+                    <td><a title="Favor implementar algo como &quot;registro reservado&quot; no sistema E-Admin. Impedindo que mais de um usuário faça alteração num mesmo Sosti.
+                           Nós, do atendimento na área de informática, quando vamos encaminhar ou dar baixa em um Sosti, se outra pessoa também estiver fazendo alguma alteração no mesmo momento, a alteração que vale é a última.
+                           Ex: Se eu clicar em &quot;Baixar&quot; e outro atendente também, o Sosti constará baixado pelo usuário que o fizer por último. Mesmo eu tendo baixado o Sosti segundos antes." data-oldhref="#" href="#">2013/GO/NUTEC/423</a></td>
+                    <td>224D 1h 38m 41s</td>
+                    <!--                        <td>GO1045PS - THIAGO GOMES CARNEIRO</td>-->
+                    <td>E-SOSTI SISTEMA DE ATENDIMENTO A SOLICITAÇÕES DE TI</td>
+                    <td>MARCELO CAIXETA ROCHA</td>
+                    <td>
+                    </td>
+                    <td>SIM</td>
+                    <td>                            </td>
+                    <td title="Vermelho: prazo restante < 0%">19/08/2013 23:59:00<span title=""><strong>-272.9%</strong></span></td>
+                    <td>Necessidade De Evolução/Migração De Dados/Adeq - Manutenção Evolutiva (Projeto De Melhoria) - N.1</td>
+                </tr>
+
+                <tr name="rowList" value="229243">
+                    <td>
+                        <input id="229243" name="solicitacao[]" type="checkbox" value="{&quot;SSOL_ID_DOCUMENTO&quot;:&quot;229243&quot;,&quot;ATENDENTE&quot;:&quot;TR17958PS - MARCELO CAIXETA ROCHA&quot;,&quot;NOME_ATENDENTE&quot;:&quot;MARCELO CAIXETA ROCHA&quot;,&quot;DOCM_NR_DOCUMENTO&quot;:&quot;2012330000518005180160000712&quot;,&quot;DOCM_CD_MATRICULA_CADASTRO&quot;:&quot;BA80125PS&quot;,&quot;DOCM_DS_ASSUNTO_DOC&quot;:&quot;Senhores, \r\nSolicito o bloqueio da op&amp;ccedil;&amp;atilde;o de recusa, no menu de avalia&amp;ccedil;&amp;atilde;o, apos decorridas as 24h da baixa da solicita&amp;ccedil;&amp;atilde;o. Ocorre v&amp;aacute;rias recusas indevidas, pois os usuarios apenas recusam as solicita&amp;ccedil;&amp;otilde;es, para conseguirem registrar outras solicita&amp;ccedil;&amp;otilde;es.&quot;,&quot;DOCM_DH_CADASTRO&quot;:&quot;09\/10\/2012 13:56:41&quot;,&quot;MASCARA_DOCM&quot;:&quot;2012\/BA\/NUTEC\/712&quot;,&quot;NOME_USARIO_CADASTRO&quot;:&quot;CLEOPATRA FREITAS DE JESUS&quot;,&quot;MOFA_ID_MOVIMENTACAO&quot;:&quot;407056&quot;,&quot;MOFA_DH_FASE&quot;:&quot;26\/03\/2014 14:42:02&quot;,&quot;MOFA_ID_FASE&quot;:&quot;1028&quot;,&quot;DATA_ATUAL&quot;:&quot;29\/05\/2014 09:11:44&quot;,&quot;MOVI_DH_ENCAMINHAMENTO&quot;:&quot;22\/11\/2012 11:13:38&quot;,&quot;TEMPO_TOTAL&quot;:&quot;796198,09&quot;,&quot;MODE_ID_CAIXA_ENTRADA&quot;:&quot;2&quot;,&quot;MODE_SG_SECAO_UNID_DESTINO&quot;:&quot;TR&quot;,&quot;MODE_CD_SECAO_UNID_DESTINO&quot;:&quot;1155&quot;,&quot;MOVIMENTACAO&quot;:&quot;22\/11\/2012 11:13:38&quot;,&quot;SSER_ID_SERVICO&quot;:&quot;5952&quot;,&quot;SSER_DS_SERVICO&quot;:&quot;E-SOSTI SISTEMA DE ATENDIMENTO A SOLICITA\u00c7\u00d5ES DE TI&quot;,&quot;SESP_DH_LIMITE_ESP&quot;:null,&quot;ESPERA_FLAG&quot;:null,&quot;VINCULADA&quot;:&quot;1&quot;,&quot;SSPA_DT_PRAZO&quot;:null,&quot;OSIS_NM_OCORRENCIA&quot;:null,&quot;CTSS_NM_CATEGORIA_SERVICO&quot;:null,&quot;CTSS_ID_CATEGORIA_SERVICO&quot;:null,&quot;ASSO_IC_ATENDIMENTO_EMERGENCIA&quot;:null,&quot;ASSO_IC_SOLUCAO_PROBLEMA&quot;:null,&quot;ASSO_IC_SOLUCAO_CAUSA_PROBLEMA&quot;:null,&quot;ASIS_IC_NIVEL_CRITICIDADE&quot;:null,&quot;ASIS_PRZ_INICIO_ATENDIMENTO&quot;:null,&quot;ASIS_PRZ_SOL_PROBLEMA&quot;:null,&quot;ASIS_PRZ_SOL_CAUSA_PROBLEMA&quot;:null,&quot;ASIS_PRZ_EXECUCAO_SERVICO&quot;:null,&quot;CORRETIVA&quot;:&quot;N&quot;}">
+                    </td>
+                    <td><a title="Senhores, 
+                           Solicito o bloqueio da opção de recusa, no menu de avaliação, apos decorridas as 24h da baixa da solicitação. Ocorre várias recusas indevidas, pois os usuarios apenas recusam as solicitações, para conseguirem registrar outras solicitações." data-oldhref="#" href="#">2012/BA/NUTEC/712</a></td>
+                    <td>324D 8h 26m 5s</td>
+                    <!--                        <td>BA80125PS - CLEOPATRA FREITAS DE JESUS</td>-->
+                    <td>E-SOSTI SISTEMA DE ATENDIMENTO A SOLICITAÇÕES DE TI</td>
+                    <td>MARCELO CAIXETA ROCHA</td>
+                    <td>
+                    </td>
+                    <td>SIM</td>
+                    <td>                            </td>
+                    <td title="Vermelho: prazo restante < 0%"><span title=""><strong></strong></span></td>
+                    <td></td>
+                </tr>
+
+                <tr name="rowList" value="253469">
+                    <td>
+                        <input id="253469" name="solicitacao[]" type="checkbox" value="{&quot;SSOL_ID_DOCUMENTO&quot;:&quot;253469&quot;,&quot;ATENDENTE&quot;:&quot;TR17958PS - MARCELO CAIXETA ROCHA&quot;,&quot;NOME_ATENDENTE&quot;:&quot;MARCELO CAIXETA ROCHA&quot;,&quot;DOCM_NR_DOCUMENTO&quot;:&quot;2012010001220012200160000119&quot;,&quot;DOCM_CD_MATRICULA_CADASTRO&quot;:&quot;TR47303&quot;,&quot;DOCM_DS_ASSUNTO_DOC&quot;:&quot;Constru&amp;ccedil;&amp;atilde;o do sistema e-Auditoria, com os requisitos iniciais em anexo. Este &amp;eacute; um sistema que deve estar&amp;aacute; em constru&amp;ccedil;&amp;atilde;o paralela com os demais sistemas do e-Admin.\r\n          Este sistema est&amp;aacute; mais voltado para consulta &amp;agrave;s informa&amp;ccedil;&amp;otilde;es geradas pelos demais sistemas e utilizar&amp;aacute; todos os recursos de comunica&amp;ccedil;&amp;atilde;o j&amp;aacute; existanete no e-Sisad.\r\n          Acrescentar as seguintes funcionalidades que n&amp;atilde;o constam do documento anexo de forma especifica :\r\n             - Integra&amp;ccedil;&amp;atilde;o com o sistema e-Or&amp;ccedil;amento, prevendo a sua entrada em produ&amp;ccedil;&amp;atilde;o;\r\n             - As integra&amp;ccedil;&amp;otilde;es e funcionalidades de acesso aos sistemas e-Almoxarifado, e-Patrim&amp;ocirc;nio, e_Licita&amp;ccedil;&amp;atilde;o, e-Contratos, e-Compras e e-OS, devem constar como requisito destes projetos.\r\n          Quaisquer d&amp;uacute;vidas na constru&amp;ccedil;&amp;atilde;o das funcionalidades, favor me consultarem.\r\n          Apresentar um cronograma de execu&amp;ccedil;&amp;atilde;o.\r\n          Quando estiver pronto no link de treinamento, criar o servi&amp;ccedil;o : e-Auditoria - Sistema de Acompanhamento de Atividades do Controle Interno.\r\n\r\n           Atenciosamente,\r\n                  Afonso&quot;,&quot;DOCM_DH_CADASTRO&quot;:&quot;20\/11\/2012 10:58:07&quot;,&quot;MASCARA_DOCM&quot;:&quot;2012\/TR\/SESUD\/119&quot;,&quot;NOME_USARIO_CADASTRO&quot;:&quot;GERALDO AFONSO DOS SANTOS SILVA&quot;,&quot;MOFA_ID_MOVIMENTACAO&quot;:&quot;402371&quot;,&quot;MOFA_DH_FASE&quot;:&quot;25\/11\/2013 20:52:11&quot;,&quot;MOFA_ID_FASE&quot;:&quot;1013&quot;,&quot;DATA_ATUAL&quot;:&quot;29\/05\/2014 09:11:44&quot;,&quot;MOVI_DH_ENCAMINHAMENTO&quot;:&quot;20\/11\/2012 11:13:56&quot;,&quot;TEMPO_TOTAL&quot;:&quot;799077,79&quot;,&quot;MODE_ID_CAIXA_ENTRADA&quot;:&quot;2&quot;,&quot;MODE_SG_SECAO_UNID_DESTINO&quot;:&quot;TR&quot;,&quot;MODE_CD_SECAO_UNID_DESTINO&quot;:&quot;1155&quot;,&quot;MOVIMENTACAO&quot;:&quot;20\/11\/2012 11:13:56&quot;,&quot;SSER_ID_SERVICO&quot;:&quot;192&quot;,&quot;SSER_DS_SERVICO&quot;:&quot;E-SISAD - SISTEMA DE GERENCIAMENTO E CONTROLE DE DOCUMENTOS E PROCESSOS ADMINISTRATIVOS DIGITAIS&quot;,&quot;SESP_DH_LIMITE_ESP&quot;:null,&quot;ESPERA_FLAG&quot;:null,&quot;VINCULADA&quot;:&quot;0&quot;,&quot;SSPA_DT_PRAZO&quot;:null,&quot;OSIS_NM_OCORRENCIA&quot;:null,&quot;CTSS_NM_CATEGORIA_SERVICO&quot;:null,&quot;CTSS_ID_CATEGORIA_SERVICO&quot;:null,&quot;ASSO_IC_ATENDIMENTO_EMERGENCIA&quot;:null,&quot;ASSO_IC_SOLUCAO_PROBLEMA&quot;:null,&quot;ASSO_IC_SOLUCAO_CAUSA_PROBLEMA&quot;:null,&quot;ASIS_IC_NIVEL_CRITICIDADE&quot;:null,&quot;ASIS_PRZ_INICIO_ATENDIMENTO&quot;:null,&quot;ASIS_PRZ_SOL_PROBLEMA&quot;:null,&quot;ASIS_PRZ_SOL_CAUSA_PROBLEMA&quot;:null,&quot;ASIS_PRZ_EXECUCAO_SERVICO&quot;:null,&quot;CORRETIVA&quot;:&quot;N&quot;}">
+                    </td>
+                    <td><a title="Construção do sistema e-Auditoria, com os requisitos iniciais em anexo. Este é um sistema que deve estará em construção paralela com os demais sistemas do e-Admin.
+                           Este sistema está mais voltado para consulta às informações geradas pelos demais sistemas e utilizará todos os recursos de comunicação já existanete no e-Sisad.
+                           Acrescentar as seguintes funcionalidades que não constam do documento anexo de forma especifica :
+                           - Integração com o sistema e-Orçamento, prevendo a sua entrada em produção;
+                           - As integrações e funcionalidades de acesso aos sistemas e-Almoxarifado, e-Patrimônio, e_Licitação, e-Contratos, e-Compras e e-OS, devem constar como requisito destes projetos.
+                           Quaisquer dúvidas na construção das funcionalidades, favor me consultarem.
+                           Apresentar um cronograma de execução.
+                           Quando estiver pronto no link de treinamento, criar o serviço : e-Auditoria - Sistema de Acompanhamento de Atividades do Controle Interno.
+
+                           Atenciosamente,
+                           Afonso" data-oldhref="#" href="#">2012/TR/SESUD/119</a></td>
+                    <td>326D 5h 2m 45s</td>
+                    <!--                        <td>TR47303 - GERALDO AFONSO DOS SANTOS SILVA</td>-->
+                    <td>E-SISAD - SISTEMA DE GERENCIAMENTO E CONTROLE DE DOCUMENTOS E PROCESSOS ADMINISTRATIVOS DIGITAIS</td>
+                    <td>MARCELO CAIXETA ROCHA</td>
+                    <td>
+                    </td>
+                    <td></td>
+                    <td>                            </td>
+                    <td title="Vermelho: prazo restante < 0%"><span title=""><strong></strong></span></td>
+                    <td></td>
+                </tr>
+
+                <tr name="rowList" value="203943">
+                    <td>
+                        <input id="203943" name="solicitacao[]" type="checkbox" value="{&quot;SSOL_ID_DOCUMENTO&quot;:&quot;203943&quot;,&quot;ATENDENTE&quot;:&quot;TR17958PS - MARCELO CAIXETA ROCHA&quot;,&quot;NOME_ATENDENTE&quot;:&quot;MARCELO CAIXETA ROCHA&quot;,&quot;DOCM_NR_DOCUMENTO&quot;:&quot;2012010001529015290160000051&quot;,&quot;DOCM_CD_MATRICULA_CADASTRO&quot;:&quot;TR137104&quot;,&quot;DOCM_DS_ASSUNTO_DOC&quot;:&quot;ATIVAR SISTEMA DE ENCAMINHAR OF&amp;Iacute;CIOS VIA E-MAILS PARA VARAS FEDERAIS EM NOME DO JUIZ FEDERAL C&amp;Eacute;SAR JATAHY FONSECA  Em aux&amp;iacute;lio &amp;agrave; Corregedoria Regional da Justi&amp;ccedil;a Federal da 1&amp;ordf; Regi&amp;atilde;o&quot;,&quot;DOCM_DH_CADASTRO&quot;:&quot;29\/08\/2012 12:24:24&quot;,&quot;MASCARA_DOCM&quot;:&quot;2012\/TR\/SEAPE\/51&quot;,&quot;NOME_USARIO_CADASTRO&quot;:&quot;ELIANE FERREIRA BASTOS&quot;,&quot;MOFA_ID_MOVIMENTACAO&quot;:&quot;315580&quot;,&quot;MOFA_DH_FASE&quot;:&quot;02\/04\/2014 11:40:34&quot;,&quot;MOFA_ID_FASE&quot;:&quot;1028&quot;,&quot;DATA_ATUAL&quot;:&quot;29\/05\/2014 09:11:44&quot;,&quot;MOVI_DH_ENCAMINHAMENTO&quot;:&quot;03\/09\/2012 16:49:52&quot;,&quot;TEMPO_TOTAL&quot;:&quot;911061,86&quot;,&quot;MODE_ID_CAIXA_ENTRADA&quot;:&quot;2&quot;,&quot;MODE_SG_SECAO_UNID_DESTINO&quot;:&quot;TR&quot;,&quot;MODE_CD_SECAO_UNID_DESTINO&quot;:&quot;1155&quot;,&quot;MOVIMENTACAO&quot;:&quot;03\/09\/2012 16:49:52&quot;,&quot;SSER_ID_SERVICO&quot;:&quot;192&quot;,&quot;SSER_DS_SERVICO&quot;:&quot;E-SISAD - SISTEMA DE GERENCIAMENTO E CONTROLE DE DOCUMENTOS E PROCESSOS ADMINISTRATIVOS DIGITAIS&quot;,&quot;SESP_DH_LIMITE_ESP&quot;:null,&quot;ESPERA_FLAG&quot;:null,&quot;VINCULADA&quot;:&quot;0&quot;,&quot;SSPA_DT_PRAZO&quot;:null,&quot;OSIS_NM_OCORRENCIA&quot;:null,&quot;CTSS_NM_CATEGORIA_SERVICO&quot;:null,&quot;CTSS_ID_CATEGORIA_SERVICO&quot;:null,&quot;ASSO_IC_ATENDIMENTO_EMERGENCIA&quot;:null,&quot;ASSO_IC_SOLUCAO_PROBLEMA&quot;:null,&quot;ASSO_IC_SOLUCAO_CAUSA_PROBLEMA&quot;:null,&quot;ASIS_IC_NIVEL_CRITICIDADE&quot;:null,&quot;ASIS_PRZ_INICIO_ATENDIMENTO&quot;:null,&quot;ASIS_PRZ_SOL_PROBLEMA&quot;:null,&quot;ASIS_PRZ_SOL_CAUSA_PROBLEMA&quot;:null,&quot;ASIS_PRZ_EXECUCAO_SERVICO&quot;:null,&quot;CORRETIVA&quot;:&quot;N&quot;}">
+                    </td>
+                    <td><a title="ATIVAR SISTEMA DE ENCAMINHAR OFÍCIOS VIA E-MAILS PARA VARAS FEDERAIS EM NOME DO JUIZ FEDERAL CÉSAR JATAHY FONSECA  Em auxílio à Corregedoria Regional da Justiça Federal da 1ª Região" data-oldhref="#" href="#">2012/TR/SEAPE/51</a></td>
+                    <td>369D 2h 0m 2s</td>
+                    <!--                        <td>TR137104 - ELIANE FERREIRA BASTOS</td>-->
+                    <td>E-SISAD - SISTEMA DE GERENCIAMENTO E CONTROLE DE DOCUMENTOS E PROCESSOS ADMINISTRATIVOS DIGITAIS</td>
+                    <td>MARCELO CAIXETA ROCHA</td>
+                    <td>
+                    </td>
+                    <td></td>
+                    <td>                            </td>
+                    <td title="Vermelho: prazo restante < 0%"><span title=""><strong></strong></span></td>
+                    <td></td>
+                </tr>
+
+                <tr name="rowList" value="176749">
+                    <td>
+                        <input id="176749" name="solicitacao[]" type="checkbox" value="{&quot;SSOL_ID_DOCUMENTO&quot;:&quot;176749&quot;,&quot;ATENDENTE&quot;:&quot;TR17958PS - MARCELO CAIXETA ROCHA&quot;,&quot;NOME_ATENDENTE&quot;:&quot;MARCELO CAIXETA ROCHA&quot;,&quot;DOCM_NR_DOCUMENTO&quot;:&quot;2012010001287012870160000052&quot;,&quot;DOCM_CD_MATRICULA_CADASTRO&quot;:&quot;TR78303&quot;,&quot;DOCM_DS_ASSUNTO_DOC&quot;:&quot;Solicitamos revis&amp;atilde;o no sistema e-SISAD na rotina de consulta &amp;quot;CAIXA UNIDADE&amp;quot;, pois nas op&amp;ccedil;&amp;otilde;es &amp;quot;Processos da Unidade&amp;quot;, &amp;quot;Documentos da Unidade&amp;quot; e &amp;quot;Encaminhados&amp;quot; n&amp;atilde;o est&amp;aacute; sendo apresentado nenhum documento da unidade DICAD, e como pode ser confirmado nas telas constantes do arquivo em anexo era para mostrar alguns documentos.&quot;,&quot;DOCM_DH_CADASTRO&quot;:&quot;17\/07\/2012 17:51:13&quot;,&quot;MASCARA_DOCM&quot;:&quot;2012\/TR\/SEAUC\/52&quot;,&quot;NOME_USARIO_CADASTRO&quot;:&quot;RENE SOARES DA SILVA&quot;,&quot;MOFA_ID_MOVIMENTACAO&quot;:&quot;265886&quot;,&quot;MOFA_DH_FASE&quot;:&quot;25\/11\/2013 20:52:13&quot;,&quot;MOFA_ID_FASE&quot;:&quot;1013&quot;,&quot;DATA_ATUAL&quot;:&quot;29\/05\/2014 09:11:44&quot;,&quot;MOVI_DH_ENCAMINHAMENTO&quot;:&quot;23\/07\/2012 14:42:29&quot;,&quot;TEMPO_TOTAL&quot;:&quot;971669,25&quot;,&quot;MODE_ID_CAIXA_ENTRADA&quot;:&quot;2&quot;,&quot;MODE_SG_SECAO_UNID_DESTINO&quot;:&quot;TR&quot;,&quot;MODE_CD_SECAO_UNID_DESTINO&quot;:&quot;1155&quot;,&quot;MOVIMENTACAO&quot;:&quot;23\/07\/2012 14:42:29&quot;,&quot;SSER_ID_SERVICO&quot;:&quot;192&quot;,&quot;SSER_DS_SERVICO&quot;:&quot;E-SISAD - SISTEMA DE GERENCIAMENTO E CONTROLE DE DOCUMENTOS E PROCESSOS ADMINISTRATIVOS DIGITAIS&quot;,&quot;SESP_DH_LIMITE_ESP&quot;:null,&quot;ESPERA_FLAG&quot;:null,&quot;VINCULADA&quot;:&quot;0&quot;,&quot;SSPA_DT_PRAZO&quot;:null,&quot;OSIS_NM_OCORRENCIA&quot;:null,&quot;CTSS_NM_CATEGORIA_SERVICO&quot;:null,&quot;CTSS_ID_CATEGORIA_SERVICO&quot;:null,&quot;ASSO_IC_ATENDIMENTO_EMERGENCIA&quot;:null,&quot;ASSO_IC_SOLUCAO_PROBLEMA&quot;:null,&quot;ASSO_IC_SOLUCAO_CAUSA_PROBLEMA&quot;:null,&quot;ASIS_IC_NIVEL_CRITICIDADE&quot;:null,&quot;ASIS_PRZ_INICIO_ATENDIMENTO&quot;:null,&quot;ASIS_PRZ_SOL_PROBLEMA&quot;:null,&quot;ASIS_PRZ_SOL_CAUSA_PROBLEMA&quot;:null,&quot;ASIS_PRZ_EXECUCAO_SERVICO&quot;:null,&quot;CORRETIVA&quot;:&quot;N&quot;}">
+                    </td>
+                    <td><a title="Solicitamos revisão no sistema e-SISAD na rotina de consulta &quot;CAIXA UNIDADE&quot;, pois nas opções &quot;Processos da Unidade&quot;, &quot;Documentos da Unidade&quot; e &quot;Encaminhados&quot; não está sendo apresentado nenhum documento da unidade DICAD, e como pode ser confirmado nas telas constantes do arquivo em anexo era para mostrar alguns documentos." data-oldhref="#" href="#">2012/TR/SEAUC/52</a></td>
+                    <td>394D 8h 1m 40s</td>
+                    <!--                        <td>TR78303 - RENE SOARES DA SILVA</td>-->
+                    <td>E-SISAD - SISTEMA DE GERENCIAMENTO E CONTROLE DE DOCUMENTOS E PROCESSOS ADMINISTRATIVOS DIGITAIS</td>
+                    <td>MARCELO CAIXETA ROCHA</td>
+                    <td>
+                    </td>
+                    <td></td>
+                    <td>                            </td>
+                    <td title="Vermelho: prazo restante < 0%"><span title=""><strong></strong></span></td>
+                    <td></td>
+                </tr>
+
+                <tr name="rowList" value="69245">
+                    <td>
+                        <input id="69245" name="solicitacao[]" type="checkbox" value="{&quot;SSOL_ID_DOCUMENTO&quot;:&quot;69245&quot;,&quot;ATENDENTE&quot;:&quot;TR17958PS - MARCELO CAIXETA ROCHA&quot;,&quot;NOME_ATENDENTE&quot;:&quot;MARCELO CAIXETA ROCHA&quot;,&quot;DOCM_NR_DOCUMENTO&quot;:&quot;2012010001287012870160000018&quot;,&quot;DOCM_CD_MATRICULA_CADASTRO&quot;:&quot;TR78303&quot;,&quot;DOCM_DS_ASSUNTO_DOC&quot;:&quot;Solicitamos esclarecimentos se ser&amp;aacute; poss&amp;iacute;vel alterar dados cadastrais de um documento registrado no e-Sisad, pois pode ocorrer erro no registro de um documento, nos campos &amp;quot;n&amp;uacute;mero do documento usu&amp;aacute;rio&amp;quot;, &amp;quot;ano&amp;quot;, &amp;quot;emissor&amp;quot; - no caso de doc. externo, etc.&quot;,&quot;DOCM_DH_CADASTRO&quot;:&quot;28\/02\/2012 16:43:00&quot;,&quot;MASCARA_DOCM&quot;:&quot;2012\/TR\/SEAUC\/18&quot;,&quot;NOME_USARIO_CADASTRO&quot;:&quot;RENE SOARES DA SILVA&quot;,&quot;MOFA_ID_MOVIMENTACAO&quot;:&quot;263600&quot;,&quot;MOFA_DH_FASE&quot;:&quot;25\/11\/2013 20:52:13&quot;,&quot;MOFA_ID_FASE&quot;:&quot;1013&quot;,&quot;DATA_ATUAL&quot;:&quot;29\/05\/2014 09:11:44&quot;,&quot;MOVI_DH_ENCAMINHAMENTO&quot;:&quot;19\/07\/2012 16:49:06&quot;,&quot;TEMPO_TOTAL&quot;:&quot;977302,63&quot;,&quot;MODE_ID_CAIXA_ENTRADA&quot;:&quot;2&quot;,&quot;MODE_SG_SECAO_UNID_DESTINO&quot;:&quot;TR&quot;,&quot;MODE_CD_SECAO_UNID_DESTINO&quot;:&quot;1155&quot;,&quot;MOVIMENTACAO&quot;:&quot;19\/07\/2012 16:49:06&quot;,&quot;SSER_ID_SERVICO&quot;:&quot;192&quot;,&quot;SSER_DS_SERVICO&quot;:&quot;E-SISAD - SISTEMA DE GERENCIAMENTO E CONTROLE DE DOCUMENTOS E PROCESSOS ADMINISTRATIVOS DIGITAIS&quot;,&quot;SESP_DH_LIMITE_ESP&quot;:null,&quot;ESPERA_FLAG&quot;:null,&quot;VINCULADA&quot;:&quot;1&quot;,&quot;SSPA_DT_PRAZO&quot;:null,&quot;OSIS_NM_OCORRENCIA&quot;:null,&quot;CTSS_NM_CATEGORIA_SERVICO&quot;:null,&quot;CTSS_ID_CATEGORIA_SERVICO&quot;:null,&quot;ASSO_IC_ATENDIMENTO_EMERGENCIA&quot;:null,&quot;ASSO_IC_SOLUCAO_PROBLEMA&quot;:null,&quot;ASSO_IC_SOLUCAO_CAUSA_PROBLEMA&quot;:null,&quot;ASIS_IC_NIVEL_CRITICIDADE&quot;:null,&quot;ASIS_PRZ_INICIO_ATENDIMENTO&quot;:null,&quot;ASIS_PRZ_SOL_PROBLEMA&quot;:null,&quot;ASIS_PRZ_SOL_CAUSA_PROBLEMA&quot;:null,&quot;ASIS_PRZ_EXECUCAO_SERVICO&quot;:null,&quot;CORRETIVA&quot;:&quot;N&quot;}">
+                    </td>
+                    <td><a title="Solicitamos esclarecimentos se será possível alterar dados cadastrais de um documento registrado no e-Sisad, pois pode ocorrer erro no registro de um documento, nos campos &quot;número do documento usuário&quot;, &quot;ano&quot;, &quot;emissor&quot; - no caso de doc. externo, etc." data-oldhref="#" href="#">2012/TR/SEAUC/18</a></td>
+                    <td>396D 2h 51m 27s</td>
+                    <!--                        <td>TR78303 - RENE SOARES DA SILVA</td>-->
+                    <td>E-SISAD - SISTEMA DE GERENCIAMENTO E CONTROLE DE DOCUMENTOS E PROCESSOS ADMINISTRATIVOS DIGITAIS</td>
+                    <td>MARCELO CAIXETA ROCHA</td>
+                    <td>
+                    </td>
+                    <td>SIM</td>
+                    <td>                            </td>
+                    <td title="Vermelho: prazo restante < 0%"><span title=""><strong></strong></span></td>
+                    <td></td>
+                </tr>
+
+                <tr name="rowList" value="88288">
+                    <td>
+                        <input id="88288" name="solicitacao[]" type="checkbox" value="{&quot;SSOL_ID_DOCUMENTO&quot;:&quot;88288&quot;,&quot;ATENDENTE&quot;:&quot;TR17958PS - MARCELO CAIXETA ROCHA&quot;,&quot;NOME_ATENDENTE&quot;:&quot;MARCELO CAIXETA ROCHA&quot;,&quot;DOCM_NR_DOCUMENTO&quot;:&quot;2012010001220012200160000037&quot;,&quot;DOCM_CD_MATRICULA_CADASTRO&quot;:&quot;TR47303&quot;,&quot;DOCM_DS_ASSUNTO_DOC&quot;:&quot;Levantar requisitos para elabora&amp;ccedil;&amp;atilde;o do sistema de e-Ouvidoria, &amp;aacute;rea administrativa, dentro do e-Admin. Considerar o sistema existente em Oracle, bem como as funcionalidades existentes no sistema e-Ouvidoria, &amp;aacute;rea judicial.\r\nItens a serem considerados no projeto\r\n&amp;bull;\tDesenvolver as funcionalidades necess&amp;aacute;rias a integra&amp;ccedil;&amp;atilde;o do sistema e-Ouvidoria ao projeto e-Admin;\r\n&amp;bull;\tIntegra&amp;ccedil;&amp;atilde;o com os sistemas e-Sisad, e-Sosti e SARH;\r\n&amp;bull;\t Permitir a abertura de solicita&amp;ccedil;&amp;atilde;o via portal do TRF1 para usu&amp;aacute;rios internos e externos;\r\n&amp;bull;\tElaborar manual on-line do usu&amp;aacute;rio;\r\n&amp;bull;\tElaborar documenta&amp;ccedil;&amp;atilde;o do sistema conforme defini&amp;ccedil;&amp;atilde;o contratual;&quot;,&quot;DOCM_DH_CADASTRO&quot;:&quot;20\/03\/2012 18:07:44&quot;,&quot;MASCARA_DOCM&quot;:&quot;2012\/TR\/SESUD\/37&quot;,&quot;NOME_USARIO_CADASTRO&quot;:&quot;GERALDO AFONSO DOS SANTOS SILVA&quot;,&quot;MOFA_ID_MOVIMENTACAO&quot;:&quot;239960&quot;,&quot;MOFA_DH_FASE&quot;:&quot;15\/10\/2013 15:03:56&quot;,&quot;MOFA_ID_FASE&quot;:&quot;1013&quot;,&quot;DATA_ATUAL&quot;:&quot;29\/05\/2014 09:11:44&quot;,&quot;MOVI_DH_ENCAMINHAMENTO&quot;:&quot;27\/06\/2012 13:04:56&quot;,&quot;TEMPO_TOTAL&quot;:&quot;1009206,8&quot;,&quot;MODE_ID_CAIXA_ENTRADA&quot;:&quot;2&quot;,&quot;MODE_SG_SECAO_UNID_DESTINO&quot;:&quot;TR&quot;,&quot;MODE_CD_SECAO_UNID_DESTINO&quot;:&quot;1155&quot;,&quot;MOVIMENTACAO&quot;:&quot;27\/06\/2012 13:04:56&quot;,&quot;SSER_ID_SERVICO&quot;:&quot;71&quot;,&quot;SSER_DS_SERVICO&quot;:&quot;SIOUV - SISTEMA DE OUVIDORIA ADMINISTRATIVA&quot;,&quot;SESP_DH_LIMITE_ESP&quot;:null,&quot;ESPERA_FLAG&quot;:null,&quot;VINCULADA&quot;:&quot;0&quot;,&quot;SSPA_DT_PRAZO&quot;:null,&quot;OSIS_NM_OCORRENCIA&quot;:null,&quot;CTSS_NM_CATEGORIA_SERVICO&quot;:null,&quot;CTSS_ID_CATEGORIA_SERVICO&quot;:null,&quot;ASSO_IC_ATENDIMENTO_EMERGENCIA&quot;:null,&quot;ASSO_IC_SOLUCAO_PROBLEMA&quot;:null,&quot;ASSO_IC_SOLUCAO_CAUSA_PROBLEMA&quot;:null,&quot;ASIS_IC_NIVEL_CRITICIDADE&quot;:null,&quot;ASIS_PRZ_INICIO_ATENDIMENTO&quot;:null,&quot;ASIS_PRZ_SOL_PROBLEMA&quot;:null,&quot;ASIS_PRZ_SOL_CAUSA_PROBLEMA&quot;:null,&quot;ASIS_PRZ_EXECUCAO_SERVICO&quot;:null,&quot;CORRETIVA&quot;:&quot;N&quot;}">
+                    </td>
+                    <td><a title="Levantar requisitos para elaboração do sistema de e-Ouvidoria, área administrativa, dentro do e-Admin. Considerar o sistema existente em Oracle, bem como as funcionalidades existentes no sistema e-Ouvidoria, área judicial.
+                           Itens a serem considerados no projeto
+                           •	Desenvolver as funcionalidades necessárias a integração do sistema e-Ouvidoria ao projeto e-Admin;
+                           •	Integração com os sistemas e-Sisad, e-Sosti e SARH;
+                           •	 Permitir a abertura de solicitação via portal do TRF1 para usuários internos e externos;
+                           •	Elaborar manual on-line do usuário;
+                           •	Elaborar documentação do sistema conforme definição contratual;" data-oldhref="#" href="#">2012/TR/SESUD/37</a></td>
+                    <td>410D 0h 50m 58s</td>
+                    <!--                        <td>TR47303 - GERALDO AFONSO DOS SANTOS SILVA</td>-->
+                    <td>SIOUV - SISTEMA DE OUVIDORIA ADMINISTRATIVA</td>
+                    <td>MARCELO CAIXETA ROCHA</td>
+                    <td>
+                    </td>
+                    <td></td>
+                    <td>                            </td>
+                    <td title="Vermelho: prazo restante < 0%"><span title=""><strong></strong></span></td>
+                    <td></td>
+                </tr>
+
+                <tr name="rowList" value="141934">
+                    <td>
+                        <input id="141934" name="solicitacao[]" type="checkbox" value="{&quot;SSOL_ID_DOCUMENTO&quot;:&quot;141934&quot;,&quot;ATENDENTE&quot;:&quot;TR17958PS - MARCELO CAIXETA ROCHA&quot;,&quot;NOME_ATENDENTE&quot;:&quot;MARCELO CAIXETA ROCHA&quot;,&quot;DOCM_NR_DOCUMENTO&quot;:&quot;2012010001220012200160000074&quot;,&quot;DOCM_CD_MATRICULA_CADASTRO&quot;:&quot;TR47303&quot;,&quot;DOCM_DS_ASSUNTO_DOC&quot;:&quot;Cria&amp;ccedil;&amp;atilde;o dos formul&amp;aacute;rios e gerenciamento dos servi&amp;ccedil;os de Engenharia \/ Servi&amp;ccedil;os Gerais \/ Taquigrafia \/ Pro-social.&quot;,&quot;DOCM_DH_CADASTRO&quot;:&quot;24\/05\/2012 10:15:31&quot;,&quot;MASCARA_DOCM&quot;:&quot;2012\/TR\/SESUD\/74&quot;,&quot;NOME_USARIO_CADASTRO&quot;:&quot;GERALDO AFONSO DOS SANTOS SILVA&quot;,&quot;MOFA_ID_MOVIMENTACAO&quot;:&quot;200718&quot;,&quot;MOFA_DH_FASE&quot;:&quot;25\/11\/2013 20:52:10&quot;,&quot;MOFA_ID_FASE&quot;:&quot;1013&quot;,&quot;DATA_ATUAL&quot;:&quot;29\/05\/2014 09:11:44&quot;,&quot;MOVI_DH_ENCAMINHAMENTO&quot;:&quot;24\/05\/2012 10:20:37&quot;,&quot;TEMPO_TOTAL&quot;:&quot;1058331,11&quot;,&quot;MODE_ID_CAIXA_ENTRADA&quot;:&quot;2&quot;,&quot;MODE_SG_SECAO_UNID_DESTINO&quot;:&quot;TR&quot;,&quot;MODE_CD_SECAO_UNID_DESTINO&quot;:&quot;1155&quot;,&quot;MOVIMENTACAO&quot;:&quot;24\/05\/2012 10:20:37&quot;,&quot;SSER_ID_SERVICO&quot;:&quot;192&quot;,&quot;SSER_DS_SERVICO&quot;:&quot;E-SISAD - SISTEMA DE GERENCIAMENTO E CONTROLE DE DOCUMENTOS E PROCESSOS ADMINISTRATIVOS DIGITAIS&quot;,&quot;SESP_DH_LIMITE_ESP&quot;:null,&quot;ESPERA_FLAG&quot;:null,&quot;VINCULADA&quot;:&quot;0&quot;,&quot;SSPA_DT_PRAZO&quot;:null,&quot;OSIS_NM_OCORRENCIA&quot;:null,&quot;CTSS_NM_CATEGORIA_SERVICO&quot;:null,&quot;CTSS_ID_CATEGORIA_SERVICO&quot;:null,&quot;ASSO_IC_ATENDIMENTO_EMERGENCIA&quot;:null,&quot;ASSO_IC_SOLUCAO_PROBLEMA&quot;:null,&quot;ASSO_IC_SOLUCAO_CAUSA_PROBLEMA&quot;:null,&quot;ASIS_IC_NIVEL_CRITICIDADE&quot;:null,&quot;ASIS_PRZ_INICIO_ATENDIMENTO&quot;:null,&quot;ASIS_PRZ_SOL_PROBLEMA&quot;:null,&quot;ASIS_PRZ_SOL_CAUSA_PROBLEMA&quot;:null,&quot;ASIS_PRZ_EXECUCAO_SERVICO&quot;:null,&quot;CORRETIVA&quot;:&quot;N&quot;}">
+                    </td>
+                    <td><a title="Criação dos formulários e gerenciamento dos serviços de Engenharia / Serviços Gerais / Taquigrafia / Pro-social." data-oldhref="#" href="#">2012/TR/SESUD/74</a></td>
+                    <td>429D 8h 20m 10s</td>
+                    <!--                        <td>TR47303 - GERALDO AFONSO DOS SANTOS SILVA</td>-->
+                    <td>E-SISAD - SISTEMA DE GERENCIAMENTO E CONTROLE DE DOCUMENTOS E PROCESSOS ADMINISTRATIVOS DIGITAIS</td>
+                    <td>MARCELO CAIXETA ROCHA</td>
+                    <td>
+                    </td>
+                    <td></td>
+                    <td>                            </td>
+                    <td title="Vermelho: prazo restante < 0%"><span title=""><strong></strong></span></td>
+                    <td></td>
+                </tr>
+
+                <tr name="rowList" value="8958">
+                    <td>
+                        <input id="8958" name="solicitacao[]" type="checkbox" value="{&quot;SSOL_ID_DOCUMENTO&quot;:&quot;8958&quot;,&quot;ATENDENTE&quot;:&quot;TR17958PS - MARCELO CAIXETA ROCHA&quot;,&quot;NOME_ATENDENTE&quot;:&quot;MARCELO CAIXETA ROCHA&quot;,&quot;DOCM_NR_DOCUMENTO&quot;:&quot;2011010001155011550160000052&quot;,&quot;DOCM_CD_MATRICULA_CADASTRO&quot;:&quot;TR47303&quot;,&quot;DOCM_DS_ASSUNTO_DOC&quot;:&quot;Solicitamos a inclus\u00e3o da funcionalidade de grava\u00e7\u00e3o de m\u00eddia de audio no RED, considerando todas as extens\u00f5es em uso no sistema DRS e outros que possam ser utilizados pela ASCOM. Esta funcionalidade torna-se necess\u00e1ria para o sistema e-Admin.&quot;,&quot;DOCM_DH_CADASTRO&quot;:&quot;14\/11\/2011 16:20:30&quot;,&quot;MASCARA_DOCM&quot;:&quot;2011\/TR\/DISAD\/52&quot;,&quot;NOME_USARIO_CADASTRO&quot;:&quot;GERALDO AFONSO DOS SANTOS SILVA&quot;,&quot;MOFA_ID_MOVIMENTACAO&quot;:&quot;157548&quot;,&quot;MOFA_DH_FASE&quot;:&quot;20\/05\/2014 09:38:00&quot;,&quot;MOFA_ID_FASE&quot;:&quot;1013&quot;,&quot;DATA_ATUAL&quot;:&quot;29\/05\/2014 09:11:44&quot;,&quot;MOVI_DH_ENCAMINHAMENTO&quot;:&quot;18\/04\/2012 10:39:45&quot;,&quot;TEMPO_TOTAL&quot;:&quot;1110151,98&quot;,&quot;MODE_ID_CAIXA_ENTRADA&quot;:&quot;2&quot;,&quot;MODE_SG_SECAO_UNID_DESTINO&quot;:&quot;TR&quot;,&quot;MODE_CD_SECAO_UNID_DESTINO&quot;:&quot;1155&quot;,&quot;MOVIMENTACAO&quot;:&quot;18\/04\/2012 10:39:45&quot;,&quot;SSER_ID_SERVICO&quot;:&quot;192&quot;,&quot;SSER_DS_SERVICO&quot;:&quot;E-SISAD - SISTEMA DE GERENCIAMENTO E CONTROLE DE DOCUMENTOS E PROCESSOS ADMINISTRATIVOS DIGITAIS&quot;,&quot;SESP_DH_LIMITE_ESP&quot;:null,&quot;ESPERA_FLAG&quot;:null,&quot;VINCULADA&quot;:&quot;0&quot;,&quot;SSPA_DT_PRAZO&quot;:null,&quot;OSIS_NM_OCORRENCIA&quot;:null,&quot;CTSS_NM_CATEGORIA_SERVICO&quot;:null,&quot;CTSS_ID_CATEGORIA_SERVICO&quot;:null,&quot;ASSO_IC_ATENDIMENTO_EMERGENCIA&quot;:null,&quot;ASSO_IC_SOLUCAO_PROBLEMA&quot;:null,&quot;ASSO_IC_SOLUCAO_CAUSA_PROBLEMA&quot;:null,&quot;ASIS_IC_NIVEL_CRITICIDADE&quot;:null,&quot;ASIS_PRZ_INICIO_ATENDIMENTO&quot;:null,&quot;ASIS_PRZ_SOL_PROBLEMA&quot;:null,&quot;ASIS_PRZ_SOL_CAUSA_PROBLEMA&quot;:null,&quot;ASIS_PRZ_EXECUCAO_SERVICO&quot;:null,&quot;CORRETIVA&quot;:&quot;N&quot;}">
+                    </td>
+                    <td><a title="Solicitamos a inclusão da funcionalidade de gravação de mídia de audio no RED, considerando todas as extensões em uso no sistema DRS e outros que possam ser utilizados pela ASCOM. Esta funcionalidade torna-se necessária para o sistema e-Admin." data-oldhref="#" href="#">2011/TR/DISAD/52</a></td>
+                    <td>450D 0h 8m 25s</td>
+                    <!--                        <td>TR47303 - GERALDO AFONSO DOS SANTOS SILVA</td>-->
+                    <td>E-SISAD - SISTEMA DE GERENCIAMENTO E CONTROLE DE DOCUMENTOS E PROCESSOS ADMINISTRATIVOS DIGITAIS</td>
+                    <td>MARCELO CAIXETA ROCHA</td>
+                    <td>
+                    </td>
+                    <td></td>
+                    <td>                            </td>
+                    <td title="Vermelho: prazo restante < 0%"><span title=""><strong></strong></span></td>
+                    <td></td>
+                </tr>
+
+                <tr name="rowList" value="77767">
+                    <td>
+                        <input id="77767" name="solicitacao[]" type="checkbox" value="{&quot;SSOL_ID_DOCUMENTO&quot;:&quot;77767&quot;,&quot;ATENDENTE&quot;:&quot;TR17958PS - MARCELO CAIXETA ROCHA&quot;,&quot;NOME_ATENDENTE&quot;:&quot;MARCELO CAIXETA ROCHA&quot;,&quot;DOCM_NR_DOCUMENTO&quot;:&quot;2012010001220012200160000029&quot;,&quot;DOCM_CD_MATRICULA_CADASTRO&quot;:&quot;TR47303&quot;,&quot;DOCM_DS_ASSUNTO_DOC&quot;:&quot;Construir as seguintes funcionalidades no e-Sisad para a cria&amp;ccedil;&amp;atilde;o dos processos de pagamento da Secbe.\r\n\r\nGerar um n&amp;uacute;mero de 10 digitos do processo digital, para ser incluido no sistema Benner. Este n&amp;uacute;mero ser&amp;aacute; utilizado para pesquisar o processo no e-Admin e deve trazer o processo original.\r\nOs 10 n&amp;uacute;meros ser&amp;atilde;o : 6 digitos \/ 2 digitos finais do ano \/ 2 digitos da localidade de autua&amp;ccedil;&amp;atilde;o do processo.\r\n\r\nO sistema deve permitir o usu&amp;aacute;rio definir que estar&amp;aacute; autuando um processo digital para controle de pagamento de conveniados da Secbe, assim, dever&amp;aacute; ser gerado automaticamente o n&amp;uacute;mero de 10 digitos a partir do n&amp;uacute;mero do processo digital administrativo.\r\n\r\nDefinir prazo de execu&amp;ccedil;&amp;atilde;o para esta demanda e data de conclus&amp;atilde;o das altera&amp;ccedil;&amp;otilde;es na Pesquisa de documentos \/ processos, bem como permitir a visualiza&amp;ccedil;&amp;atilde;o do n&amp;uacute;mero de 10 digitos para os processos da Secbe.\r\n\r\nEsta demanda n&amp;atilde;o pode acarretar altera&amp;ccedil;&amp;atilde;o de prazo na entrega do e-Sisad e e-Sosti 1.0&quot;,&quot;DOCM_DH_CADASTRO&quot;:&quot;08\/03\/2012 18:34:29&quot;,&quot;MASCARA_DOCM&quot;:&quot;2012\/TR\/SESUD\/29&quot;,&quot;NOME_USARIO_CADASTRO&quot;:&quot;GERALDO AFONSO DOS SANTOS SILVA&quot;,&quot;MOFA_ID_MOVIMENTACAO&quot;:&quot;104858&quot;,&quot;MOFA_DH_FASE&quot;:&quot;25\/11\/2013 20:52:09&quot;,&quot;MOFA_ID_FASE&quot;:&quot;1013&quot;,&quot;DATA_ATUAL&quot;:&quot;29\/05\/2014 09:11:44&quot;,&quot;MOVI_DH_ENCAMINHAMENTO&quot;:&quot;08\/03\/2012 18:36:06&quot;,&quot;TEMPO_TOTAL&quot;:&quot;1168715,63&quot;,&quot;MODE_ID_CAIXA_ENTRADA&quot;:&quot;2&quot;,&quot;MODE_SG_SECAO_UNID_DESTINO&quot;:&quot;TR&quot;,&quot;MODE_CD_SECAO_UNID_DESTINO&quot;:&quot;1155&quot;,&quot;MOVIMENTACAO&quot;:&quot;08\/03\/2012 18:36:06&quot;,&quot;SSER_ID_SERVICO&quot;:&quot;192&quot;,&quot;SSER_DS_SERVICO&quot;:&quot;E-SISAD - SISTEMA DE GERENCIAMENTO E CONTROLE DE DOCUMENTOS E PROCESSOS ADMINISTRATIVOS DIGITAIS&quot;,&quot;SESP_DH_LIMITE_ESP&quot;:null,&quot;ESPERA_FLAG&quot;:null,&quot;VINCULADA&quot;:&quot;0&quot;,&quot;SSPA_DT_PRAZO&quot;:null,&quot;OSIS_NM_OCORRENCIA&quot;:null,&quot;CTSS_NM_CATEGORIA_SERVICO&quot;:null,&quot;CTSS_ID_CATEGORIA_SERVICO&quot;:null,&quot;ASSO_IC_ATENDIMENTO_EMERGENCIA&quot;:null,&quot;ASSO_IC_SOLUCAO_PROBLEMA&quot;:null,&quot;ASSO_IC_SOLUCAO_CAUSA_PROBLEMA&quot;:null,&quot;ASIS_IC_NIVEL_CRITICIDADE&quot;:null,&quot;ASIS_PRZ_INICIO_ATENDIMENTO&quot;:null,&quot;ASIS_PRZ_SOL_PROBLEMA&quot;:null,&quot;ASIS_PRZ_SOL_CAUSA_PROBLEMA&quot;:null,&quot;ASIS_PRZ_EXECUCAO_SERVICO&quot;:null,&quot;CORRETIVA&quot;:&quot;N&quot;}">
+                    </td>
+                    <td><a title="Construir as seguintes funcionalidades no e-Sisad para a criação dos processos de pagamento da Secbe.
+
+                           Gerar um número de 10 digitos do processo digital, para ser incluido no sistema Benner. Este número será utilizado para pesquisar o processo no e-Admin e deve trazer o processo original.
+                           Os 10 números serão : 6 digitos / 2 digitos finais do ano / 2 digitos da localidade de autuação do processo.
+
+                           O sistema deve permitir o usuário definir que estará autuando um processo digital para controle de pagamento de conveniados da Secbe, assim, deverá ser gerado automaticamente o número de 10 digitos a partir do número do processo digital administrativo.
+
+                           Definir prazo de execução para esta demanda e data de conclusão das alterações na Pesquisa de documentos / processos, bem como permitir a visualização do número de 10 digitos para os processos da Secbe.
+
+                           Esta demanda não pode acarretar alteração de prazo na entrega do e-Sisad e e-Sosti 1.0" data-oldhref="#" href="#">2012/TR/SESUD/29</a></td>
+                    <td>473D 10h 39m 22s</td>
+                    <!--                        <td>TR47303 - GERALDO AFONSO DOS SANTOS SILVA</td>-->
+                    <td>E-SISAD - SISTEMA DE GERENCIAMENTO E CONTROLE DE DOCUMENTOS E PROCESSOS ADMINISTRATIVOS DIGITAIS</td>
+                    <td>MARCELO CAIXETA ROCHA</td>
+                    <td>
+                    </td>
+                    <td></td>
+                    <td>                            </td>
+                    <td title="Vermelho: prazo restante < 0%"><span title=""><strong></strong></span></td>
+                    <td></td>
+                </tr>
+
+                <tr name="rowList" value="48010">
+                    <td>
+                        <input id="48010" name="solicitacao[]" type="checkbox" value="{&quot;SSOL_ID_DOCUMENTO&quot;:&quot;48010&quot;,&quot;ATENDENTE&quot;:&quot;TR17958PS - MARCELO CAIXETA ROCHA&quot;,&quot;NOME_ATENDENTE&quot;:&quot;MARCELO CAIXETA ROCHA&quot;,&quot;DOCM_NR_DOCUMENTO&quot;:&quot;2012010001287012870160000009&quot;,&quot;DOCM_CD_MATRICULA_CADASTRO&quot;:&quot;TR78303&quot;,&quot;DOCM_DS_ASSUNTO_DOC&quot;:&quot;Solicitamos verificar a possibilidade de ser alterada a forma de apresenta\u00e7\u00e3o da rotina \u201cPermiss\u00f5es\u201d, pois atualmente h\u00e1, praticamente, apenas dois perfis de permiss\u00f5es: respons\u00e1vel pela caixa da unidade e se \u00e9 servidor, ou prestador de servi\u00e7o, ou estagi\u00e1rio, etc.\r\nPoderia ser apresentada a rela\u00e7\u00e3o de todos os usu\u00e1rios com permiss\u00e3o pela unidade j\u00e1 com a descri\u00e7\u00e3o do perfil, n\u00e3o sendo necess\u00e1rio clicar em cada um dos usu\u00e1rios para se ter o perfil respectivo.\r\nSolicitamos ainda, verificar a possibilidade de ser apresentada a rela\u00e7\u00e3o dos usu\u00e1rios ativos na unidade \u201cA\u201d e dos que s\u00e3o lotados em outras unidades, mas que est\u00e3o com permiss\u00e3o para acessar a caixa da unidade \u201cA\u201d, haja vista que hoje n\u00e3o temos como saber que usu\u00e1rios \u201cexternos\u201d \u00e0 unidade possuem tal permiss\u00e3o.&quot;,&quot;DOCM_DH_CADASTRO&quot;:&quot;31\/01\/2012 18:57:20&quot;,&quot;MASCARA_DOCM&quot;:&quot;2012\/TR\/SEAUC\/9&quot;,&quot;NOME_USARIO_CADASTRO&quot;:&quot;RENE SOARES DA SILVA&quot;,&quot;MOFA_ID_MOVIMENTACAO&quot;:&quot;95660&quot;,&quot;MOFA_DH_FASE&quot;:&quot;25\/11\/2013 20:52:12&quot;,&quot;MOFA_ID_FASE&quot;:&quot;1013&quot;,&quot;DATA_ATUAL&quot;:&quot;29\/05\/2014 09:11:44&quot;,&quot;MOVI_DH_ENCAMINHAMENTO&quot;:&quot;02\/03\/2012 08:51:36&quot;,&quot;TEMPO_TOTAL&quot;:&quot;1177940,13&quot;,&quot;MODE_ID_CAIXA_ENTRADA&quot;:&quot;2&quot;,&quot;MODE_SG_SECAO_UNID_DESTINO&quot;:&quot;TR&quot;,&quot;MODE_CD_SECAO_UNID_DESTINO&quot;:&quot;1155&quot;,&quot;MOVIMENTACAO&quot;:&quot;02\/03\/2012 08:51:36&quot;,&quot;SSER_ID_SERVICO&quot;:&quot;192&quot;,&quot;SSER_DS_SERVICO&quot;:&quot;E-SISAD - SISTEMA DE GERENCIAMENTO E CONTROLE DE DOCUMENTOS E PROCESSOS ADMINISTRATIVOS DIGITAIS&quot;,&quot;SESP_DH_LIMITE_ESP&quot;:null,&quot;ESPERA_FLAG&quot;:null,&quot;VINCULADA&quot;:&quot;0&quot;,&quot;SSPA_DT_PRAZO&quot;:null,&quot;OSIS_NM_OCORRENCIA&quot;:null,&quot;CTSS_NM_CATEGORIA_SERVICO&quot;:null,&quot;CTSS_ID_CATEGORIA_SERVICO&quot;:null,&quot;ASSO_IC_ATENDIMENTO_EMERGENCIA&quot;:null,&quot;ASSO_IC_SOLUCAO_PROBLEMA&quot;:null,&quot;ASSO_IC_SOLUCAO_CAUSA_PROBLEMA&quot;:null,&quot;ASIS_IC_NIVEL_CRITICIDADE&quot;:null,&quot;ASIS_PRZ_INICIO_ATENDIMENTO&quot;:null,&quot;ASIS_PRZ_SOL_PROBLEMA&quot;:null,&quot;ASIS_PRZ_SOL_CAUSA_PROBLEMA&quot;:null,&quot;ASIS_PRZ_EXECUCAO_SERVICO&quot;:null,&quot;CORRETIVA&quot;:&quot;N&quot;}">
+                    </td>
+                    <td><a title="Solicitamos verificar a possibilidade de ser alterada a forma de apresentação da rotina “Permissões”, pois atualmente há, praticamente, apenas dois perfis de permissões: responsável pela caixa da unidade e se é servidor, ou prestador de serviço, ou estagiário, etc.
+                           Poderia ser apresentada a relação de todos os usuários com permissão pela unidade já com a descrição do perfil, não sendo necessário clicar em cada um dos usuários para se ter o perfil respectivo.
+                           Solicitamos ainda, verificar a possibilidade de ser apresentada a relação dos usuários ativos na unidade “A” e dos que são lotados em outras unidades, mas que estão com permissão para acessar a caixa da unidade “A”, haja vista que hoje não temos como saber que usuários “externos” à unidade possuem tal permissão." data-oldhref="#" href="#">2012/TR/SEAUC/9</a></td>
+                    <td>478D 1h 7m 48s</td>
+                    <!--                        <td>TR78303 - RENE SOARES DA SILVA</td>-->
+                    <td>E-SISAD - SISTEMA DE GERENCIAMENTO E CONTROLE DE DOCUMENTOS E PROCESSOS ADMINISTRATIVOS DIGITAIS</td>
+                    <td>MARCELO CAIXETA ROCHA</td>
+                    <td>
+                    </td>
+                    <td></td>
+                    <td>                            </td>
+                    <td title="Vermelho: prazo restante < 0%"><span title=""><strong></strong></span></td>
+                    <td></td>
+                </tr>
+
+                <tr name="rowList" value="6501">
+                    <td>
+                        <input id="6501" name="solicitacao[]" type="checkbox" value="{&quot;SSOL_ID_DOCUMENTO&quot;:&quot;6501&quot;,&quot;ATENDENTE&quot;:&quot;TR17958PS - MARCELO CAIXETA ROCHA&quot;,&quot;NOME_ATENDENTE&quot;:&quot;MARCELO CAIXETA ROCHA&quot;,&quot;DOCM_NR_DOCUMENTO&quot;:&quot;2011010001229012290160000019&quot;,&quot;DOCM_CD_MATRICULA_CADASTRO&quot;:&quot;TR109503&quot;,&quot;DOCM_DS_ASSUNTO_DOC&quot;:&quot;Precisamos poder receber anexos .txt, para poder receber scripts sql a executar.&quot;,&quot;DOCM_DH_CADASTRO&quot;:&quot;08\/11\/2011 19:20:42&quot;,&quot;MASCARA_DOCM&quot;:&quot;2011\/TR\/SEBAN\/19&quot;,&quot;NOME_USARIO_CADASTRO&quot;:&quot;MACIEL BASSANI SPARRENBERGER&quot;,&quot;MOFA_ID_MOVIMENTACAO&quot;:&quot;94672&quot;,&quot;MOFA_DH_FASE&quot;:&quot;17\/10\/2013 15:32:38&quot;,&quot;MOFA_ID_FASE&quot;:&quot;1013&quot;,&quot;DATA_ATUAL&quot;:&quot;29\/05\/2014 09:11:44&quot;,&quot;MOVI_DH_ENCAMINHAMENTO&quot;:&quot;01\/03\/2012 14:41:01&quot;,&quot;TEMPO_TOTAL&quot;:&quot;1179030,71&quot;,&quot;MODE_ID_CAIXA_ENTRADA&quot;:&quot;2&quot;,&quot;MODE_SG_SECAO_UNID_DESTINO&quot;:&quot;TR&quot;,&quot;MODE_CD_SECAO_UNID_DESTINO&quot;:&quot;1155&quot;,&quot;MOVIMENTACAO&quot;:&quot;01\/03\/2012 14:41:01&quot;,&quot;SSER_ID_SERVICO&quot;:&quot;5952&quot;,&quot;SSER_DS_SERVICO&quot;:&quot;E-SOSTI SISTEMA DE ATENDIMENTO A SOLICITA\u00c7\u00d5ES DE TI&quot;,&quot;SESP_DH_LIMITE_ESP&quot;:null,&quot;ESPERA_FLAG&quot;:null,&quot;VINCULADA&quot;:&quot;0&quot;,&quot;SSPA_DT_PRAZO&quot;:null,&quot;OSIS_NM_OCORRENCIA&quot;:null,&quot;CTSS_NM_CATEGORIA_SERVICO&quot;:null,&quot;CTSS_ID_CATEGORIA_SERVICO&quot;:null,&quot;ASSO_IC_ATENDIMENTO_EMERGENCIA&quot;:null,&quot;ASSO_IC_SOLUCAO_PROBLEMA&quot;:null,&quot;ASSO_IC_SOLUCAO_CAUSA_PROBLEMA&quot;:null,&quot;ASIS_IC_NIVEL_CRITICIDADE&quot;:null,&quot;ASIS_PRZ_INICIO_ATENDIMENTO&quot;:null,&quot;ASIS_PRZ_SOL_PROBLEMA&quot;:null,&quot;ASIS_PRZ_SOL_CAUSA_PROBLEMA&quot;:null,&quot;ASIS_PRZ_EXECUCAO_SERVICO&quot;:null,&quot;CORRETIVA&quot;:&quot;N&quot;}">
+                    </td>
+                    <td><a title="Precisamos poder receber anexos .txt, para poder receber scripts sql a executar." data-oldhref="#" href="#">2011/TR/SEBAN/19</a></td>
+                    <td>478D 5h 30m 36s</td>
+                    <!--                        <td>TR109503 - MACIEL BASSANI SPARRENBERGER</td>-->
+                    <td>E-SOSTI SISTEMA DE ATENDIMENTO A SOLICITAÇÕES DE TI</td>
+                    <td>MARCELO CAIXETA ROCHA</td>
+                    <td>
+                    </td>
+                    <td></td>
+                    <td>                            </td>
+                    <td title="Vermelho: prazo restante < 0%"><span title=""><strong></strong></span></td>
+                    <td></td>
+                </tr>
+
+                <tr name="rowList" value="58316">
+                    <td>
+                        <input id="58316" name="solicitacao[]" type="checkbox" value="{&quot;SSOL_ID_DOCUMENTO&quot;:&quot;58316&quot;,&quot;ATENDENTE&quot;:&quot;TR17958PS - MARCELO CAIXETA ROCHA&quot;,&quot;NOME_ATENDENTE&quot;:&quot;MARCELO CAIXETA ROCHA&quot;,&quot;DOCM_NR_DOCUMENTO&quot;:&quot;2012010001229012290160000009&quot;,&quot;DOCM_CD_MATRICULA_CADASTRO&quot;:&quot;TR109503&quot;,&quot;DOCM_DS_ASSUNTO_DOC&quot;:&quot;No item 13.2.7 do contrato de sustenta\u00e7\u00e3o da infraestrutura, temos a descri\u00e7\u00e3o do indicador \&quot;Indice de Chamados Reabertos\&quot; (ICR): Todos os chamados cujo mesmo incidente, com as mesmas caracter\u00edsticas, apresente novamente no mesmo equipamento ou usu\u00e1rio, no prazo de at\u00e9 5 (cinco) dias ap\u00f3s fechamento, devem ser reabertos;\r\n\r\nEste \u00edndice \u00e9 uma m\u00e9trica importante para a execu\u00e7\u00e3o do contrato, e a meta \u00e9 bem r\u00edgida: menos que 2%.\r\n\r\nEstes chamados reabertos equivalem, para todos os fins, \u00e0 recusa do atendimento, na avalia\u00e7\u00e3o.\r\n\r\nSolicito que seja desenvolvida e implementada uma maneira de podermos medir este \u00edndice pelo e-Sosti.\r\n\r\nSugiro que seja pela possibilidade do demandante, ao abrir novo chamado, vincul\u00e1-lo a algum chamado fechado avaliado dentro dos \u00faltimos 5 dias. Possivelmente o gerente da \u00e1rea (n\u00f3s da DITEC), devamos ter tamb\u00e9m a possibilidade de realizar este v\u00ednculo, mesmo que o usu\u00e1rio tenha esquecido de faz\u00ea-lo.\r\n&quot;,&quot;DOCM_DH_CADASTRO&quot;:&quot;10\/02\/2012 17:10:24&quot;,&quot;MASCARA_DOCM&quot;:&quot;2012\/TR\/SEBAN\/9&quot;,&quot;NOME_USARIO_CADASTRO&quot;:&quot;MACIEL BASSANI SPARRENBERGER&quot;,&quot;MOFA_ID_MOVIMENTACAO&quot;:&quot;76018&quot;,&quot;MOFA_DH_FASE&quot;:&quot;29\/05\/2012 09:53:41&quot;,&quot;MOFA_ID_FASE&quot;:&quot;1013&quot;,&quot;DATA_ATUAL&quot;:&quot;29\/05\/2014 09:11:44&quot;,&quot;MOVI_DH_ENCAMINHAMENTO&quot;:&quot;10\/02\/2012 18:02:27&quot;,&quot;TEMPO_TOTAL&quot;:&quot;1207629,28&quot;,&quot;MODE_ID_CAIXA_ENTRADA&quot;:&quot;2&quot;,&quot;MODE_SG_SECAO_UNID_DESTINO&quot;:&quot;TR&quot;,&quot;MODE_CD_SECAO_UNID_DESTINO&quot;:&quot;1155&quot;,&quot;MOVIMENTACAO&quot;:&quot;10\/02\/2012 18:02:27&quot;,&quot;SSER_ID_SERVICO&quot;:&quot;5952&quot;,&quot;SSER_DS_SERVICO&quot;:&quot;E-SOSTI SISTEMA DE ATENDIMENTO A SOLICITA\u00c7\u00d5ES DE TI&quot;,&quot;SESP_DH_LIMITE_ESP&quot;:null,&quot;ESPERA_FLAG&quot;:null,&quot;VINCULADA&quot;:&quot;0&quot;,&quot;SSPA_DT_PRAZO&quot;:null,&quot;OSIS_NM_OCORRENCIA&quot;:null,&quot;CTSS_NM_CATEGORIA_SERVICO&quot;:null,&quot;CTSS_ID_CATEGORIA_SERVICO&quot;:null,&quot;ASSO_IC_ATENDIMENTO_EMERGENCIA&quot;:null,&quot;ASSO_IC_SOLUCAO_PROBLEMA&quot;:null,&quot;ASSO_IC_SOLUCAO_CAUSA_PROBLEMA&quot;:null,&quot;ASIS_IC_NIVEL_CRITICIDADE&quot;:null,&quot;ASIS_PRZ_INICIO_ATENDIMENTO&quot;:null,&quot;ASIS_PRZ_SOL_PROBLEMA&quot;:null,&quot;ASIS_PRZ_SOL_CAUSA_PROBLEMA&quot;:null,&quot;ASIS_PRZ_EXECUCAO_SERVICO&quot;:null,&quot;CORRETIVA&quot;:&quot;N&quot;}">
+                    </td>
+                    <td><a title="No item 13.2.7 do contrato de sustentação da infraestrutura, temos a descrição do indicador " indice="" de="" chamados="" reabertos"="" (icr):="" todos="" os="" cujo="" mesmo="" incidente,="" com="" as="" mesmas="" características,="" apresente="" novamente="" no="" equipamento="" ou="" usuário,="" prazo="" até="" 5="" (cinco)="" dias="" após="" fechamento,="" devem="" ser="" reabertos;="" este="" índice="" é="" uma="" métrica="" importante="" para="" a="" execução="" do="" contrato,="" e="" meta="" bem="" rígida:="" menos="" que="" 2%.="" estes="" reabertos="" equivalem,="" fins,="" à="" recusa="" atendimento,="" na="" avaliação.="" solicito="" seja="" desenvolvida="" implementada="" maneira="" podermos="" medir="" pelo="" e-sosti.="" sugiro="" pela="" possibilidade="" demandante,="" ao="" abrir="" novo="" chamado,="" vinculá-lo="" algum="" chamado="" fechado="" avaliado="" dentro="" dos="" últimos="" dias.="" possivelmente="" o="" gerente="" da="" área="" (nós="" ditec),="" devamos="" ter="" também="" realizar="" vínculo,="" usuário="" tenha="" esquecido="" fazê-lo.="" "="" data-oldhref="#" href="#">2012/TR/SEBAN/9</a></td>
+                    <td>490D 0h 58m 37s</td>
+                    <!--                        <td>TR109503 - MACIEL BASSANI SPARRENBERGER</td>-->
+                    <td>E-SOSTI SISTEMA DE ATENDIMENTO A SOLICITAÇÕES DE TI</td>
+                    <td>MARCELO CAIXETA ROCHA</td>
+                    <td>
+                    </td>
+                    <td></td>
+                    <td>                            </td>
+                    <td title="Vermelho: prazo restante < 0%"><span title=""><strong></strong></span></td>
+                    <td></td>
+                </tr>
+
+                <tr name="rowList" value="23569">
+                    <td>
+                        <input id="23569" name="solicitacao[]" type="checkbox" value="{&quot;SSOL_ID_DOCUMENTO&quot;:&quot;23569&quot;,&quot;ATENDENTE&quot;:&quot;TR17958PS - MARCELO CAIXETA ROCHA&quot;,&quot;NOME_ATENDENTE&quot;:&quot;MARCELO CAIXETA ROCHA&quot;,&quot;DOCM_NR_DOCUMENTO&quot;:&quot;2011010001220012200160000058&quot;,&quot;DOCM_CD_MATRICULA_CADASTRO&quot;:&quot;TR47303&quot;,&quot;DOCM_DS_ASSUNTO_DOC&quot;:&quot;PEND\u00caNCIAS e-SISAD\r\nCAIXA DE DOCUMENTOS E PROCESSOS ARQUIVADOS NA UNIDADE\r\n1 - Criar a emiss\u00e3o de aviso autom\u00e1tico, informando que nesta CAIXA se encontram documentos e processos ( mostrar lista) que podem ser descartados pela unidade e lista com os documentos a serem encaminhados ao ARQUIVO ADMINISTRATIVO. A emiss\u00e3o do aviso deve ser mensal.\r\n\r\n2 - Permitir que o usu\u00e1rio retire da lista de documentos \/ processos a serem encaminhados ao ARQUIVO, aqueles que ele deseja manter na sua CAIXA de ARQUIVADOS. Estes documentos \/ processos, passam a ter o status de N\u00c3O ENCAMINHAR AO ARQUIVO e n\u00e3o devem mais aparecer no relat\u00f3rio autom\u00e1tico. Mostrar na caixa ARQUIVADOS este documentos \/ processos, permitindo que o usu\u00e1rio retire o STATUS e o mesmo possa ser encaminhado ao ARQUIVO\r\n\r\n&quot;,&quot;DOCM_DH_CADASTRO&quot;:&quot;15\/12\/2011 09:58:59&quot;,&quot;MASCARA_DOCM&quot;:&quot;2011\/TR\/SESUD\/58&quot;,&quot;NOME_USARIO_CADASTRO&quot;:&quot;GERALDO AFONSO DOS SANTOS SILVA&quot;,&quot;MOFA_ID_MOVIMENTACAO&quot;:&quot;26297&quot;,&quot;MOFA_DH_FASE&quot;:&quot;25\/11\/2013 20:52:09&quot;,&quot;MOFA_ID_FASE&quot;:&quot;1013&quot;,&quot;DATA_ATUAL&quot;:&quot;29\/05\/2014 09:11:44&quot;,&quot;MOVI_DH_ENCAMINHAMENTO&quot;:&quot;15\/12\/2011 09:58:59&quot;,&quot;TEMPO_TOTAL&quot;:&quot;1290192,75&quot;,&quot;MODE_ID_CAIXA_ENTRADA&quot;:&quot;2&quot;,&quot;MODE_SG_SECAO_UNID_DESTINO&quot;:&quot;TR&quot;,&quot;MODE_CD_SECAO_UNID_DESTINO&quot;:&quot;1155&quot;,&quot;MOVIMENTACAO&quot;:&quot;15\/12\/2011 09:58:59&quot;,&quot;SSER_ID_SERVICO&quot;:&quot;192&quot;,&quot;SSER_DS_SERVICO&quot;:&quot;E-SISAD - SISTEMA DE GERENCIAMENTO E CONTROLE DE DOCUMENTOS E PROCESSOS ADMINISTRATIVOS DIGITAIS&quot;,&quot;SESP_DH_LIMITE_ESP&quot;:null,&quot;ESPERA_FLAG&quot;:null,&quot;VINCULADA&quot;:&quot;0&quot;,&quot;SSPA_DT_PRAZO&quot;:null,&quot;OSIS_NM_OCORRENCIA&quot;:null,&quot;CTSS_NM_CATEGORIA_SERVICO&quot;:null,&quot;CTSS_ID_CATEGORIA_SERVICO&quot;:null,&quot;ASSO_IC_ATENDIMENTO_EMERGENCIA&quot;:null,&quot;ASSO_IC_SOLUCAO_PROBLEMA&quot;:null,&quot;ASSO_IC_SOLUCAO_CAUSA_PROBLEMA&quot;:null,&quot;ASIS_IC_NIVEL_CRITICIDADE&quot;:null,&quot;ASIS_PRZ_INICIO_ATENDIMENTO&quot;:null,&quot;ASIS_PRZ_SOL_PROBLEMA&quot;:null,&quot;ASIS_PRZ_SOL_CAUSA_PROBLEMA&quot;:null,&quot;ASIS_PRZ_EXECUCAO_SERVICO&quot;:null,&quot;CORRETIVA&quot;:&quot;N&quot;}">
+                    </td>
+                    <td><a title="PENDÊNCIAS e-SISAD
+                           CAIXA DE DOCUMENTOS E PROCESSOS ARQUIVADOS NA UNIDADE
+                           1 - Criar a emissão de aviso automático, informando que nesta CAIXA se encontram documentos e processos ( mostrar lista) que podem ser descartados pela unidade e lista com os documentos a serem encaminhados ao ARQUIVO ADMINISTRATIVO. A emissão do aviso deve ser mensal.
+
+                           2 - Permitir que o usuário retire da lista de documentos / processos a serem encaminhados ao ARQUIVO, aqueles que ele deseja manter na sua CAIXA de ARQUIVADOS. Estes documentos / processos, passam a ter o status de NÃO ENCAMINHAR AO ARQUIVO e não devem mais aparecer no relatório automático. Mostrar na caixa ARQUIVADOS este documentos / processos, permitindo que o usuário retire o STATUS e o mesmo possa ser encaminhado ao ARQUIVO
+
+                           " data-oldhref="#" href="#">2011/TR/SESUD/58</a></td>
+                    <td>525D 4h 24m 38s</td>
+                    <!--                        <td>TR47303 - GERALDO AFONSO DOS SANTOS SILVA</td>-->
+                    <td>E-SISAD - SISTEMA DE GERENCIAMENTO E CONTROLE DE DOCUMENTOS E PROCESSOS ADMINISTRATIVOS DIGITAIS</td>
+                    <td>MARCELO CAIXETA ROCHA</td>
+                    <td>
+                    </td>
+                    <td></td>
+                    <td>                            </td>
+                    <td title="Vermelho: prazo restante < 0%"><span title=""><strong></strong></span></td>
+                    <td></td>
+                </tr>
+
+                <tr name="rowList" value="22069">
+                    <td>
+                        <input id="22069" name="solicitacao[]" type="checkbox" value="{&quot;SSOL_ID_DOCUMENTO&quot;:&quot;22069&quot;,&quot;ATENDENTE&quot;:&quot;TR17958PS - MARCELO CAIXETA ROCHA&quot;,&quot;NOME_ATENDENTE&quot;:&quot;MARCELO CAIXETA ROCHA&quot;,&quot;DOCM_NR_DOCUMENTO&quot;:&quot;2011010001220012200160000035&quot;,&quot;DOCM_CD_MATRICULA_CADASTRO&quot;:&quot;TR47303&quot;,&quot;DOCM_DS_ASSUNTO_DOC&quot;:&quot;Pend\u00eancias de desenvolvimento do e-Sisad\r\nPROCESSOS DIGITAIS\r\n \r\n9 \u2013 Incluir no sistema as funcionalidades espec\u00edficas do sistema da CORREGEDORIA REGIONAL;\r\nAnalisar o sistema de Corregedoria Regional do Oracle;\r\nAnalisar como ser\u00e1 feita a carga de dados;\r\nRealizar carga de dados na \u00e1rea de treinamento;\r\nApresentar a solu\u00e7\u00e3o criada para teste e homologa\u00e7\u00e3o da Corregedoria Regional;\r\n&quot;,&quot;DOCM_DH_CADASTRO&quot;:&quot;13\/12\/2011 10:34:39&quot;,&quot;MASCARA_DOCM&quot;:&quot;2011\/TR\/SESUD\/35&quot;,&quot;NOME_USARIO_CADASTRO&quot;:&quot;GERALDO AFONSO DOS SANTOS SILVA&quot;,&quot;MOFA_ID_MOVIMENTACAO&quot;:&quot;23964&quot;,&quot;MOFA_DH_FASE&quot;:&quot;25\/11\/2013 20:52:08&quot;,&quot;MOFA_ID_FASE&quot;:&quot;1013&quot;,&quot;DATA_ATUAL&quot;:&quot;29\/05\/2014 09:11:44&quot;,&quot;MOVI_DH_ENCAMINHAMENTO&quot;:&quot;13\/12\/2011 10:34:39&quot;,&quot;TEMPO_TOTAL&quot;:&quot;1293037,08&quot;,&quot;MODE_ID_CAIXA_ENTRADA&quot;:&quot;2&quot;,&quot;MODE_SG_SECAO_UNID_DESTINO&quot;:&quot;TR&quot;,&quot;MODE_CD_SECAO_UNID_DESTINO&quot;:&quot;1155&quot;,&quot;MOVIMENTACAO&quot;:&quot;13\/12\/2011 10:34:39&quot;,&quot;SSER_ID_SERVICO&quot;:&quot;192&quot;,&quot;SSER_DS_SERVICO&quot;:&quot;E-SISAD - SISTEMA DE GERENCIAMENTO E CONTROLE DE DOCUMENTOS E PROCESSOS ADMINISTRATIVOS DIGITAIS&quot;,&quot;SESP_DH_LIMITE_ESP&quot;:null,&quot;ESPERA_FLAG&quot;:null,&quot;VINCULADA&quot;:&quot;0&quot;,&quot;SSPA_DT_PRAZO&quot;:null,&quot;OSIS_NM_OCORRENCIA&quot;:null,&quot;CTSS_NM_CATEGORIA_SERVICO&quot;:null,&quot;CTSS_ID_CATEGORIA_SERVICO&quot;:null,&quot;ASSO_IC_ATENDIMENTO_EMERGENCIA&quot;:null,&quot;ASSO_IC_SOLUCAO_PROBLEMA&quot;:null,&quot;ASSO_IC_SOLUCAO_CAUSA_PROBLEMA&quot;:null,&quot;ASIS_IC_NIVEL_CRITICIDADE&quot;:null,&quot;ASIS_PRZ_INICIO_ATENDIMENTO&quot;:null,&quot;ASIS_PRZ_SOL_PROBLEMA&quot;:null,&quot;ASIS_PRZ_SOL_CAUSA_PROBLEMA&quot;:null,&quot;ASIS_PRZ_EXECUCAO_SERVICO&quot;:null,&quot;CORRETIVA&quot;:&quot;N&quot;}">
+                    </td>
+                    <td><a title="Pendências de desenvolvimento do e-Sisad
+                           PROCESSOS DIGITAIS
+
+                           9 – Incluir no sistema as funcionalidades específicas do sistema da CORREGEDORIA REGIONAL;
+                           Analisar o sistema de Corregedoria Regional do Oracle;
+                           Analisar como será feita a carga de dados;
+                           Realizar carga de dados na área de treinamento;
+                           Apresentar a solução criada para teste e homologação da Corregedoria Regional;
+                           " data-oldhref="#" href="#">2011/TR/SESUD/35</a></td>
+                    <td>526D 1h 28m 57s</td>
+                    <!--                        <td>TR47303 - GERALDO AFONSO DOS SANTOS SILVA</td>-->
+                    <td>E-SISAD - SISTEMA DE GERENCIAMENTO E CONTROLE DE DOCUMENTOS E PROCESSOS ADMINISTRATIVOS DIGITAIS</td>
+                    <td>MARCELO CAIXETA ROCHA</td>
+                    <td>
+                    </td>
+                    <td></td>
+                    <td>                            </td>
+                    <td title="Vermelho: prazo restante < 0%"><span title=""><strong></strong></span></td>
+                    <td></td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="10">Total: 27						</td>
+                </tr>
+
+                <tr>
+                    <td colspan="10">     
+                        <label>Selecione a ação:</label>
+                        <select style="float:left;">
+                            <option type="submit" title="Acompanhar solicitação de TI" name="acao" value="Acompanhar" role="button">Acompanhar</option>
+                            <option type="submit" title="Baixar a solicitação de TI" name="acao" value="Baixar" role="button">Baixar</option>
+                            <option type="submit" title="Cancelar solicitação" name="acao" value="Cancelar" role="button">Cancelar</option>
+                            <option type="submit" title="Criar Nova Categoria / Categorizar e Descategorização de Solicitações de TI" name="acao" value="Categorias" role="button">Categorias</option>
+                            <option type="submit" title="Encaminhar a solicitação de TI" name="acao" value="Encaminhar" role="button">Encaminhar</option>
+                            <option type="submit" title="Extensão de prazo para solicitações de TI" name="acao" value="Extensão de Prazo" role="button">Extensão de Prazo</option>
+                            <option type="submit" title="Dar parecer" name="acao" value="Parecer" role="button">Parecer</option>
+                            <option type="submit" value="Resposta Padrão" estilobotao="" href="#" role="button">Resposta Padrão</option>
+                            <option type="submit" title="Vincular Solicitação de TI" name="acao" value="Vincular" role="button">Vincular</option>
+                            <option type="submit" title="Pedir informação para solicitação de TI" name="acao" value="Solicitar Informação" role="button">Pedir informação para solicitação de TI</option>
+                            <option type="submit" title="Trocar o serviço da solicitação de TI" name="acao" value="Trocar Serviço" role="button">Trocar Serviço</option>
+                            <option type="submit" title="Gerar PDF" name="acao" value="PDF" role="button">PDF</option>
+                            <option type="submit" title="Gerar Excel" name="acao" value="Excel" role="button">Excel</option>
+                        </select>
+                        <input type="submit" title="Gerar Excel" name="acao" value="ok" role="button" style="float:left;"></td>
+                </tr>	            </tfoot>
+        </table>
+
+</form>
+<div class="legenda">
+    <table >
+        <thead title="clique para mostrar a legenda">
+
+            <tr>
+                <th colspan="2">Legenda de Cores dos Status da Caixa de Atendimento</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td title="Pedido de informação para solicitação de TI" style="background:#ff0000;"></td>
+                <td>Pedido de informação para solicitação de TI</td>
+            </tr>
+            <tr>
+                <td title="Pedido de cancelamento de solicitação"style="background:#00ff00;"></td>
+                <td>Pedido de cancelamento de solicitação</td>
+            </tr>
+            <tr>
+                <td title="Resposta ao pedido de informação para solicitação de TI"style="background:#0000ff;"></td>
+                <td>Resposta ao pedido de informação para solicitação de TI</td>
+            </tr>
+            <tr>
+                <td title="Solicitação colocada em espera"style="background:#ffaaaa;"></td>
+                <td>Solicitação colocada em espera</td>
+            </tr>
+            <tr>
+                <td title="Solicitação com o tempo de atendimento ultrapassado"style="background:#aaffaa;"></td>
+                <td>Solicitação com o tempo de atendimento ultrapassado</td>
+            </tr>
+            <tr>
+                <td title="Solicitação recusada"style="background:#aaaaff;"></td>
+                <td>Solicitação recusada</td>
+            </tr>
+            <tr>
+                <td title="Videoconferência realizada"style="background:#ffdddd;"></td>
+                <td>Videoconferência realizada</td>
+            </tr>
+            <tr>
+                <td title="Videoconferência agendada para amanhã"style="background:#ddffdd;"></td>
+                <td>Verificar videoconferência agendada para amanhã</td>
+            </tr>
+            <tr>
+                <td title="Solicitação com extensão de prazo vencendo amanhã"style="background:#ddddff;"></td>
+                <td>Solicitação com extensão de prazo vencendo amanhã</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
