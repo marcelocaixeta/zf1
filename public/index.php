@@ -1,4 +1,7 @@
 <?php
+define('RUNNING_FROM_ROOT', true); 
+include 'public/index.php';
+
 // Define path to application directory
 defined('APPLICATION_PATH')
     || define('APPLICATION_PATH', realpath(dirname(__FILE__) . '/../application'));
