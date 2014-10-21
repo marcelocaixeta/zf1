@@ -1,12 +1,7 @@
-# REWRITE RULES
-# start mod_rewrite, this directive enables rewrite rules
+
 RewriteEngine On
-# Redirect domain.tld to www.domain.tld
-RewriteCond %{HTTP_HOST} ^ZF1\.dev$ [NC]
-RewriteRule ^(.*)$ http://localhost/$1 [R=301,L]
-# zf rewrite rules, all requests except the ones that point to an existing file get redirected to index.php which will dispatch the request
 RewriteCond %{REQUEST_FILENAME} -s [OR]
 RewriteCond %{REQUEST_FILENAME} -l [OR]
 RewriteCond %{REQUEST_FILENAME} -d
 RewriteRule ^.*$ - [NC,L]
-RewriteRule ^.*$ /index.php [NC,L]
+RewriteRule ^.*$ index.php [NC,L]
