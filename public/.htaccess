@@ -1,9 +1,7 @@
-Options +FollowSymLinks
-RewriteEngine On
-RewriteBase /ZF1
-RewriteCond %{THE_REQUEST} ^[A-Z]{3,9} /([^/]+/)*index.php
-RewriteRule ^index.php(.*)$ /ZF1/public$1 [R=301,L]
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule !\.(js|ico|gif|jpg|png|css)$ /ZF1/
 
+RewriteEngine On RewriteBase /ZF1
+RewriteCond %{REQUEST_FILENAME} -s [OR]
+RewriteCond %{REQUEST_FILENAME} -l [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^.*$ - [NC,L]
+RewriteRule ^.*$ index.php [NC,L]
