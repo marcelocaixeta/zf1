@@ -1,6 +1,5 @@
 Options +FollowSymLinks
 RewriteEngine On
-RewriteBase /Z
 RewriteCond %{THE_REQUEST} ^[A-Z]{3,9} /([^/]+/)*index.php
 RewriteRule ^index.php(.*)$ /ZF1/public$1 [R=301,L]
 
