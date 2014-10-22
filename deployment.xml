@@ -12,6 +12,6 @@
     <appdir>application</appdir>
     <scriptsdir>public</scriptsdir>
     
-    <libdir>library</libdir>
+    <scriptsdir>library</scriptsdir>
     <!--<docroot>ZF1</docroot>-->
 </package>
