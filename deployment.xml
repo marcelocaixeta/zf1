@@ -6,12 +6,10 @@
     <summary>Sistema de Teste do Zend Framework 1</summary>
     <!-- Versão do sistema -->
     <version>
-        <release>1.1</release>
+        <release>1.2</release>
     </version>
     <!-- Pastas para deploy -->
     <appdir>application</appdir>
     <scriptsdir>public</scriptsdir>
-
-    <docroot></docroot>
-
+    <docroot>docs</docroot>
 </package>
