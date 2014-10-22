@@ -11,5 +11,6 @@
     <!-- Pastas para deploy -->
     <appdir>application</appdir>
     <scriptsdir>public</scriptsdir>
-    <docroot>ZF1</docroot>
+    <libdir>library/app</libdir>
+    <!--<docroot>ZF1</docroot>-->
 </package>
