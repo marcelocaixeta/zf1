@@ -10,12 +10,12 @@
 
     <version>
 
-        <release>1.1</release>
+        <release>1.2</release>
 
     </version>
 
     <appdir>application</appdir>
 
-    <docroot>data</docroot>
+    <docroot>docs</docroot>
 
 </package>
