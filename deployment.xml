@@ -1,23 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <package version="2.0" xmlns="http://www.zend.com/server/deployment-descriptor/1.0">
-
     <type>application</type>
-
-    <name>sampleApp</name>
-
-    <summary>sampleApp short description</summary>
-
+    <name>ZF1</name>
+    <summary>Sistema de Teste do Zend Framework 1</summary>
+    <!-- Versão do sistema -->
     <version>
-
-        <release>1.4</release>
-
+        <release>1.0</release>
     </version>
-
-    <appdir></appdir>
+    <!-- Pastas para deploy -->
+    <appdir>application</appdir>
+    <appdir>library/app</appdir>
+    <appdir>public</appdir>
 
     <docroot></docroot>
-    
-    <exclude>library</exclude>
 
 </package>
