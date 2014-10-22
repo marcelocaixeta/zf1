@@ -10,8 +10,7 @@
     </version>
     <!-- Pastas para deploy -->
     <appdir>application</appdir>
-    <appdir>library/app</appdir>
-    <appdir>public</appdir>
+    <scriptsdir>public</scriptsdir>
 
     <docroot></docroot>
 
