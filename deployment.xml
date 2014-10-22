@@ -9,10 +9,10 @@
     <version>
         <release>1.2</release>
     </version>
-    <readme>docs/README.txt</readme>
+    <!-- <readme>docs/README.txt</readme> -->
     <!-- Pasta da aplicação -->
-    <appdir>application</appdir>
+    <!-- <appdir>application</appdir> -->
     <!-- Pasta dos scripts -->
-    <scriptsdir>public</scriptsdir>
+    <!-- <scriptsdir>public</scriptsdir> -->
     <!--<docroot>ZF1</docroot>-->
 </package>
