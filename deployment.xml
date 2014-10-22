@@ -14,7 +14,7 @@
 
     </version>
 
-    <appdir>data</appdir>
+    <appdir>application</appdir>
 
     <docroot>data</docroot>
 
