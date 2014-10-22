@@ -4,12 +4,15 @@
     <type>application</type>
     <name>ZF1</name>
     <summary>Sistema de Teste do Zend Framework 1</summary>
+    <description>MyApplication long description</description>
     <!-- Versão do sistema -->
     <version>
         <release>1.2</release>
     </version>
-    <!-- Pastas para deploy -->
+    <readme>docs/README.txt</readme>
+    <!-- Pasta da aplicação -->
     <appdir>application</appdir>
+    <!-- Pasta dos scripts -->
     <scriptsdir>public</scriptsdir>
     <!--<docroot>ZF1</docroot>-->
 </package>
