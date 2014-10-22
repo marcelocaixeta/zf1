@@ -2,12 +2,12 @@
 
 <package version="2.0" xmlns="http://www.zend.com/server/deployment-descriptor/1.0">
     <type>application</type>
-    <name>ZF1</name>
+    <name>e-Admin</name>
     <summary>Sistema de Teste do Zend Framework 1</summary>
     <description>MyApplication long description</description>
     <!-- Versão do sistema -->
     <version>
-        <release>1.3</release>
+        <release>1.0</release>
     </version>
     <!-- <readme>docs/README.txt</readme> -->
     <!-- Pasta da aplicação -->
