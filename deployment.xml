@@ -11,7 +11,7 @@
     </version>
     <!-- <readme>docs/README.txt</readme> -->
     <!-- Pasta da aplicação -->
-    <appdir>application</appdir>
+    <!-- <appdir>application</appdir> -->
     <!-- Pasta dos scripts -->
     <!-- <scriptsdir>public</scriptsdir> -->
     <!--<docroot>ZF1</docroot>-->
