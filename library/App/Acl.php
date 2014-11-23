@@ -31,18 +31,18 @@ class App_Acl extends Zend_Acl
     
     public function _addPermissions ()
     {
-        $this->allow();
-//        $this->deny();
-//        $this->allow(null,'default:login.index');
-//        $this->allow(null,'agenda:contato.table');
-//        $this->allow(null,'agenda:contato.index');
-//        $this->allow(null,'padrao:index.jqueryui');
-//        $this->allow(null,'padrao:index.tela');
-//        $this->allow(null,'default:index.index');
-//        $this->allow(null,'default:login.logout');
-//        $this->allow(null,'sisad:faseadm.index');
-//        $this->allow(null,'admin:index.index');
-//        $this->allow(null,'padrao:index.index');
+//        $this->allow();
+        $this->deny();
+        $this->allow(null,'default:login.index');
+        $this->allow(null,'agenda:contato.table');
+        $this->allow(null,'agenda:contato.index');
+        $this->allow(null,'padrao:index.jqueryui');
+        $this->allow(null,'padrao:index.tela');
+        $this->allow(null,'default:index.index');
+        $this->allow(null,'default:login.logout');
+        $this->allow(null,'sisad:faseadm.index');
+        $this->allow(null,'admin:index.index');
+        $this->allow(null,'padrao:index.index');
 //        $this->allow(null,'eleicao:index.index');
     }
     
