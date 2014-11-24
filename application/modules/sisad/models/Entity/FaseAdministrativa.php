@@ -1,12 +1,12 @@
 <?php
 /**
- * O Model Entity é a Classe responsável pela definição dos atributos e métodos 
- * get e set de cada atributo.
+ * O Model Entity é a Classe responsável pela definição dos atributos e dos 
+ * métodos: get e set de cada atributo.
  * 
  * @author Marcelo Caixeta Rocha <marcelo.caixeta@trf1.jus.br>
  */
 
-class Sisad_Model_Entity_FaseAdm 
+class Sisad_Model_Entity_FaseAdministrativa
 {
 
     private $_id;

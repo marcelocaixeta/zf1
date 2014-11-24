@@ -1,12 +1,12 @@
 <?php
 /**
- * A Facade esconde as partes complexas dos Business, pode conter tambem 
- * DataMappers... mostra uma "cara bonita" para ser apresentada para o Controller
- * e gerencia as conexões com o banco de dados
+ * A Facade, dependendo da situação, pode acessar diretamente os DataMappers. 
+ * Ela esconde as complexidades das regras de negócio e chama o Controller. 
+ * Gerencia os controles de tranzações e fecha explicitamente as conexões.
  * 
  * @author Marcelo Caixeta Rocha <marcelo.caixeta@trf1.jus.br>
  */
-class Sisad_Facade_FaseAdm 
+class Sisad_Facade_FaseAdministrativa
 {
 
     protected $_business = "";
@@ -15,7 +15,7 @@ class Sisad_Facade_FaseAdm
     public function __construct() 
     {
         $this->_db = Zend_Db_Table_Abstract::getDefaultAdapter();
-        $this->_business = new Sisad_Business_FaseAdm();
+        $this->_business = new Sisad_Business_FaseAdministrativa();
     }
 
     public function htmlselectBusiness() 

@@ -1,21 +1,21 @@
 <?php
 /**
- * Formulário utilizado para alterar e inserir fases administrativas
+ * Formulário utilizado para alterar ou inserir fases administrativas
  * 
  * @author Marcelo Caixeta Rocha <marcelo.caixeta@trf1.jus.br>
  */
-class Sisad_Form_FaseAdm extends Zend_Form
+class Sisad_Form_FaseAdministrativa extends Zend_Form
 {
     public function init()
     {
         $this->setMethod('post');
 
-        $fadm_id_fase = new Zend_Form_Element_Hidden('FADM_ID_FASE');
+        $fadm_id_fase = new Zend_Form_Element_Hidden('fa_id');
         $fadm_id_fase->addFilter('Int')
                      ->removeDecorator('Label')
                      ->removeDecorator('HtmlTag');
 
-        $fadm_ds_fase = new Zend_Form_Element_Text('FADM_DS_FASE');
+        $fadm_ds_fase = new Zend_Form_Element_Text('fa_descricao');
         $fadm_ds_fase//->setRequired(true)
                      ->setLabel('Descrição:')
                      ->addFilter('StripTags')
@@ -24,10 +24,10 @@ class Sisad_Form_FaseAdm extends Zend_Form
                      ->addValidator('Alnum', false, true)
                      ->addValidator('StringLength', false, array(5, 100));
         
-        $fadm_ic_dcto_ativa = new Zend_Form_Element_Radio('FADM_IC_DCTO_FASE');
+        $fadm_ic_dcto_ativa = new Zend_Form_Element_Radio('fa_situacao');
         $fadm_ic_dcto_ativa->setLabel('Fase documento?')
                            ->setRequired(true)
-                           ->setMultiOptions(array('S'=>'Sim', 'N'=>'Não'));
+                           ->setMultiOptions(array('1'=>'Sim', '0'=>'Não'));
 
         $submit = new Zend_Form_Element_Submit('Salvar');
 

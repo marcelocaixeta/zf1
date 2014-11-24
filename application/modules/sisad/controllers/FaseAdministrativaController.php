@@ -1,19 +1,18 @@
 <?php
 /**
- * O Controller cria uma instancia de SisadFactoryFacade para trazer a Facade
+ * O Controller cria uma instancia da FactoryFacade para trazer a Facade
  * com o método que lista as fases administrativas.
  * 
  * @author Marcelo Caixeta Rocha <marcelo.caixeta@trf1.jus.br>
  */
-class Sisad_FaseAdmController extends Zend_Controller_Action 
+class Sisad_FaseAdministrativaController extends Zend_Controller_Action 
 {
 
     public function init() 
     {
-        /* Initialize action controller here */
         $this->view->titleBrowser = 'e-Sisad';
         $this->facade = App_Factory_FactoryFacade::createInstance(
-            'Sisad_Facade_FaseAdm'
+            'Sisad_Facade_FaseAdministrativa'
         );
     }
 
@@ -24,10 +23,10 @@ class Sisad_FaseAdmController extends Zend_Controller_Action
         /* paginação */
         $page = Zend_Filter::filterStatic($this->_getParam('page', 1), 'int');
         /* Ordenação das paginas */
-        $order = $this->_getParam('ordem', 'FADM_DS_FASE');
+        $order = $this->_getParam('ordem', 'fa_descricao');
         $direction = $this->_getParam('direcao', 'ASC');
         $order_aux = $order . ' ' . $direction;
-        ($direction == 'ASC') ? ($direction = 'DESC') : ($direction = 'ASC');
+        ($direction == 'asc') ? ($direction = 'des') : ($direction = 'asc');
         /* Ordenação */
 
         $select = $this->facade->listBusiness();
@@ -51,10 +50,10 @@ class Sisad_FaseAdmController extends Zend_Controller_Action
         /* paginação */
         $page = Zend_Filter::filterStatic($this->_getParam('page', 1), 'int');
         /* Ordenação das paginas */
-        $order = $this->_getParam('ordem', 'FADM_DS_FASE');
+        $order = $this->_getParam('ordem', 'fa_descricao');
         $direction = $this->_getParam('direcao', 'ASC');
         $order_aux = $order . ' ' . $direction;
-        ($direction == 'ASC') ? ($direction = 'DESC') : ($direction = 'ASC');
+        ($direction == 'asc') ? ($direction = 'desc') : ($direction = 'asc');
         /* Ordenação */
 
         $select = $this->facade->listBusiness();
@@ -72,16 +71,16 @@ class Sisad_FaseAdmController extends Zend_Controller_Action
 
     public function adicionarAction() 
     {
-        $this->view->headTitle('Nova Fase Administrativa', 'PREPEND');
+        $this->view->headTitle('Nova Fase Administrativa', 'prepend');
 
-        $form = new Sisad_Form_FaseAdm();
+        $form = new Sisad_Form_FaseAdministrativa();
         $this->view->form = $form;
 
         if ($this->getRequest()->isPost()) {
             $data = $this->getRequest()->getPost();
             if ($this->facade->addBusiness($data, $form)) {
                 $this->_helper->flashMessenger(array('message' => "Fase administrativa cadastrada.", 'status' => 'success'));
-                $this->_helper->_redirector('index', 'fase-adm', 'sisad');
+                $this->_helper->_redirector('index', 'fase-administrativa', 'sisad');
             } else {
                 $form->populate($data);
             }
@@ -90,21 +89,21 @@ class Sisad_FaseAdmController extends Zend_Controller_Action
 
     public function editarAction() 
     {
-        $this->view->headTitle('Editar Fase Administrativa', 'PREPEND');
+        $this->view->headTitle('Editar Fase Administrativa', 'prepend');
 
-        $form = new Sisad_Form_FaseAdm();
+        $form = new Sisad_Form_FaseAdministrativa();
         $this->view->form = $form;
 
         if ($this->getRequest()->isPost()) {
             $data = $this->getRequest()->getPost();
             if ($this->facade->editBusiness($data, $form)) {
                 $this->_helper->flashMessenger(array('message' => "Fase administrativa atualizada.", 'status' => 'success'));
-                $this->_helper->_redirector('index', 'fase-adm', 'sisad');
+                $this->_helper->_redirector('index', 'fase-administrativa', 'sisad');
             } else {
                 $form->populate($data);
             }
         } else {
-            $id = $this->_getParam('id', 0);
+            $id = $this->_getParam('fa_id', 0);
             if (!$data = $this->facade->viewBusiness($id, true)) {
                 $this->_redirect('/index');
             } else {
@@ -115,11 +114,11 @@ class Sisad_FaseAdmController extends Zend_Controller_Action
 
     public function deletarAction() 
     {
-        if ($this->facade->deleteBusiness($this->_getParam('id'))) {
+        if ($this->facade->deleteBusiness($this->_getParam('fa_id'))) {
             $this->_helper->flashMessenger(array('message' => "Fase administrativa excluída.", 'status' => 'success'));
-            $this->_helper->_redirector('index', 'fase-adm', 'sisad');
+            $this->_helper->_redirector('index', 'fase-administrativa', 'sisad');
         }
-        $this->_redirect('/membro');
+        $this->_redirect('/index');
     }
 
 }

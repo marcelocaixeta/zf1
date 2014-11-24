@@ -9,8 +9,8 @@ class LoginController extends Zend_Controller_Action
     }
 
     public function indexAction() 
-    {
-//        Zend_Debug::dump($this->_helper->assetsListsResources()); 
+    {        
+
         $this->view->title = "Página de Login do Projeto Piloto";
         $this->_helper->layout->setLayout('login');
         $form = new Form_Login ();
@@ -52,7 +52,7 @@ class LoginController extends Zend_Controller_Action
                         $userNs->localizacao = '';
                         $userNs->email = strtolower($form->getValue('COU_COD_MATRICULA')) . '@trf1.jus.br';
 
-                        return $this->_helper->_redirector('index', 'fase-adm', 'sisad');
+                        return $this->_helper->_redirector('index', 'fase-administrativa', 'sisad');
                     } else {
                         $this->view->message = $messageLogin [0];
                     }

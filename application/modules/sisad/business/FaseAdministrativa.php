@@ -5,14 +5,14 @@
  * 
  * @author Marcelo Caixeta Rocha <marcelo.caixeta@trf1.jus.br> 
  */
-class Sisad_Business_FaseAdm 
+class Sisad_Business_FaseAdministrativa 
 {
 
     public $_mapper;
 
     public function __construct() 
     {
-        $this->_mapper = new Sisad_Model_DataMapper_FaseAdm();
+        $this->_mapper = new Sisad_Model_DataMapper_FaseAdministrativa();
     }
 
     public function listAllBusiness() 
@@ -23,8 +23,8 @@ class Sisad_Business_FaseAdm
     public function addBusiness($data, $form) 
     {
         if ($form->isValid($data)) {
-            $descricao = $form->getValue('FADM_DS_FASE');
-            $situacao = $form->getValue('FADM_IC_DCTO_FASE');
+            $descricao = $form->getValue('fa_descricao');
+            $situacao = $form->getValue('fa_situacao');
             $this->_mapper->add($descricao, $situacao);
             return true;
         } else {
@@ -35,9 +35,9 @@ class Sisad_Business_FaseAdm
     public function editBusiness($data, $form) 
     {
         if ($form->isValid($data)) {
-            $id = (int) $form->getValue('FADM_ID_FASE');
-            $descricao = $form->getValue('FADM_DS_FASE');
-            $situacao = $form->getValue('FADM_IC_DCTO_FASE');
+            $id = (int) $form->getValue('fa_id');
+            $descricao = $form->getValue('fa_descricao');
+            $situacao = $form->getValue('fa_situacao');
             $this->_mapper->edit($id, $descricao, $situacao);
             return true;
         } else {
