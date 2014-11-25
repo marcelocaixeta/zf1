@@ -5,7 +5,7 @@ class LoginController extends Zend_Controller_Action
 
     public function init() 
     {
-        $this->view->titleBrowser = "Projeto Piloto ZF";
+        $this->view->titleBrowser = "Projeto Piloto ZF1";
     }
 
     public function indexAction() 

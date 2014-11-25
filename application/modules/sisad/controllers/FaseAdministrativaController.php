@@ -103,7 +103,7 @@ class Sisad_FaseAdministrativaController extends Zend_Controller_Action
                 $form->populate($data);
             }
         } else {
-            $id = $this->_getParam('fa_id', 0);
+            $id = $this->_getParam('id', 0);
             if (!$data = $this->facade->viewBusiness($id, true)) {
                 $this->_redirect('/index');
             } else {
@@ -114,7 +114,7 @@ class Sisad_FaseAdministrativaController extends Zend_Controller_Action
 
     public function deletarAction() 
     {
-        if ($this->facade->deleteBusiness($this->_getParam('fa_id'))) {
+        if ($this->facade->deleteBusiness($this->_getParam('id'))) {
             $this->_helper->flashMessenger(array('message' => "Fase administrativa excluída.", 'status' => 'success'));
             $this->_helper->_redirector('index', 'fase-administrativa', 'sisad');
         }
