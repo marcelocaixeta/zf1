@@ -1,0 +1,34 @@
+<h1><?php echo $this->title; ?></h1>
+<?php echo Sisad_View_Helper_TesteViewHelper::agoraVai(); ?>
+<h6>O Action Helper de teste gerou: <?php echo $this->confirmationKey; ?></h6>
+<?php if (count($this->data)): ?>
+<div><a  class="novo" href="<?php echo $this->baseUrl(); ?>/sisad/fase-administrativa/adicionar">Novo</a> </div>
+<table class="grid">
+    <thead>
+        <tr>
+            <th colspan="2">Ações</th>
+            <th><a href="<?php echo $this->baseUrl(); ?>/sisad/fase-administrativa/index/ordem/FADM_DS_FASE/direcao/<?php echo $this->direcao ?> ">Descrição<span class="<?php echo ($this->direcao == 'ASC')?('ordenacaodesc'):('ordenacaoasc');  ?>"></span></a></th>
+            <th><a href="<?php echo $this->baseUrl(); ?>/sisad/fase-administrativa/index/ordem/FADM_IC_DCTO_FASE/direcao/<?php echo $this->direcao ?> ">Documento da Fase<span class="<?php echo ($this->direcao == 'ASC')?('ordenacaodesc'):('ordenacaoasc'); ?>"></span></a></th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach($this->data as $data): ?>
+        <tr>
+            <td class="painel"><a title="Editar" class="editar" href="<?php echo $this->baseUrl(); ?>/sisad/fase-administrativa/editar/id/<?php echo $data->getId(); ?>">editar</a>
+            <td class="painel"><a title="Excluir" class="editar" href="<?php echo $this->baseUrl(); ?>/sisad/fase-administrativa/deletar/id/<?php echo $data->getId(); ?>">excluir</a>
+            <td><?php echo $this->escape($data->getDescricao()) ?></td>
+            <td><?php echo $this->escape($data->getSituacao()) ?></td>
+        </tr>
+        <?php endforeach; ?>
+    </tbody>
+    <tfoot><tr><td colspan="4">Total: <?php echo $this->data->getTotalItemCount() ?></td></tr></tfoot>
+</table>
+<?php echo $this->paginationControl($this->data, null, null, null)
+//-- pagination
+//-- style
+//-- partial
+//-- data
+?>
+<?php else:?>
+    <p>Não existem registros</p>
+<?php endif;

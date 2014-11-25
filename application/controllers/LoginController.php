@@ -9,8 +9,8 @@ class LoginController extends Zend_Controller_Action
     }
 
     public function indexAction() 
-    {
-//        Zend_Debug::dump($this->_helper->assetsListsResources()); 
+    {        
+
         $this->view->title = "Página de Login do Projeto Piloto";
         $this->_helper->layout->setLayout('login');
         $form = new Form_Login ();
@@ -24,7 +24,6 @@ class LoginController extends Zend_Controller_Action
                 $formData = $this->_request->getPost();
                 if ($form->isValid($formData)) {
                     $userNs = new Zend_Session_Namespace('userNs');
-                    $userNs->bancoUsuario = $form->getValue('COU_NM_BANCO');
 
                     $authAdapter = new App_Auth_Adapter_Db ();
                     $authAdapter->setIdentity($form->getValue('COU_COD_MATRICULA'));
@@ -52,7 +51,7 @@ class LoginController extends Zend_Controller_Action
                         $userNs->localizacao = '';
                         $userNs->email = strtolower($form->getValue('COU_COD_MATRICULA')) . '@trf1.jus.br';
 
-                        return $this->_helper->_redirector('index', 'fase-adm', 'sisad');
+                        return $this->_helper->_redirector('index', 'fase-administrativa', 'sisad');
                     } else {
                         $this->view->message = $messageLogin [0];
                     }
@@ -78,14 +77,6 @@ class LoginController extends Zend_Controller_Action
         Zend_Auth::getInstance()->clearIdentity();
         Zend_Session::destroy();
         $this->_redirect('/login');
-    }
-
-    public function ajaxbancoAction() 
-    {
-        $matricula = $this->_getParam('matricula');
-        $banco = new Application_Model_DbTable_CoUserId ();
-        $bancosArray = $banco->getNomeBanco($matricula);
-        $this->view->bancosArray = $bancosArray;
     }
 
 }

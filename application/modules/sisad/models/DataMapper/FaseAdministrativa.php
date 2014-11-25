@@ -6,17 +6,17 @@
  * @author Marcelo Caixeta Rocha <marcelo.caixeta@trf1.jus.br>
  */
 
-class Sisad_Model_DataMapper_FaseAdm extends Zend_Db_Table_Abstract
+class Sisad_Model_DataMapper_FaseAdministrativa extends Zend_Db_Table_Abstract
 {
    
     protected $_dbTable;
 
     public function __construct() 
     {
-        $this->setDbTable(new Sisad_Model_DbTable_SadTbFadmFaseAdm);
+        $this->setDbTable(new Sisad_Model_DbTable_SadTbFaseAdministrativa);
     }
 
-    private function setDbTable(Sisad_Model_DbTable_SadTbFadmFaseAdm $dbtable) 
+    private function setDbTable(Sisad_Model_DbTable_SadTbFaseAdministrativa $dbtable) 
     {
         $this->_dbTable = $dbtable;
     }
@@ -29,8 +29,8 @@ class Sisad_Model_DataMapper_FaseAdm extends Zend_Db_Table_Abstract
     public function add($descricao, $situacao) 
     {
         $data = array(
-            'FADM_DS_FASE' => $descricao,
-            'FADM_IC_DCTO_FASE' => $situacao
+            'fa_descricao' => $descricao,
+            'fa_situacao' => $situacao
         );
         $this->getDbTable()->insert($data);
     }
@@ -38,29 +38,29 @@ class Sisad_Model_DataMapper_FaseAdm extends Zend_Db_Table_Abstract
     public function edit($id, $descricao, $situacao) 
     {
         $data = array(
-            'FADM_DS_FASE' => $descricao,
-            'FADM_IC_DCTO_FASE' => $situacao
+            'fa_descricao' => $descricao,
+            'fa_situacao' => $situacao
         );
-        $this->getDbTable()->update($data, 'FADM_ID_FASE = ' . (int) $id);
+        $this->getDbTable()->update($data, 'fa_id = ' . (int) $id);
     }
 
     public function delete($id) 
     {
-        $this->getDbTable()->delete('FADM_ID_FASE = ' . (int) $id);
+        $this->getDbTable()->delete('fa_id = ' . (int) $id);
     }
 
     public function get($id, $array = false) 
     {
-        $row = $this->getDbTable()->fetchRow('FADM_ID_FASE = ' . (int) $id);
+        $row = $this->getDbTable()->fetchRow('fa_id = ' . (int) $id);
         if ($row) {
             $data = $row->toArray();
             if ($array) {
                 return $data;
             }
             $model = new Sisad_Model_Entity_FaseAdm();
-            $model->setId($data['FADM_ID_FASE'])
-                  ->setDescricao($data['FADM_DS_FASE'])
-                  ->setSituacao($data['FADM_IC_DCTO_FASE']);
+            $model->setId($data['fa_id'])
+                  ->setDescricao($data['fa_descricao'])
+                  ->setSituacao($data['fa_situacao']);
             return $model;
         }
         return false;
@@ -71,10 +71,10 @@ class Sisad_Model_DataMapper_FaseAdm extends Zend_Db_Table_Abstract
         $rs = $this->getDbTable()->fetchAll();
         $entries = array();
         foreach ($rs as $row) {
-            $model = new Sisad_Model_Entity_FaseAdm();
-            $model->setId($row->FADM_ID_FASE)
-                  ->setDescricao($row->FADM_DS_FASE)
-                  ->setSituacao($row->FADM_IC_DCTO_FASE);
+            $model = new Sisad_Model_Entity_FaseAdministrativa();
+            $model->setId($row->fa_id)
+                  ->setDescricao($row->fa_descricao)
+                  ->setSituacao($row->fa_situacao);
             $entries[] = $model;
         }
         return $entries;

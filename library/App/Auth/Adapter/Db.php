@@ -217,19 +217,5 @@ class App_Auth_Adapter_Db extends Zend_Auth_Adapter_DbTable /* implements Zend_A
         $this->_resultRow = $authResult;
         return new Zend_Auth_Result($authResult['code'], $authResult['identity'], $authResult['messages']);
     }
-    
-    public function verify()
-    {
-        $db = Zend_Db_Table_Abstract::getDefaultAdapter();
-        $stmt = $db->query("SELECT COU_NM_BANCO, COU_COD_SECAO, COU_COD_MATRICULA,
-                                   COU_COD_PASSWORD, COU_COD_NOME
-                            FROM   CO_USER_ID
-                            WHERE  COU_ST_STATUS = 1
-                            AND    COU_COD_MATRICULA = '".mb_strtoupper($this->_identity , 'UTF-8')."'
-                            AND    (COU_COD_PASSWORD = '".md5($this->_credential)."'
-                             OR     COU_COD_PASSWORD = '".md5(mb_strtoupper($this->_credential, 'UTF-8'))."'
-                             OR     COU_COD_PASSWORD = '".md5(mb_strtolower($this->_credential, 'UTF-8'))."' )");
-        return $stmt->fetch();
-    }
 
 }

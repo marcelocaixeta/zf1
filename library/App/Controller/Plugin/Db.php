@@ -7,12 +7,13 @@ Class App_Controller_Plugin_Db extends Zend_Controller_Plugin_Abstract
         $module = strtolower($request->getModuleName());
         $resource = Zend_Controller_Front::getInstance ()->getParam('bootstrap')->getPluginResource('multidb');
         $dbName = $module;
-        if ($module == 'default') {
-            $dbName = 'guardiao';
-        }
-        if ($module == 'admin') {
-            $dbName = 'guardiao';
-        }
+        Zend_Debug::dump($dbName);exit;
+//        if ($module == 'default') {
+//            $dbName = 'guardiao';
+//        }
+//        if ($module == 'admin') {
+//            $dbName = 'guardiao';
+//        }
         $db = $resource->getDb($dbName);
         Zend_Db_Table::setDefaultAdapter($db);
     }
